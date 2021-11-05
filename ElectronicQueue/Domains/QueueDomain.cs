@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ElectronicQueue.Data.Domains
 {
@@ -10,7 +11,8 @@ namespace ElectronicQueue.Data.Domains
         public string Letters { get; set; }
         public bool IsEnabled { get; set; }
         public int NumberLastTickets { get; set; }
-        public ServiceProviderDomain ServiceProvider { get; set; }
-        public ICollection<TicketDomain> Tickets { get; set; }
+        public ulong ProviderId { get; set; }
+        public ServiceProviderDomain Provider { get; set; }
+        public ICollection<TicketDomain> Tickets { get;}
     }
 }

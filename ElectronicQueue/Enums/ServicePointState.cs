@@ -1,4 +1,4 @@
-﻿namespace ElectronicQueue.Data
+﻿namespace ElectronicQueue.Data.Enums
 {
     public enum ServicePointState
     {

@@ -1,4 +1,6 @@
-﻿namespace ElectronicQueue.Data.Domains
+﻿using ElectronicQueue.Data.Enums;
+
+namespace ElectronicQueue.Data.Domains
 {
     /// <summary>
     /// Обслуживающий сервис
@@ -7,6 +9,7 @@
     {
         public string Location { get; set; }
         public ServicePointState ServicePointState { get; set; }
-        public ServiceProviderDomain ServiceProvider { get; set; }
+        public ulong? ProviderId { get; set; }
+        public ServiceProviderDomain Provider { get; set; }
     }
 }

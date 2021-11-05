@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElectronicQueue.Data.Enums;
+using System;
 
 namespace ElectronicQueue.Data.Domains
 {
@@ -8,9 +9,9 @@ namespace ElectronicQueue.Data.Domains
     public class TicketDomain : DomainBase
     {
         public int Number { get; set; }
-        public DateTime CreateDate { get; set; }
         public TicketState State { get; set; }
         public DateTime TimeUpdatedState { get; set; }
+        public ulong QueueId { get; set; }
         public QueueDomain Queue { get; set; }
     }
 }

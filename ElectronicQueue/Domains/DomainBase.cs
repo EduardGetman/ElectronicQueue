@@ -4,6 +4,6 @@ namespace ElectronicQueue.Data.Domains
 {
     public abstract class DomainBase
     {
-        public long Id { get; set; }
+        public ulong Id { get; set; }
     }
 }

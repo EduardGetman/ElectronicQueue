@@ -7,7 +7,7 @@
     {
         public string Name { get; set; }
         public bool IsProvided { get; set; }
-        public long ProviderId { get; set; }
+        public ulong ProviderId { get; set; }
         public ServiceProviderDomain Provider { get; set; }
     }
 }

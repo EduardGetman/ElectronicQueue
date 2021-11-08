@@ -1,0 +1,19 @@
+﻿<Window x:Class="ClientTerminal.TermenalWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientTerminal"
+        mc:Ignorable="d"
+        Title="TermenalWindow" Height="600" Width="500" WindowState="Maximized">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <StackPanel x:Name="ButtonStack">
+        <Button x:Name="BackButton" Content="Назад" Click="BackButtonClick"/>
+    </StackPanel>
+</Window>

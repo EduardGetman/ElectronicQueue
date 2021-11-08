@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "ElectronicQueue\Data.csproj", "{88EE1EAA-4B0D-44FE-B214-4AB5108E466F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EQServer", "EQServer\EQServer.csproj", "{8B796CFE-D771-4375-BB35-2279477DA428}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTerminal", "ClientTerminal\ClientTerminal.csproj", "{AFCAC97F-50C6-409E-9044-14CF18B01479}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{88EE1EAA-4B0D-44FE-B214-4AB5108E466F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88EE1EAA-4B0D-44FE-B214-4AB5108E466F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88EE1EAA-4B0D-44FE-B214-4AB5108E466F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B796CFE-D771-4375-BB35-2279477DA428}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B796CFE-D771-4375-BB35-2279477DA428}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B796CFE-D771-4375-BB35-2279477DA428}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B796CFE-D771-4375-BB35-2279477DA428}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFCAC97F-50C6-409E-9044-14CF18B01479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFCAC97F-50C6-409E-9044-14CF18B01479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFCAC97F-50C6-409E-9044-14CF18B01479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFCAC97F-50C6-409E-9044-14CF18B01479}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,10 +1,12 @@
 ﻿using ElectronicQueue.Data.Domains;
-using System;
 
-namespace ElectronicQueue.Data.Dto
+namespace ElectronicQueue.Data.Dto.Entitys
 {
     public abstract class DtoBase
     {
+        public ulong Id { get; set; }
+        protected DtoBase()
+        {}
         protected DtoBase(DomainBase domain)
         {
             Id = domain.Id;
@@ -13,6 +15,5 @@ namespace ElectronicQueue.Data.Dto
         {
             return new TDomain() { Id = Id };
         }
-        public ulong Id { get; set; }
     }
 }

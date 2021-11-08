@@ -1,8 +1,8 @@
-﻿using ElectronicQueue.Data.Dto;
+﻿using ElectronicQueue.Data.Domains;
 using ElectronicQueue.Data.Enums;
 using System;
 
-namespace ElectronicQueue.Data.Domains
+namespace ElectronicQueue.Data.Dto.Entitys
 {
     /// <summary>
     /// Талон на обслуживание

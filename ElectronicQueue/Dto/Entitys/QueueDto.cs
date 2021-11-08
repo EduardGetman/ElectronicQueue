@@ -1,7 +1,6 @@
 ﻿using ElectronicQueue.Data.Domains;
-using System.Collections.Generic;
 
-namespace ElectronicQueue.Data.Dto
+namespace ElectronicQueue.Data.Dto.Entitys
 {
     /// <summary>
     /// Очередь в обслуживающий сервис

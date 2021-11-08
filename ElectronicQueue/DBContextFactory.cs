@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+
 namespace ElectronicQueue.Data
 {
-    class DBContextFactory:IDbContextFactory<Context>
+    public static class DBContextFactory
     {
-        public Context CreateDbContext()
+        static public Context CreateDbContext()
         {
             return new Context();
         }

@@ -1,7 +1,7 @@
-﻿using ElectronicQueue.Data.Dto;
+﻿using ElectronicQueue.Data.Domains;
 using ElectronicQueue.Data.Enums;
 
-namespace ElectronicQueue.Data.Domains
+namespace ElectronicQueue.Data.Dto.Entitys
 {
     /// <summary>
     /// Обслуживающий сервис

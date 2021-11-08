@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ElectronicQueue.Data.Domains
+﻿namespace ElectronicQueue.Data.Domains
 {
     public abstract class DomainBase
     {

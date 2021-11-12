@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "ElectronicQueue\Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EQServer", "EQServer\EQServer.csproj", "{8B796CFE-D771-4375-BB35-2279477DA428}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTerminal", "ClientTerminal\ClientTerminal.csproj", "{AFCAC97F-50C6-409E-9044-14CF18B01479}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientTerminal", "ClientTerminal\ClientTerminal.csproj", "{AFCAC97F-50C6-409E-9044-14CF18B01479}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestEndpointForClient", "RestEndpointForClient\RestEndpointForClient.csproj", "{9FA1189E-86FD-4CF6-8D72-53FCF8C14284}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{AFCAC97F-50C6-409E-9044-14CF18B01479}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFCAC97F-50C6-409E-9044-14CF18B01479}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFCAC97F-50C6-409E-9044-14CF18B01479}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FA1189E-86FD-4CF6-8D72-53FCF8C14284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FA1189E-86FD-4CF6-8D72-53FCF8C14284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FA1189E-86FD-4CF6-8D72-53FCF8C14284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FA1189E-86FD-4CF6-8D72-53FCF8C14284}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

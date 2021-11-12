@@ -1,6 +1,5 @@
-﻿using ClientTerminal.Endpoints;
-using ElectronicQueue.Data.Dto.Entitys;
-using System;
+﻿using ElectronicQueue.Data.Dto.Entitys;
+using ElectronicQueue.RestEndpoint.Endpoints;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;

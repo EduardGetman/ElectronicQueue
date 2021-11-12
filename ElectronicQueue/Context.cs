@@ -1,9 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ElectronicQueue.Data.Configuration;
 using ElectronicQueue.Data.Domains;
-using ElectronicQueue.Data.Configuration;
+using Microsoft.EntityFrameworkCore;
 namespace ElectronicQueue.Data
 {
-    public class Context: DbContext
+    public class Context : DbContext
     {
         const string ServerName = @"DESKTOP-R2OJFDB";
         const string DbName = "ElectronicQueueDb";

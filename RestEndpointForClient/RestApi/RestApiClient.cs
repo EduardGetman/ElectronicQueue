@@ -1,10 +1,10 @@
-﻿using RestSharp;
+﻿using ElectronicQueue.RestEndpoint.Enums;
+using ElectronicQueue.RestEndpoint.Exceptions;
+using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Text.Json;
 using System.Net;
-using ElectronicQueue.RestEndpoint.Enums;
-using ElectronicQueue.RestEndpoint.Exceptions;
+using System.Text.Json;
 
 namespace ElectronicQueue.RestEndpoint.RestApi
 {

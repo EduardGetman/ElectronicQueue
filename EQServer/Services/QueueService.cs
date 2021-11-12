@@ -1,6 +1,5 @@
 using ElectronicQueue.Data;
 using ElectronicQueue.Data.Domains;
-using ElectronicQueue.Data.Dto;
 using System.Collections.Generic;
 using System.Linq;
 

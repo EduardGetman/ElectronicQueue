@@ -1,5 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-
 namespace ElectronicQueue.Data
 {
     public static class DBContextFactory

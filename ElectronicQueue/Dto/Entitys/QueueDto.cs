@@ -12,7 +12,7 @@ namespace ElectronicQueue.Data.Dto.Entitys
         public int NumberLastTickets { get; set; }
         public ulong ProviderId { get; set; }
 
-        public QueueDto(QueueDomain domain): base(domain)
+        public QueueDto(QueueDomain domain) : base(domain)
         {
             Letters = domain.Letters;
             IsEnabled = domain.IsEnabled;

@@ -6,7 +6,7 @@ namespace ElectronicQueue.Data.Dto.Entitys
     {
         public ulong Id { get; set; }
         protected DtoBase()
-        {}
+        { }
         protected DtoBase(DomainBase domain)
         {
             Id = domain.Id;

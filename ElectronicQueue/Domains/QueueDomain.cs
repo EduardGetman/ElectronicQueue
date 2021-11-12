@@ -12,6 +12,6 @@ namespace ElectronicQueue.Data.Domains
         public int NumberLastTickets { get; set; }
         public ulong ProviderId { get; set; }
         public ServiceProviderDomain Provider { get; set; }
-        public ICollection<TicketDomain> Tickets { get;}
+        public ICollection<TicketDomain> Tickets { get; }
     }
 }

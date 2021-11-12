@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ElectronicQueue.Data.Domains;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ElectronicQueue.Data.Domains;
 
 namespace ElectronicQueue.Data.Configuration
 {

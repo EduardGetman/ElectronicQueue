@@ -1,5 +1,6 @@
 ﻿using ElectronicQueue.Data;
 using ElectronicQueue.Data.Domains;
+using ElectronicQueue.Data.Dto.Entitys;
 using ElectronicQueue.Data.Enums;
 using System.Linq;
 
@@ -9,12 +10,13 @@ namespace ElectronicQueue.EQServer.Services
     {
         public TicketDomain GetByQueueId(ulong queueId)
         {
-            using Context context = DBContextFactory.CreateDbContext();
-            return context.Tickets.FirstOrDefault(x => x.QueueId == queueId);
+            //using EqDbContext context = ContextFactory.CreateContext();
+            //return context.Tickets.FirstOrDefault(x => x.QueueId == queueId);
+            throw new System.Exception();
         }
         public void Update(TicketDto queue)
         {
-            using Context context = DBContextFactory.CreateDbContext();
+            using EqDbContext context = ContextFactory.CreateContext();
             Validation(queue);
 
             var oldQueue = context.Queues.First(q => q.Id == queue.Id);
@@ -23,7 +25,7 @@ namespace ElectronicQueue.EQServer.Services
         }
         public void UpdateState(TicketState ticketState, ulong id)
         {
-            using Context context = DBContextFactory.CreateDbContext();
+            using EqDbContext context = ContextFactory.CreateContext();
 
             var ticket = context.Tickets.First(q => q.Id == id);
             ticket.State = ticketState;

@@ -14,6 +14,11 @@ namespace ElectronicQueue.Data.Configuration
             builder.Property(p => p.State).HasDefaultValue(TicketState.Waiting);
 
             builder.Property(p => p.TimeUpdatedState).IsRequired();
+
+            builder.HasOne(p => p.NextTicket)
+                .WithOne(p => p.PreviousTicket)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_CurentTikcet_Next_Ticket");
         }
     }
 }

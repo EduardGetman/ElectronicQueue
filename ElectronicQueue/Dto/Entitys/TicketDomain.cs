@@ -18,7 +18,6 @@ namespace ElectronicQueue.Data.Dto.Entitys
             Number = domain.Number;
             State = domain.State;
             TimeUpdatedState = domain.TimeUpdatedState;
-            QueueId = domain.QueueId;
         }
         public TicketDomain ToDomain()
         {
@@ -26,7 +25,6 @@ namespace ElectronicQueue.Data.Dto.Entitys
             domain.Number = Number;
             domain.State = State;
             domain.TimeUpdatedState = TimeUpdatedState;
-            domain.QueueId = QueueId;
             return domain;
         }
     }

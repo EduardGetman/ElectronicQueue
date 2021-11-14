@@ -3,14 +3,14 @@ using ElectronicQueue.Data.Domains;
 using Microsoft.EntityFrameworkCore;
 namespace ElectronicQueue.Data
 {
-    public class Context : DbContext
+    public class EqDbContext : DbContext
     {
         const string ServerName = @"DESKTOP-R2OJFDB";
         const string DbName = "ElectronicQueueDb";
-        public Context()
-        {
-            Database.EnsureCreated();
-        }
+        //public Context()
+        //{
+        //    //Database.EnsureCreated();
+        //}
 
         public DbSet<QueueDomain> Queues { get; set; }
         public DbSet<ServiceDomain> Services { get; set; }

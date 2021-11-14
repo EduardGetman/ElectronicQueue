@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ElectronicQueue.Data.Migrations
 {
-    [DbContext(typeof(Context))]
-    [Migration("20211105182603_Initial")]
+    [DbContext(typeof(EqDbContext))]
+    [Migration("20211114153342_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,20 +33,22 @@ namespace ElectronicQueue.Data.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
+                    b.Property<decimal?>("LastTicketId")
+                        .HasColumnType("decimal(20,0)");
+
                     b.Property<string>("Letters")
                         .IsRequired()
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
-                    b.Property<int>("NumberLastTickets")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
-
                     b.Property<decimal>("ProviderId")
                         .HasColumnType("decimal(20,0)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("LastTicketId")
+                        .IsUnique()
+                        .HasFilter("[LastTicketId] IS NOT NULL");
 
                     b.HasIndex("ProviderId")
                         .IsUnique();
@@ -131,11 +133,11 @@ namespace ElectronicQueue.Data.Migrations
                         .HasColumnType("decimal(20,0)")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.None);
 
+                    b.Property<decimal?>("NextTicketId")
+                        .HasColumnType("decimal(20,0)");
+
                     b.Property<int>("Number")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("QueueId")
-                        .HasColumnType("decimal(20,0)");
 
                     b.Property<int>("State")
                         .ValueGeneratedOnAdd()
@@ -147,18 +149,28 @@ namespace ElectronicQueue.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QueueId");
+                    b.HasIndex("NextTicketId")
+                        .IsUnique()
+                        .HasFilter("[NextTicketId] IS NOT NULL");
 
                     b.ToTable("Ticket");
                 });
 
             modelBuilder.Entity("ElectronicQueue.Data.Domains.QueueDomain", b =>
                 {
+                    b.HasOne("ElectronicQueue.Data.Domains.TicketDomain", "LastTicket")
+                        .WithOne("Queue")
+                        .HasForeignKey("ElectronicQueue.Data.Domains.QueueDomain", "LastTicketId")
+                        .HasConstraintName("FK_LastTiket_Queue")
+                        .OnDelete(DeleteBehavior.NoAction);
+
                     b.HasOne("ElectronicQueue.Data.Domains.ServiceProviderDomain", "Provider")
                         .WithOne("Queue")
                         .HasForeignKey("ElectronicQueue.Data.Domains.QueueDomain", "ProviderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("LastTicket");
 
                     b.Navigation("Provider");
                 });
@@ -185,18 +197,13 @@ namespace ElectronicQueue.Data.Migrations
 
             modelBuilder.Entity("ElectronicQueue.Data.Domains.TicketDomain", b =>
                 {
-                    b.HasOne("ElectronicQueue.Data.Domains.QueueDomain", "Queue")
-                        .WithMany("Tickets")
-                        .HasForeignKey("QueueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("ElectronicQueue.Data.Domains.TicketDomain", "NextTicket")
+                        .WithOne("PreviousTicket")
+                        .HasForeignKey("ElectronicQueue.Data.Domains.TicketDomain", "NextTicketId")
+                        .HasConstraintName("FK_CurentTikcet_Next_Ticket")
+                        .OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("Queue");
-                });
-
-            modelBuilder.Entity("ElectronicQueue.Data.Domains.QueueDomain", b =>
-                {
-                    b.Navigation("Tickets");
+                    b.Navigation("NextTicket");
                 });
 
             modelBuilder.Entity("ElectronicQueue.Data.Domains.ServiceProviderDomain", b =>
@@ -206,6 +213,13 @@ namespace ElectronicQueue.Data.Migrations
                     b.Navigation("ServicePoints");
 
                     b.Navigation("Services");
+                });
+
+            modelBuilder.Entity("ElectronicQueue.Data.Domains.TicketDomain", b =>
+                {
+                    b.Navigation("PreviousTicket");
+
+                    b.Navigation("Queue");
                 });
 #pragma warning restore 612, 618
         }

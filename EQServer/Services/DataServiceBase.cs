@@ -15,7 +15,7 @@ namespace ElectronicQueue.EQServer.Services
         }
         public void Add<TDomain>(TDomain domain) where TDomain : DomainBase
         {
-            using Context context = DBContextFactory.CreateDbContext();
+            using EqDbContext context = ContextFactory.CreateContext();
             Validation(domain);
 
             context.Add(domain);

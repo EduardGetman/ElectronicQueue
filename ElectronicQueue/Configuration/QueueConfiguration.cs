@@ -17,8 +17,10 @@ namespace ElectronicQueue.Data.Configuration
             builder.Property(p => p.IsEnabled)
                    .HasDefaultValue(false);
 
-            builder.Property(p => p.NumberLastTickets)
-                   .HasDefaultValue(0); ;
+            builder.HasOne(p => p.LastTicket)
+                   .WithOne(p => p.Queue)
+                   .OnDelete(DeleteBehavior.NoAction)
+                   .HasConstraintName("FK_LastTiket_Queue");
         }
     }
 }

@@ -1,10 +1,10 @@
 namespace ElectronicQueue.Data
 {
-    public static class DBContextFactory
+    public static class ContextFactory
     {
-        static public Context CreateDbContext()
+        static public EqDbContext CreateContext()
         {
-            return new Context();
+            return new EqDbContext();
         }
     }
 }

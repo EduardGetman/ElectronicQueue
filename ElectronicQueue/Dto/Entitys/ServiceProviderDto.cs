@@ -1,5 +1,6 @@
 ﻿using ElectronicQueue.Data.Domains;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ElectronicQueue.Data.Dto.Entitys
 {
@@ -17,6 +18,10 @@ namespace ElectronicQueue.Data.Dto.Entitys
         public ServiceProviderDto(ServiceProviderDomain domain, IEnumerable<ServiceDto> services) : this(domain)
         {
             Services = services;
+        }
+        public ServiceProviderDto(ServiceProviderDomain domain, IEnumerable<ServiceDomain> services) : this(domain)
+        {
+            Services = services.Select(x => new ServiceDto(x));
         }
 
         public ServiceProviderDto()

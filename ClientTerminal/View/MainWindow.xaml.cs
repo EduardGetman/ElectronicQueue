@@ -8,7 +8,7 @@ namespace ClientTerminal
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ServicesEndpoint ServicesEndpoint { get; private set; }
+        private ServicesEndpoint _servicesEndpoint = new ServicesEndpoint();
 
         public MainWindow()
         {
@@ -17,7 +17,7 @@ namespace ClientTerminal
 
         private void StartButtonClick(object sender, RoutedEventArgs e)
         {
-            var providerDtos = ServicesEndpoint.GetAllServiceProviders();
+            var providerDtos = _servicesEndpoint.GetAllServiceProviders();
             var terminalWindow = new TermenalWindow(providerDtos);
             terminalWindow.Show();
         }

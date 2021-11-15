@@ -6,6 +6,6 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
     {
         protected const string URL_ROOT = "/api";
 
-        protected readonly RestApiClient _restApiClient;
+        protected readonly RestApiClient _restApiClient = new RestApiClient();
     }
 }

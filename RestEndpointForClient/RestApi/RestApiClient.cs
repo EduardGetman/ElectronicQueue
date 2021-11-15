@@ -4,20 +4,20 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Net;
-using System.Text.Json;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace ElectronicQueue.RestEndpoint.RestApi
 {
     public class RestApiClient
     {
+        private const string ServerBaseUrl = "https://localhost:44357";
         private readonly IRestClient _restClient;
-        private readonly JsonSerializerOptions _jsonSerializerOptions;
         private readonly TimeSpan _timeout = TimeSpan.FromSeconds(10);
 
         public RestApiClient()
         {
-            _restClient = new RestClient();
-            _jsonSerializerOptions = new JsonSerializerOptions();
+            _restClient = new RestClient(ServerBaseUrl);
         }
 
         private IRestRequest CreateRequest(string path, Method method, Dictionary<string, object> parametrs = null, TimeSpan? timeout = null, object body = null)
@@ -55,7 +55,7 @@ namespace ElectronicQueue.RestEndpoint.RestApi
             if (string.IsNullOrEmpty(response.Content))
                 ThrowExeceptoin(path);
 
-            return ProcessSucessResponse<T>(response.Content, path, _jsonSerializerOptions);
+            return ProcessSucessResponse<T>(response.Content, path);
         }
         public T RequestDelete<T>(string path, object value) => RequestWithBudy<T>(path, value, Method.DELETE);
 
@@ -71,14 +71,19 @@ namespace ElectronicQueue.RestEndpoint.RestApi
             if (!response.IsSuccessful)
                 ThrowExeceptoin(path, response);
 
-            return ProcessSucessResponse<T>(response.Content, path, _jsonSerializerOptions);
+            return ProcessSucessResponse<T>(response.Content, path);
         }
 
-        private T ProcessSucessResponse<T>(string json, string path, JsonSerializerOptions options)
+        private T ProcessSucessResponse<T>(string json, string path)
         {
             try
             {
-                return JsonSerializer.Deserialize<T>(json, options);
+                using (var sw = new StringReader(json))
+                using (var reader = new JsonTextReader(sw))
+                {
+                    var serializer = new JsonSerializer();
+                    return serializer.Deserialize<T>(reader);
+                }
             }
             catch (JsonException ex)
             {

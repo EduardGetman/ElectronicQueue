@@ -12,12 +12,14 @@ namespace ElectronicQueue.EQServer.Services
         public IEnumerable<ServiceProviderDto> GetAll()
         {
             using EqDbContext context = ContextFactory.CreateContext();
-            return context.ServiceProviders.Select( x => new ServiceProviderDto(x));
+            return context.ServiceProviders.Select(x => new ServiceProviderDto(x));
         }
         public IEnumerable<ServiceProviderDto> GetAllWithServices()
         {
             using EqDbContext context = new EqDbContext();
-            return context.ServiceProviders.Include(x => x.Services).Select(x => new ServiceProviderDto(x, x.Services)).ToList();
+            return context.ServiceProviders.Include(x => x.Services)
+                .Select(x => new ServiceProviderDto(x)
+                { Services = x.Services.Select(x => new ServiceDto(x)) }).ToList();
         }
         public void Add(ServiceProviderDto serviceProvider)
         {

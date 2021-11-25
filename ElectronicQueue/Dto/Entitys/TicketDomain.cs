@@ -1,5 +1,6 @@
 ﻿using ElectronicQueue.Data.Domains;
 using ElectronicQueue.Data.Enums;
+using ElectronicQueue.Data.Models;
 using System;
 
 namespace ElectronicQueue.Data.Dto.Entitys
@@ -12,13 +13,19 @@ namespace ElectronicQueue.Data.Dto.Entitys
         public int Number { get; set; }
         public TicketState State { get; set; }
         public DateTime TimeUpdatedState { get; set; }
-        public ulong QueueId { get; set; }
         public TicketDto(TicketDomain domain) : base(domain)
         {
             Number = domain.Number;
             State = domain.State;
             TimeUpdatedState = domain.TimeUpdatedState;
         }
+        public TicketDto(TicketModel domain) : base(domain)
+        {
+            Number = domain.Number;
+            State = domain.State;
+            TimeUpdatedState = domain.TimeUpdatedState;
+        }
+
         public TicketDomain ToDomain()
         {
             var domain = ToDomain<TicketDomain>();
@@ -26,6 +33,14 @@ namespace ElectronicQueue.Data.Dto.Entitys
             domain.State = State;
             domain.TimeUpdatedState = TimeUpdatedState;
             return domain;
+        }
+        public TicketModel ToModel()
+        {
+            var model = ToModel<TicketModel>();
+            model.Number = Number;
+            model.State = State;
+            model.TimeUpdatedState = TimeUpdatedState;
+            return model;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ElectronicQueue.Data.Domains;
+using ElectronicQueue.Data.Models;
 
 namespace ElectronicQueue.Data.Dto.Entitys
 {
@@ -11,9 +12,17 @@ namespace ElectronicQueue.Data.Dto.Entitys
         {
             Id = domain.Id;
         }
+        protected DtoBase(ModelBase model)
+        {
+            Id = model.Id;
+        }
         protected TDomain ToDomain<TDomain>() where TDomain : DomainBase, new()
         {
             return new TDomain() { Id = Id };
+        }
+        protected TModel ToModel<TModel>() where TModel : ModelBase, new()
+        {
+            return new TModel() { Id = Id };
         }
     }
 }

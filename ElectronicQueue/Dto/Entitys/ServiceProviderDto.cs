@@ -1,4 +1,5 @@
 ﻿using ElectronicQueue.Data.Domains;
+using ElectronicQueue.Data.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,26 +12,28 @@ namespace ElectronicQueue.Data.Dto.Entitys
     {
         public string Name { get; set; }
         public IEnumerable<ServiceDto> Services { get; set; }
+
+        public ServiceProviderDto()
+        {
+        }
         public ServiceProviderDto(ServiceProviderDomain domain) : base(domain)
         {
             Name = domain.Name;
         }
-        public ServiceProviderDto(ServiceProviderDomain domain, IEnumerable<ServiceDto> services) : this(domain)
+        public ServiceProviderDto(ServiceProviderModel model) : base(model)
         {
-            Services = services;
-        }
-        public ServiceProviderDto(ServiceProviderDomain domain, IEnumerable<ServiceDomain> services) : this(domain)
-        {
-            Services = services.Select(x => new ServiceDto(x));
-        }
-
-        public ServiceProviderDto()
-        {
+            Name = model.Name;
         }
 
         public ServiceProviderDomain ToDomain()
         {
             var domain = ToDomain<ServiceProviderDomain>();
+            domain.Name = Name;
+            return domain;
+        }
+        public ServiceProviderModel ToModel()
+        {
+            var domain = ToModel<ServiceProviderModel>();
             domain.Name = Name;
             return domain;
         }

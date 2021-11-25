@@ -1,4 +1,5 @@
 ﻿using ElectronicQueue.Data.Domains;
+using ElectronicQueue.Data.Models;
 
 namespace ElectronicQueue.Data.Dto.Entitys
 {
@@ -10,15 +11,21 @@ namespace ElectronicQueue.Data.Dto.Entitys
         public string Name { get; set; }
         public bool IsProvided { get; set; }
         public ulong ProviderId { get; set; }
-        public ServiceDto(ServiceDomain domain) : base(domain)
+        public ServiceDto()
+        {
+        }
+
+        public ServiceDto(ServiceModel domain) : base(domain)
         {
             Name = domain.Name;
             IsProvided = domain.IsProvided;
             ProviderId = domain.ProviderId;
         }
-
-        public ServiceDto()
+        public ServiceDto(ServiceDomain domain) : base(domain)
         {
+            Name = domain.Name;
+            IsProvided = domain.IsProvided;
+            ProviderId = domain.ProviderId;
         }
 
         public ServiceDomain ToDomain()
@@ -28,6 +35,14 @@ namespace ElectronicQueue.Data.Dto.Entitys
             domain.ProviderId = ProviderId;
             domain.IsProvided = IsProvided;
             return domain;
+        }
+        public ServiceModel ToModel()
+        {
+            var model = ToModel<ServiceModel>();
+            model.Name = Name;
+            model.ProviderId = ProviderId;
+            model.IsProvided = IsProvided;
+            return model;
         }
         public override string ToString() => Name;
     }

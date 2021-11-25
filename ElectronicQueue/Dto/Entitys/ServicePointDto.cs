@@ -1,5 +1,6 @@
 ﻿using ElectronicQueue.Data.Domains;
 using ElectronicQueue.Data.Enums;
+using ElectronicQueue.Data.Models;
 
 namespace ElectronicQueue.Data.Dto.Entitys
 {
@@ -17,6 +18,12 @@ namespace ElectronicQueue.Data.Dto.Entitys
             ServicePointState = domain.ServicePointState;
             ProviderId = domain.ProviderId;
         }
+        public ServicePointDto(ServicePointModel model) : base(model)
+        {
+            Location = model.Location;
+            ServicePointState = model.ServicePointState;
+            ProviderId = model.ProviderId;
+        }
         public ServicePointDomain ToDomain()
         {
             var domain = ToDomain<ServicePointDomain>();
@@ -24,6 +31,14 @@ namespace ElectronicQueue.Data.Dto.Entitys
             domain.ProviderId = ProviderId;
             domain.ServicePointState = ServicePointState;
             return domain;
+        }
+        public ServicePointModel ToModel()
+        {
+            var model = ToModel<ServicePointModel>();
+            model.Location = Location;
+            model.ProviderId = ProviderId;
+            model.ServicePointState = ServicePointState;
+            return model;
         }
     }
 }

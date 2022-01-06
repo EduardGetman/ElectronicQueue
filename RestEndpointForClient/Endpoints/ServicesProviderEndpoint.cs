@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace ElectronicQueue.RestEndpoint.Endpoints
 {
-    public class ServicesEndpoint : BaseEndpoint
+    public class ServicesProviderEndpoint : BaseEndpoint
     {
         private const string UrlController = URL_ROOT + "/ServiceProvider";
         public IEnumerable<ServiceProviderDto> GetAllServiceProviders()

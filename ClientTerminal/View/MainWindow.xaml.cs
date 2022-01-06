@@ -8,7 +8,7 @@ namespace ClientTerminal
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ServicesEndpoint _servicesEndpoint = new ServicesEndpoint();
+        private ServicesProviderEndpoint _servicesEndpoint = new ServicesProviderEndpoint();
 
         public MainWindow()
         {

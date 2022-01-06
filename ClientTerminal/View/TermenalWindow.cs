@@ -63,7 +63,7 @@ namespace ClientTerminal
                 }
                 else if (button.Content is ServiceDto service)
                 {
-                    ServicesEndpoint.AddTicket(service);
+                    ServicesProviderEndpoint.AddTicket(service);
                 }
             }
         }

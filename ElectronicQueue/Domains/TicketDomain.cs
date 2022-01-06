@@ -12,6 +12,7 @@ namespace ElectronicQueue.Data.Domains
         public TicketState State { get; set; }
         public DateTime TimeUpdatedState { get; set; }
         public ulong? NextTicketId { get; set; }
+        public ulong? QueueId { get; set; }
         public QueueDomain Queue { get; set; }
         public TicketDomain NextTicket { get; set; }
         public TicketDomain PreviousTicket { get; set; }

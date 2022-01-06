@@ -1,4 +1,5 @@
 ﻿using ElectronicQueue.Data.Enums;
+using System.Collections.Generic;
 
 namespace ElectronicQueue.Data.Domains
 {
@@ -11,5 +12,6 @@ namespace ElectronicQueue.Data.Domains
         public ServicePointState ServicePointState { get; set; }
         public ulong? ProviderId { get; set; }
         public ServiceProviderDomain Provider { get; set; }
+        public ICollection<WorkerDomain> Workers { get; set; }
     }
 }

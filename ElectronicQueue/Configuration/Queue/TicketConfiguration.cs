@@ -1,9 +1,9 @@
-﻿using ElectronicQueue.Data.Domains;
-using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Common.Enums;
+using ElectronicQueue.Data.Domain.Domains.QueueDomain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ElectronicQueue.Data.Configuration
+namespace ElectronicQueue.Data.Domain.Configuration.Queue
 {
     class TicketConfiguration : IEntityTypeConfiguration<TicketDomain>
     {
@@ -17,7 +17,7 @@ namespace ElectronicQueue.Data.Configuration
             builder.HasOne(p => p.Service)
                    .WithMany(p => p.Tickets)
                    .OnDelete(DeleteBehavior.NoAction)
-                   .HasForeignKey(p=>p.ServiceId);
+                   .HasForeignKey(p => p.ServiceId);
         }
     }
 }

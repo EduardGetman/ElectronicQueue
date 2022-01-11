@@ -1,10 +1,15 @@
-﻿using ElectronicQueue.Data.Configuration;
-using ElectronicQueue.Data.Configuration.Logs_;
-using ElectronicQueue.Data.Configuration.OrganizationInfo;
+﻿using ElectronicQueue.Data.Domain.Configuration.Logs_;
+using ElectronicQueue.Data.Domain.Configuration.OrganizationInfo;
+using ElectronicQueue.Data.Domain.Configuration.Queue;
+using ElectronicQueue.Data.Domain.Configuration.Statistic;
+using ElectronicQueue.Data.Domain.Domains.LogDomain;
+using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
+using ElectronicQueue.Data.Domain.Domains.QueueDomain;
+using ElectronicQueue.Data.Domain.Domains.StatisticDomain;
 using ElectronicQueue.Data.Domains;
-using ElectronicQueue.Data.Domains.StatisticDomain;
 using Microsoft.EntityFrameworkCore;
-namespace ElectronicQueue.Data
+
+namespace ElectronicQueue.Data.Domain
 {
     public class EqDbContext : DbContext
     {
@@ -38,7 +43,7 @@ namespace ElectronicQueue.Data
             modelBuilder.ApplyConfiguration(new ServiceConfiguration());
             modelBuilder.ApplyConfiguration(new ServicePointConfiguration());
             modelBuilder.ApplyConfiguration(new ServiceProviderConfiguration());
-            modelBuilder.ApplyConfiguration(new TicketConfiguration()); 
+            modelBuilder.ApplyConfiguration(new TicketConfiguration());
             modelBuilder.ApplyConfiguration(new WorkerConfiguration());
             modelBuilder.ApplyConfiguration(new WorkerLogConfiguration());
             modelBuilder.ApplyConfiguration(new QueueLogConfiguration());

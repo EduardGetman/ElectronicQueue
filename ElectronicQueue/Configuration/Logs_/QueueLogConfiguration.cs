@@ -1,12 +1,11 @@
-﻿using ElectronicQueue.Data.Domains;
-using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Domain.Domains.LogDomain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ElectronicQueue.Data.Configuration.Logs_
+namespace ElectronicQueue.Data.Domain.Configuration.Logs_
 {
     public class QueueLogConfiguration : IEntityTypeConfiguration<QueueLogDomain>
     {

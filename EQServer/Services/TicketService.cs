@@ -1,5 +1,5 @@
-﻿using ElectronicQueue.Data;
-using ElectronicQueue.Data.Domains;
+﻿using ElectronicQueue.Data.Domain;
+using ElectronicQueue.Data.Domain.Domains.QueueDomain;
 using ElectronicQueue.Data.Dto.Entitys;
 using ElectronicQueue.Data.Enums;
 using System.Linq;

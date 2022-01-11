@@ -1,4 +1,4 @@
-namespace ElectronicQueue.Data
+namespace ElectronicQueue.Data.Domain
 {
     public static class ContextFactory
     {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
 
-namespace ElectronicQueue.Data.Domains.StatisticDomain
+namespace ElectronicQueue.Data.Domain.Domains.StatisticDomain
 {
     public class WorkerStatisticsDomain : StatisticDomainBase
     {

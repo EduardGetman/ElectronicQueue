@@ -1,5 +1,5 @@
-﻿using ElectronicQueue.Data;
-using ElectronicQueue.Data.Domains;
+﻿using ElectronicQueue.Data.Domain;
+using ElectronicQueue.Data.Domain.Domains;
 using System.ComponentModel.DataAnnotations;
 
 namespace ElectronicQueue.EQServer.Services

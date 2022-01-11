@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ElectronicQueue.Data.Configuration
+namespace ElectronicQueue.Data.Domain.Configuration.OrganizationInfo
 {
     class ServiceConfiguration : IEntityTypeConfiguration<ServiceDomain>
     {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ElectronicQueue.Data.Enums
+﻿namespace ElectronicQueue.Data.Common.Enums
 {
     public enum StatisticKind
     {

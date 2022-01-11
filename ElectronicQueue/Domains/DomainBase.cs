@@ -1,4 +1,4 @@
-﻿namespace ElectronicQueue.Data.Domains
+﻿namespace ElectronicQueue.Data.Domain.Domains
 {
     public abstract class DomainBase
     {

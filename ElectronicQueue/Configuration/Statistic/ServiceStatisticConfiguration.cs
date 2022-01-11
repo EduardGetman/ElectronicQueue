@@ -1,12 +1,9 @@
-﻿using ElectronicQueue.Data.Domains.StatisticDomain;
-using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Common.Enums;
+using ElectronicQueue.Data.Domain.Domains.StatisticDomain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace ElectronicQueue.Data.Configuration.Logs_
+namespace ElectronicQueue.Data.Domain.Configuration.Statistic
 {
     public class ServiceStatisticConfiguration : IEntityTypeConfiguration<ServiceStatisticDomain>
     {

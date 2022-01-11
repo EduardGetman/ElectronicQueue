@@ -1,4 +1,6 @@
-﻿using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Common.Enums;
+using ElectronicQueue.Data.Domain.Domains;
+using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
 using System.Collections.Generic;
 
 namespace ElectronicQueue.Data.Domains

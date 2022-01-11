@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using ElectronicQueue.Data.Domains;
+using System.Collections.Generic;
 
-namespace ElectronicQueue.Data.Domains
+namespace ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain
 {
     /// <summary>
     /// Точка предоставления услуги (кабинет, окно ...)

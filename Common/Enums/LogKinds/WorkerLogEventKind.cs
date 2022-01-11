@@ -1,15 +1,15 @@
-﻿namespace ElectronicQueue.Data.Enums.LogKinds
+﻿namespace ElectronicQueue.Data.Common.Enums.LogKinds
 {
     public enum WorkerLogEventKind
     {
         /// <summary>
         /// Вызвал клиента
         /// </summary>
-        CallClient,        
+        CallClient,
         /// <summary>
         /// Начало оказания услуг
         /// </summary>
-        StartServiced,        
+        StartServiced,
         // <summary>
         /// Окончание оказания услуг
         /// </summary>

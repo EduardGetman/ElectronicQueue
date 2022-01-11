@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.Data.Domains;
+﻿using ElectronicQueue.Data.Domain.Domains;
 using ElectronicQueue.Data.Models;
 
 namespace ElectronicQueue.Data.Dto.Entitys

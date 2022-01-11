@@ -1,5 +1,5 @@
-using ElectronicQueue.Data;
-using ElectronicQueue.Data.Domains;
+using ElectronicQueue.Data.Domain;
+using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
 using ElectronicQueue.Data.Dto.Entitys;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;

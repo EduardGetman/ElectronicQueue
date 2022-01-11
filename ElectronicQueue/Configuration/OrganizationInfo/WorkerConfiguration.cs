@@ -1,11 +1,8 @@
-﻿using ElectronicQueue.Data.Domains;
+﻿using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace ElectronicQueue.Data.Configuration.OrganizationInfo
+namespace ElectronicQueue.Data.Domain.Configuration.OrganizationInfo
 {
     public class WorkerConfiguration : IEntityTypeConfiguration<WorkerDomain>
     {
@@ -18,7 +15,7 @@ namespace ElectronicQueue.Data.Configuration.OrganizationInfo
                    .IsRequired();
 
             builder.Property(p => p.Specialization)
-                   .HasMaxLength(200);       
+                   .HasMaxLength(200);
         }
     }
 }

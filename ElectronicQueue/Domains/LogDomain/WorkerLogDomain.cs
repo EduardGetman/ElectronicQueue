@@ -1,9 +1,7 @@
-﻿using ElectronicQueue.Data.Enums.LogKinds;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ElectronicQueue.Data.Common.Enums.LogKinds;
+using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
 
-namespace ElectronicQueue.Data.Domains
+namespace ElectronicQueue.Data.Domain.Domains.LogDomain
 {
     /// <summary>
     /// Логи работы сотрудника оьслуживания

@@ -1,9 +1,9 @@
-﻿using ElectronicQueue.Data.Domains;
-using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Common.Enums;
+using ElectronicQueue.Data.Domains;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ElectronicQueue.Data.Configuration
+namespace ElectronicQueue.Data.Domain.Configuration.OrganizationInfo
 {
     class ServicePointConfiguration : IEntityTypeConfiguration<ServicePointDomain>
     {

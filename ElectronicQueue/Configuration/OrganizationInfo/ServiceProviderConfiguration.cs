@@ -1,8 +1,8 @@
-﻿using ElectronicQueue.Data.Domains;
+﻿using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ElectronicQueue.Data.Configuration
+namespace ElectronicQueue.Data.Domain.Configuration.OrganizationInfo
 {
     class ServiceProviderConfiguration : IEntityTypeConfiguration<ServiceProviderDomain>
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ElectronicQueue.Data.Domains
+namespace ElectronicQueue.Data.Domain.Domains.QueueDomain
 {
     /// <summary>
     /// Талон на обслуживание вне обычной очереди

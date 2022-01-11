@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>ElectronicQueue.Data</RootNamespace>
+    <RootNamespace>ElectronicQueue.Data.Domain</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,9 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Dto\Entitys\ServiceProviderDto.cs">
-      <SubType>Code</SubType>
-    </Compile>
+    <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
 
 </Project>

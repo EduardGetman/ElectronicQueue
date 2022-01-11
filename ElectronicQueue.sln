@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "ElectronicQueue\Data.csproj", "{88EE1EAA-4B0D-44FE-B214-4AB5108E466F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "ElectronicQueue\Domain.csproj", "{88EE1EAA-4B0D-44FE-B214-4AB5108E466F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EQServer", "EQServer\EQServer.csproj", "{8B796CFE-D771-4375-BB35-2279477DA428}"
 EndProject
@@ -11,7 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientTerminal", "ClientTer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestEndpointForClient", "RestEndpointForClient\RestEndpointForClient.csproj", "{9FA1189E-86FD-4CF6-8D72-53FCF8C14284}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminClient", "AdminClient\AdminClient.csproj", "{92BDB360-7084-444C-9CFF-C7AFE887A913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminClient", "AdminClient\AdminClient.csproj", "{92BDB360-7084-444C-9CFF-C7AFE887A913}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientApp", "ClientApp", "{7A0DD2A1-1430-49BF-895D-8DC028A72DFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Datas", "Datas", "{78ABC2EB-CF79-41F2-AEFB-0C5B87A256F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dto", "Dto\Dto.csproj", "{F8D2FEFB-7BBC-4CF8-BBE6-928AA3503196}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{F893D430-8D64-41DB-8126-94A229356206}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{53FA1EDB-4AF9-49DB-8CF7-E27CF6E1AC82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +49,29 @@ Global
 		{92BDB360-7084-444C-9CFF-C7AFE887A913}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92BDB360-7084-444C-9CFF-C7AFE887A913}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92BDB360-7084-444C-9CFF-C7AFE887A913}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D2FEFB-7BBC-4CF8-BBE6-928AA3503196}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D2FEFB-7BBC-4CF8-BBE6-928AA3503196}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D2FEFB-7BBC-4CF8-BBE6-928AA3503196}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D2FEFB-7BBC-4CF8-BBE6-928AA3503196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F893D430-8D64-41DB-8126-94A229356206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F893D430-8D64-41DB-8126-94A229356206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F893D430-8D64-41DB-8126-94A229356206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F893D430-8D64-41DB-8126-94A229356206}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53FA1EDB-4AF9-49DB-8CF7-E27CF6E1AC82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53FA1EDB-4AF9-49DB-8CF7-E27CF6E1AC82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53FA1EDB-4AF9-49DB-8CF7-E27CF6E1AC82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53FA1EDB-4AF9-49DB-8CF7-E27CF6E1AC82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88EE1EAA-4B0D-44FE-B214-4AB5108E466F} = {78ABC2EB-CF79-41F2-AEFB-0C5B87A256F6}
+		{AFCAC97F-50C6-409E-9044-14CF18B01479} = {7A0DD2A1-1430-49BF-895D-8DC028A72DFD}
+		{92BDB360-7084-444C-9CFF-C7AFE887A913} = {7A0DD2A1-1430-49BF-895D-8DC028A72DFD}
+		{F8D2FEFB-7BBC-4CF8-BBE6-928AA3503196} = {78ABC2EB-CF79-41F2-AEFB-0C5B87A256F6}
+		{F893D430-8D64-41DB-8126-94A229356206} = {78ABC2EB-CF79-41F2-AEFB-0C5B87A256F6}
+		{53FA1EDB-4AF9-49DB-8CF7-E27CF6E1AC82} = {78ABC2EB-CF79-41F2-AEFB-0C5B87A256F6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {810E8836-5062-44DB-92A5-926A7E83D4BA}

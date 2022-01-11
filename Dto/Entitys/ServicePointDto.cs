@@ -1,5 +1,5 @@
-﻿using ElectronicQueue.Data.Domains;
-using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Common.Enums;
+using ElectronicQueue.Data.Domains;
 using ElectronicQueue.Data.Models;
 
 namespace ElectronicQueue.Data.Dto.Entitys

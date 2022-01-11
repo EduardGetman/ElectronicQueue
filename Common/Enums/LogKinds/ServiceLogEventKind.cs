@@ -1,4 +1,4 @@
-﻿namespace ElectronicQueue.Data.Enums
+﻿namespace ElectronicQueue.Data.Common.Enums.LogKinds
 {
     /// <summary>
     /// Тип события очереди

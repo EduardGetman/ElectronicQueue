@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using ElectronicQueue.Data.Domains;
 
-namespace ElectronicQueue.Data.Domains.StatisticDomain
+namespace ElectronicQueue.Data.Domain.Domains.StatisticDomain
 {
     /// <summary>
     /// Статистика услуги за период времени

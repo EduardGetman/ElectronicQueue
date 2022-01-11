@@ -1,9 +1,8 @@
-﻿using ElectronicQueue.Data.Domains;
-using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Domain.Domains.QueueDomain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ElectronicQueue.Data.Configuration
+namespace ElectronicQueue.Data.Domain.Configuration.Queue
 {
     class SpecialTicketConfiguration : IEntityTypeConfiguration<SpecialTicketDomain>
     {

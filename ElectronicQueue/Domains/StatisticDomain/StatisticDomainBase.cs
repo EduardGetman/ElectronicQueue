@@ -1,9 +1,9 @@
-﻿using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Common.Enums;
 using System;
 
-namespace ElectronicQueue.Data.Domains.StatisticDomain
+namespace ElectronicQueue.Data.Domain.Domains.StatisticDomain
 {
-    public abstract class StatisticDomainBase: DomainBase
+    public abstract class StatisticDomainBase : DomainBase
     {
         public DateTime Start { get; set; }
         public DateTime End { get; set; }

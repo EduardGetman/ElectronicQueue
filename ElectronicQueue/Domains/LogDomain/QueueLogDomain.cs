@@ -1,13 +1,15 @@
-﻿using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Common.Enums;
+using ElectronicQueue.Data.Common.Enums.LogKinds;
+using ElectronicQueue.Data.Domains;
 using System;
 
-namespace ElectronicQueue.Data.Domains
+namespace ElectronicQueue.Data.Domain.Domains.LogDomain
 {
     /// <summary>
     /// Логи очереди
     /// </summary>
     public class QueueLogDomain : LogDomainBase
-    {        
+    {
         public ServiceLogEventKind EventKind { get; set; }
         public ServiceLogEventKind TicketKind { get; set; }
         public TicketState State { get; set; }

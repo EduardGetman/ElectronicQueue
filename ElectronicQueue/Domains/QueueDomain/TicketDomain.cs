@@ -1,7 +1,8 @@
-﻿using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Common.Enums;
+using ElectronicQueue.Data.Domains;
 using System;
 
-namespace ElectronicQueue.Data.Domains
+namespace ElectronicQueue.Data.Domain.Domains.QueueDomain
 {
     /// <summary>
     /// Талон на обслуживание

@@ -1,8 +1,8 @@
-﻿using ElectronicQueue.Data.Domains;
+﻿using ElectronicQueue.Data.Domain.Domains.QueueDomain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ElectronicQueue.Data.Configuration
+namespace ElectronicQueue.Data.Domain.Configuration.Queue
 {
     class QueueConfiguration : IEntityTypeConfiguration<QueueDomain>
     {
@@ -13,7 +13,7 @@ namespace ElectronicQueue.Data.Configuration
             builder.Property(p => p.Letters)
                    .HasMaxLength(10)
                    .IsRequired();
-           
+
             builder.Property(p => p.NextTicketNumber)
                    .HasDefaultValue(1)
                    .IsRequired();

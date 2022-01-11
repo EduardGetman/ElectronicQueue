@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
+using System.Collections.Generic;
 
-namespace ElectronicQueue.Data.Domains
+namespace ElectronicQueue.Data.Domain.Domains.QueueDomain
 {
     /// <summary>
     /// Очередь в обслуживающий сервис

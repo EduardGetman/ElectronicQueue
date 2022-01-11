@@ -1,12 +1,14 @@
-﻿using ElectronicQueue.Data.Domains.StatisticDomain;
+﻿using ElectronicQueue.Data.Domain.Domains.LogDomain;
+using ElectronicQueue.Data.Domain.Domains.StatisticDomain;
+using ElectronicQueue.Data.Domains;
 using System.Collections.Generic;
 
-namespace ElectronicQueue.Data.Domains
+namespace ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain
 {
     /// <summary>
     /// Работник
     /// </summary>
-    public class WorkerDomain: DomainBase
+    public class WorkerDomain : DomainBase
     {
         public string Name { get; set; }
         public string Specialization { get; set; }

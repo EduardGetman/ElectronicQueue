@@ -7,7 +7,6 @@ using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
 using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
 using ElectronicQueue.Data.Domain.Domains.Queue;
 using ElectronicQueue.Data.Domain.Domains.Statistic;
-using ElectronicQueue.Data.Domains;
 using Microsoft.EntityFrameworkCore;
 
 namespace ElectronicQueue.Data.Domain
@@ -29,7 +28,7 @@ namespace ElectronicQueue.Data.Domain
         public DbSet<QueueLogDomain> QueueLogs { get; set; }
         public DbSet<WorkerDomain> Worker { get; set; }
         public DbSet<WorkerLogDomain> WorkerLogs { get; set; }
-        public DbSet<WorkerStatisticsDomain> WorkerStatistics { get; set; }
+        public DbSet<WorkerStatisticDomain> WorkerStatistics { get; set; }
         public DbSet<ServiceStatisticDomain> ServiceStatistics { get; set; }
         public DbSet<SpecialTicketDomain> SpecialTickets { get; set; }
 

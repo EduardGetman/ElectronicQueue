@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ElectronicQueue.Data.Domain.Configuration.Statistic
 {
-    public class WorkerStatisticsConfiguration : IEntityTypeConfiguration<WorkerStatisticsDomain>
+    public class WorkerStatisticsConfiguration : IEntityTypeConfiguration<WorkerStatisticDomain>
     {
-        public void Configure(EntityTypeBuilder<WorkerStatisticsDomain> builder)
+        public void Configure(EntityTypeBuilder<WorkerStatisticDomain> builder)
         {
             builder.ToTable("WorkerStatistic");
 

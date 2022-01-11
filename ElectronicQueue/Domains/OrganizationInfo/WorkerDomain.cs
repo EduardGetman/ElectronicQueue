@@ -1,6 +1,6 @@
 ﻿using ElectronicQueue.Data.Domain.Domains.LogDomain;
+using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
 using ElectronicQueue.Data.Domain.Domains.Statistic;
-using ElectronicQueue.Data.Domains;
 using System.Collections.Generic;
 
 namespace ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain
@@ -14,7 +14,7 @@ namespace ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain
         public string Specialization { get; set; }
         public long? PointId { get; set; }
         public ServicePointDomain Point { get; set; }
-        public ICollection<WorkerStatisticsDomain> Statistics { get; set; }
+        public ICollection<WorkerStatisticDomain> Statistics { get; set; }
         public ICollection<WorkerLogDomain> Logs { get; set; }
     }
 }

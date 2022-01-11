@@ -1,5 +1,4 @@
 ﻿using ElectronicQueue.Data.Domain.Domains.Queue;
-using ElectronicQueue.Data.Domains;
 using System.Collections.Generic;
 
 namespace ElectronicQueue.Data.Domain.Domains.OrganizationInfo

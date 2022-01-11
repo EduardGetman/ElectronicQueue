@@ -1,19 +1,17 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
-using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
+using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
 
-namespace ElectronicQueue.Data.Domain.Domains.Queue
+namespace ElectronicQueue.Data.Dto.Entitys.Queue
 {
     /// <summary>
     /// Талон на обслуживание
     /// </summary>
-    public class TicketDomain : DomainBase
+    public class TicketDto : DtoBase
     {
         public TicketState State { get; set; }
         public long ServiceId { get; set; }
         public long QueueId { get; set; }
-
-
-        public QueueDomain Queue { get; set; }
-        public ServiceDomain Service { get; set; }
+        public QueueDto Queue { get; set; }
+        public ServiceDto Service { get; set; }
     }
 }

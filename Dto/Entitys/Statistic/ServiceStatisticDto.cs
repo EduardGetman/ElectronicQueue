@@ -1,11 +1,11 @@
-﻿using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
+﻿using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
 
-namespace ElectronicQueue.Data.Domain.Domains.Statistic
+namespace ElectronicQueue.Data.Dto.Entitys.Statistic
 {
     /// <summary>
     /// Статистика услуги за период времени
     /// </summary>
-    public class ServiceStatisticDomain : StatisticDomainBase
+    public class ServiceStatisticDto : StatisticDtoBase
     {
         /// <summary>
         /// Количество обслуженных клиентов
@@ -19,16 +19,8 @@ namespace ElectronicQueue.Data.Domain.Domains.Statistic
         /// Общая продолжительность работы
         /// </summary>
         public int TotalWorkDuration { get; set; }
-        /// <summary>
-        /// Обще количество клиентов
-        /// </summary>
-        public int ClientCount => ServicedClient + UnservicedClient;
-        /// <summary>
-        /// Нагрузка в час
-        /// </summary>
-        public float LoadPerHours => ClientCount / (TotalWorkDuration * 60);
 
         public long ServiceId { get; set; }
-        public ServiceDomain Service { get; set; }
+        public ServiceDto Service { get; set; }
     }
 }

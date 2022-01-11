@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.Data.Domains;
+﻿using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

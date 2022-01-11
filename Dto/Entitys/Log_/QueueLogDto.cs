@@ -1,13 +1,13 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
 using ElectronicQueue.Data.Common.Enums.LogKinds;
-using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
+using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
 
-namespace ElectronicQueue.Data.Domain.Domains.LogDomain
+namespace ElectronicQueue.Data.Dto.Entitys.Log_
 {
     /// <summary>
     /// Логи очереди
     /// </summary>
-    public class QueueLogDomain : LogDomainBase
+    public class QueueLogDto : LogDtoBase
     {
         public ServiceLogEventKind EventKind { get; set; }
         public ServiceLogEventKind TicketKind { get; set; }
@@ -15,6 +15,6 @@ namespace ElectronicQueue.Data.Domain.Domains.LogDomain
         public string TicketName { get; set; }
 
         public long? ServiceId { get; set; }
-        public ServiceDomain Service { get; set; }
+        public ServiceDto Service { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace ElectronicQueue.Data.Domain.Domains.Statistic
 {
-    public class WorkerStatisticsDomain : StatisticDomainBase
+    public class WorkerStatisticDomain : StatisticDomainBase
     {
         /// <summary>
         /// Количество обслуженых клиентов

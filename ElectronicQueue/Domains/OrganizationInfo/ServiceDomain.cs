@@ -1,11 +1,9 @@
-﻿using ElectronicQueue.Data.Domain.Domains;
-using ElectronicQueue.Data.Domain.Domains.LogDomain;
-using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
+﻿using ElectronicQueue.Data.Domain.Domains.LogDomain;
 using ElectronicQueue.Data.Domain.Domains.Queue;
 using ElectronicQueue.Data.Domain.Domains.Statistic;
 using System.Collections.Generic;
 
-namespace ElectronicQueue.Data.Domains
+namespace ElectronicQueue.Data.Domain.Domains.OrganizationInfo
 {
     /// <summary>
     /// Предоставляемая услуга

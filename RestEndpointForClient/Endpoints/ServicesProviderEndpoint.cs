@@ -1,5 +1,4 @@
-﻿using ElectronicQueue.Data.Dto.Entitys;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace ElectronicQueue.RestEndpoint.Endpoints

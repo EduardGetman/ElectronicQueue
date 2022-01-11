@@ -1,7 +1,7 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
 using ElectronicQueue.Data.Domain;
 using ElectronicQueue.Data.Domain.Domains.Queue;
-using ElectronicQueue.Data.Dto.Entitys;
+using ElectronicQueue.Data.Dto.Entitys.Queue;
 using System.Linq;
 
 namespace ElectronicQueue.EQServer.Services

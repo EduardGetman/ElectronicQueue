@@ -1,6 +1,6 @@
 using ElectronicQueue.Data.Domain;
 using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
-using ElectronicQueue.Data.Dto.Entitys;
+using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;

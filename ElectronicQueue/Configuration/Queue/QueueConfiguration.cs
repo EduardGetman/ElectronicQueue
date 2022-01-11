@@ -1,10 +1,10 @@
-﻿using ElectronicQueue.Data.Domain.Domains.QueueDomain;
+﻿using ElectronicQueue.Data.Domain.Domains.Queue;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ElectronicQueue.Data.Domain.Configuration.Queue
 {
-    class QueueConfiguration : IEntityTypeConfiguration<QueueDomain>
+    internal class QueueConfiguration : IEntityTypeConfiguration<QueueDomain>
     {
         public void Configure(EntityTypeBuilder<QueueDomain> builder)
         {

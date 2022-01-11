@@ -1,6 +1,6 @@
 ﻿using ElectronicQueue.Data.Domains;
 
-namespace ElectronicQueue.Data.Domain.Domains.StatisticDomain
+namespace ElectronicQueue.Data.Domain.Domains.Statistic
 {
     /// <summary>
     /// Статистика услуги за период времени

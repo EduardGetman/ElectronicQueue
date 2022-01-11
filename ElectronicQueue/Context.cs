@@ -3,9 +3,10 @@ using ElectronicQueue.Data.Domain.Configuration.OrganizationInfo;
 using ElectronicQueue.Data.Domain.Configuration.Queue;
 using ElectronicQueue.Data.Domain.Configuration.Statistic;
 using ElectronicQueue.Data.Domain.Domains.LogDomain;
+using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
 using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
-using ElectronicQueue.Data.Domain.Domains.QueueDomain;
-using ElectronicQueue.Data.Domain.Domains.StatisticDomain;
+using ElectronicQueue.Data.Domain.Domains.Queue;
+using ElectronicQueue.Data.Domain.Domains.Statistic;
 using ElectronicQueue.Data.Domains;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,8 +14,8 @@ namespace ElectronicQueue.Data.Domain
 {
     public class EqDbContext : DbContext
     {
-        const string ServerName = @"DESKTOP-SAKIRQV\SQLEXPRESS";
-        const string DbName = "ElectronicQueueDb";
+        private const string ServerName = @"DESKTOP-SAKIRQV\SQLEXPRESS";
+        private const string DbName = "ElectronicQueueDb";
         //public Context()
         //{
         //    //Database.EnsureCreated();

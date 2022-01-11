@@ -1,5 +1,5 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
-using ElectronicQueue.Data.Domain.Domains.StatisticDomain;
+using ElectronicQueue.Data.Domain.Domains.Statistic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

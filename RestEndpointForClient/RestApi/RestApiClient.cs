@@ -1,11 +1,11 @@
 ﻿using ElectronicQueue.RestEndpoint.Enums;
 using ElectronicQueue.RestEndpoint.Exceptions;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
-using System.Net;
-using Newtonsoft.Json;
 using System.IO;
+using System.Net;
 
 namespace ElectronicQueue.RestEndpoint.RestApi
 {

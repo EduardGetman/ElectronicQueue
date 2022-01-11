@@ -1,11 +1,6 @@
-using ElectronicQueue.Data.Dto.Entitys;
 using ElectronicQueue.EQServer.Services;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text.Json;
 
 namespace ElectronicQueue.EQServer.Controllers

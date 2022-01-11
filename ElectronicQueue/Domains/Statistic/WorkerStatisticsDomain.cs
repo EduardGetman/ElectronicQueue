@@ -1,6 +1,6 @@
 ﻿using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
 
-namespace ElectronicQueue.Data.Domain.Domains.StatisticDomain
+namespace ElectronicQueue.Data.Domain.Domains.Statistic
 {
     public class WorkerStatisticsDomain : StatisticDomainBase
     {

@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.Data.Enums;
+﻿using ElectronicQueue.Data.Common.Enums;
 
 namespace ElectronicQueue.Data.Models
 {

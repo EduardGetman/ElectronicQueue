@@ -3,7 +3,7 @@ using System;
 
 namespace ElectronicQueue.RestEndpoint.Exceptions
 {
-    class RestServiceException : Exception
+    internal class RestServiceException : Exception
     {
         public RestExceptionType RestExceptionType { get; }
         public RestServiceException(string path, RestExceptionType restExceptionType, Exception innerException = null, string json = "")

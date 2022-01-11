@@ -1,11 +1,11 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
-using ElectronicQueue.Data.Domain.Domains.QueueDomain;
+using ElectronicQueue.Data.Domain.Domains.Queue;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ElectronicQueue.Data.Domain.Configuration.Queue
 {
-    class TicketConfiguration : IEntityTypeConfiguration<TicketDomain>
+    internal class TicketConfiguration : IEntityTypeConfiguration<TicketDomain>
     {
         public void Configure(EntityTypeBuilder<TicketDomain> builder)
         {

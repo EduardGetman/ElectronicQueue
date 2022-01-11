@@ -1,9 +1,6 @@
 ﻿using ElectronicQueue.Data.Domain.Domains.LogDomain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ElectronicQueue.Data.Domain.Configuration.Logs_
 {

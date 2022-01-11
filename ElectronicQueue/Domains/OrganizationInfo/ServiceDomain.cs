@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
-using ElectronicQueue.Data.Domain.Domains;
+﻿using ElectronicQueue.Data.Domain.Domains;
 using ElectronicQueue.Data.Domain.Domains.LogDomain;
-using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
-using ElectronicQueue.Data.Domain.Domains.QueueDomain;
-using ElectronicQueue.Data.Domain.Domains.StatisticDomain;
+using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
+using ElectronicQueue.Data.Domain.Domains.Queue;
+using ElectronicQueue.Data.Domain.Domains.Statistic;
+using System.Collections.Generic;
 
 namespace ElectronicQueue.Data.Domains
 {

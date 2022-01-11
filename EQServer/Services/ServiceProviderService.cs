@@ -1,5 +1,5 @@
 using ElectronicQueue.Data.Domain;
-using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
+using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
 using ElectronicQueue.Data.Dto.Entitys;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ElectronicQueue.EQServer.Services
 {
-    class ServiceProviderService : DataServiceBase
+    internal class ServiceProviderService : DataServiceBase
     {
         public IEnumerable<ServiceProviderDto> GetAll()
         {

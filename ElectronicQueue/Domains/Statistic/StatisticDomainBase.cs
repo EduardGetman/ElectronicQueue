@@ -1,7 +1,7 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
 using System;
 
-namespace ElectronicQueue.Data.Domain.Domains.StatisticDomain
+namespace ElectronicQueue.Data.Domain.Domains.Statistic
 {
     public abstract class StatisticDomainBase : DomainBase
     {

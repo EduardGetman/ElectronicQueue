@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ElectronicQueue.Data.Domain.Configuration.OrganizationInfo
 {
-    class ServicePointConfiguration : IEntityTypeConfiguration<ServicePointDomain>
+    internal class ServicePointConfiguration : IEntityTypeConfiguration<ServicePointDomain>
     {
         public void Configure(EntityTypeBuilder<ServicePointDomain> builder)
         {

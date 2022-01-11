@@ -1,7 +1,5 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
-using ElectronicQueue.Data.Domain.Domains.QueueDomain;
-using ElectronicQueue.Data.Domains;
-using ElectronicQueue.Data.Enums;
+using ElectronicQueue.Data.Domain.Domains.Queue;
 using ElectronicQueue.Data.Models;
 using System;
 

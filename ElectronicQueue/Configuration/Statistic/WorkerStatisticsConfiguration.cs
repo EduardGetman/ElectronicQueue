@@ -1,10 +1,7 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
-using ElectronicQueue.Data.Domain.Domains.StatisticDomain;
+using ElectronicQueue.Data.Domain.Domains.Statistic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ElectronicQueue.Data.Domain.Configuration.Statistic
 {

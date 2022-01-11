@@ -24,9 +24,9 @@ namespace ElectronicQueue.AdminClient.ViewModel
 
         public bool CanExecute
         {
-            get 
+            get
             {
-                return _canExecute; 
+                return _canExecute;
             }
             set
             {

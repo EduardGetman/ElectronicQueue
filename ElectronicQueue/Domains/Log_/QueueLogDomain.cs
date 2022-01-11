@@ -1,7 +1,6 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
 using ElectronicQueue.Data.Common.Enums.LogKinds;
 using ElectronicQueue.Data.Domains;
-using System;
 
 namespace ElectronicQueue.Data.Domain.Domains.LogDomain
 {

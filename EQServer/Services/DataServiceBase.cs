@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ElectronicQueue.EQServer.Services
 {
-    class DataServiceBase
+    internal class DataServiceBase
     {
         protected void Validation<T>(T domain)
         {

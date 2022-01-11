@@ -1,11 +1,9 @@
 ﻿using ElectronicQueue.Data.Models;
 using ElectronicQueue.RestEndpoint;
-using ElectronicQueue.RestEndpoint.Endpoints;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 
 namespace ElectronicQueue.AdminClient.ViewModel
 {
@@ -43,7 +41,7 @@ namespace ElectronicQueue.AdminClient.ViewModel
         protected override void ClearData()
         {
             ServiceProviders.Clear();
-            SelectedServiceProvider = default;            
+            SelectedServiceProvider = default;
         }
 
         protected override void LoadData()
@@ -63,7 +61,7 @@ namespace ElectronicQueue.AdminClient.ViewModel
 
         protected override void SaveData()
         {
-            
+
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ElectronicQueue.RestEndpoint.Enums
 {
-    enum RestExceptionType
+    internal enum RestExceptionType
     {
         SuccessResponseParseException,
         ErrorResponcePraceExceprion,

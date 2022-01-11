@@ -1,8 +1,6 @@
-﻿using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
-using ElectronicQueue.Data.Domains;
+﻿using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
 using ElectronicQueue.Data.Models;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ElectronicQueue.Data.Dto.Entitys
 {

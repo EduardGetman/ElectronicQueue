@@ -1,7 +1,4 @@
 ﻿using ElectronicQueue.RestEndpoint.Endpoints;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ElectronicQueue.RestEndpoint
 {

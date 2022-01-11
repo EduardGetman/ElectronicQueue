@@ -1,12 +1,12 @@
-﻿using ElectronicQueue.Data.Domain;
-using ElectronicQueue.Data.Domain.Domains.QueueDomain;
+﻿using ElectronicQueue.Data.Common.Enums;
+using ElectronicQueue.Data.Domain;
+using ElectronicQueue.Data.Domain.Domains.Queue;
 using ElectronicQueue.Data.Dto.Entitys;
-using ElectronicQueue.Data.Enums;
 using System.Linq;
 
 namespace ElectronicQueue.EQServer.Services
 {
-    class TicketService : DataServiceBase
+    internal class TicketService : DataServiceBase
     {
         public TicketDomain GetByQueueId(ulong queueId)
         {

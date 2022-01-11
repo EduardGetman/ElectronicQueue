@@ -1,12 +1,12 @@
 using ElectronicQueue.Data.Domain;
-using ElectronicQueue.Data.Domain.Domains.QueueDomain;
+using ElectronicQueue.Data.Domain.Domains.Queue;
 using ElectronicQueue.Data.Dto.Entitys;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace ElectronicQueue.EQServer.Services
 {
-    class QueueService : DataServiceBase
+    internal class QueueService : DataServiceBase
     {
         public IEnumerable<QueueDomain> GetByPrviderId(params long[] ProviderId)
         {

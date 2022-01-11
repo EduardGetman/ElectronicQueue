@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace ElectronicQueue.Data.Models
+﻿namespace ElectronicQueue.Data.Models
 {
     public class ServiceModel : ModelBase
     {

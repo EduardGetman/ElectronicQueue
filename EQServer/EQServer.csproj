@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Dto\Dto.csproj" />
     <ProjectReference Include="..\ElectronicQueue\Domain.csproj" />
   </ItemGroup>
 

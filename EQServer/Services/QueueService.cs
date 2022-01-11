@@ -8,12 +8,12 @@ namespace ElectronicQueue.EQServer.Services
 {
     class QueueService : DataServiceBase
     {
-        public IEnumerable<QueueDomain> GetByPrviderId(params ulong[] ProviderId)
+        public IEnumerable<QueueDomain> GetByPrviderId(params long[] ProviderId)
         {
             using EqDbContext context = ContextFactory.CreateContext();
             return context.Queues.Where(x => ProviderId.Any(p => p == x.ProviderId)).ToList();
         }
-        public QueueDomain GetByPrviderId(ulong ProviderId)
+        public QueueDomain GetByPrviderId(long ProviderId)
         {
             using EqDbContext context = ContextFactory.CreateContext();
             return context.Queues.FirstOrDefault(x => x.ProviderId == ProviderId);

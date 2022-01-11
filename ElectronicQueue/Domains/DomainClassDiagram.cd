@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ElectronicQueue.Data.Domains.LogDomainBase">
+    <Position X="1.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Domains\LogDomain\LogDomainBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.QueueLogDomain">
+    <Position X="2.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAKAAAAAAAAAAAAAAAAAAAAAAQAAAAAAABAAAEAA=</HashCode>
+      <FileName>Domains\LogDomain\QueueLogDomain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.WorkerLogDomain">
+    <Position X="0.5" Y="9.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Domains\LogDomain\WorkerLogDomain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.ServiceDomain">
+    <Position X="10" Y="2.25" Width="1.5" />
+    <AssociationLine Name="QueueLogs" Type="ElectronicQueue.Data.Domains.QueueLogDomain" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="2.562" />
+        <Point X="4.062" Y="2.562" />
+        <Point X="4.062" Y="9.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAEAAAEBAAAAAQAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\OrganizationInfoDomain\ServiceDomain.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="QueueLogs" />
+      <Property Name="Statistics" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.ServicePointDomain">
+    <Position X="9.75" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAABAIAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Domains\OrganizationInfoDomain\ServicePointDomain.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Workers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.ServiceProviderDomain">
+    <Position X="13.25" Y="7.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAQAQAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\OrganizationInfoDomain\ServiceProviderDomain.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Queue" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Services" />
+      <Property Name="ServicePoints" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.WorkerDomain">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <AssociationLine Name="Statistics" Type="ElectronicQueue.Data.Domains.StatisticDomain.WorkerStatisticsDomain" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10" Y="6.5" />
+        <Point X="9.115" Y="6.5" Type="JumpStart" />
+        <Point X="8.948" Y="6.5" Type="JumpEnd" />
+        <Point X="5.219" Y="6.5" />
+        <Point X="5.219" Y="9.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAgAAAAQAAAAgAAEAAAAAAQAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Domains\OrganizationInfoDomain\WorkerDomain.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Statistics" />
+      <Property Name="Logs" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.QueueDomain">
+    <Position X="13.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAEAAAABAEAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\QueueDomain\QueueDomain.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Tickets" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.SpecialTicketDomain">
+    <Position X="10.5" Y="12.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAAAA=</HashCode>
+      <FileName>Domains\QueueDomain\SpecialTicketDomain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.TicketDomain">
+    <Position X="10.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAQAAAAAQgAAAAAAAAQAAAQAAAAAAABBAAAAA=</HashCode>
+      <FileName>Domains\QueueDomain\TicketDomain.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="NextTicket" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.StatisticDomain.ServiceStatisticDomain">
+    <Position X="7.5" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAACAAgAAAAAAAAAAAAAAAAAAAQAAAAAACABAAAAQ=</HashCode>
+      <FileName>Domains\StatisticDomain\ServiceStatisticDomain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.StatisticDomain.StatisticDomainBase">
+    <Position X="6.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domains\StatisticDomain\StatisticDomainBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicQueue.Data.Domains.StatisticDomain.WorkerStatisticsDomain">
+    <Position X="4.75" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAhAAAAA=</HashCode>
+      <FileName>Domains\StatisticDomain\WorkerStatisticsDomain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -15,9 +15,7 @@ namespace ElectronicQueue.Data.Dto.Entitys
         public DateTime TimeUpdatedState { get; set; }
         public TicketDto(TicketDomain domain) : base(domain)
         {
-            Number = domain.Number;
             State = domain.State;
-            TimeUpdatedState = domain.TimeUpdatedState;
         }
         public TicketDto(TicketModel domain) : base(domain)
         {
@@ -29,9 +27,7 @@ namespace ElectronicQueue.Data.Dto.Entitys
         public TicketDomain ToDomain()
         {
             var domain = ToDomain<TicketDomain>();
-            domain.Number = Number;
             domain.State = State;
-            domain.TimeUpdatedState = TimeUpdatedState;
             return domain;
         }
         public TicketModel ToModel()

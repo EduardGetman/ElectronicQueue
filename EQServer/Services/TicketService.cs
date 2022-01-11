@@ -23,7 +23,7 @@ namespace ElectronicQueue.EQServer.Services
 
             context.SaveChanges();
         }
-        public void UpdateState(TicketState ticketState, ulong id)
+        public void UpdateState(TicketState ticketState, long id)
         {
             using EqDbContext context = ContextFactory.CreateContext();
 

@@ -2,6 +2,6 @@
 {
     public abstract class DomainBase
     {
-        public ulong Id { get; set; }
+        public long Id { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace ElectronicQueue.Data.Dto.Entitys
     {
         public string Letters { get; set; }
         public bool IsEnabled { get; set; }
-        public ulong ProviderId { get; set; }
+        public long ProviderId { get; set; }
 
         public QueueDto(QueueDomain domain) : base(domain)
         {

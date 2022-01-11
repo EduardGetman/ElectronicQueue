@@ -10,7 +10,8 @@ namespace ElectronicQueue.Data.Domains
     {
         public string Location { get; set; }
         public ServicePointState ServicePointState { get; set; }
-        public ulong? ProviderId { get; set; }
+
+        public long? ProviderId { get; set; }
         public ServiceProviderDomain Provider { get; set; }
         public ICollection<WorkerDomain> Workers { get; set; }
     }

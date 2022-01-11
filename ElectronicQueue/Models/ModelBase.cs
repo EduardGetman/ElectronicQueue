@@ -8,7 +8,7 @@ namespace ElectronicQueue.Data.Models
 {
     public abstract class ModelBase : INotifyPropertyChanged
     {
-        public ulong Id { get; set; }
+        public long Id { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -6,7 +6,7 @@ namespace ElectronicQueue.Data.Models
     {
         private string name;
         private bool isProvided;
-        private ulong providerId;
+        private long providerId;
 
         public string Name
         {
@@ -24,7 +24,7 @@ namespace ElectronicQueue.Data.Models
                 OnPropertyChanged();
             }
         }
-        public ulong ProviderId
+        public long ProviderId
         {
             get => providerId; set
             {

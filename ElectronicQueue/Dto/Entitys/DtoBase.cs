@@ -5,7 +5,7 @@ namespace ElectronicQueue.Data.Dto.Entitys
 {
     public abstract class DtoBase
     {
-        public ulong Id { get; set; }
+        public long Id { get; set; }
         protected DtoBase()
         { }
         protected DtoBase(DomainBase domain)
@@ -18,7 +18,7 @@ namespace ElectronicQueue.Data.Dto.Entitys
         }
         protected TDomain ToDomain<TDomain>() where TDomain : DomainBase, new()
         {
-            return new TDomain() { Id = Id };
+            return new TDomain() { Id = Id };   
         }
         protected TModel ToModel<TModel>() where TModel : ModelBase, new()
         {

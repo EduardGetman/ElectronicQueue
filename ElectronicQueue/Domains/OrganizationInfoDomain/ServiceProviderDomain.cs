@@ -3,7 +3,7 @@
 namespace ElectronicQueue.Data.Domains
 {
     /// <summary>
-    /// Роль обслуживающего сервиса
+    /// Точка предоставления услуги (кабинет, окно ...)
     /// </summary>
     public class ServiceProviderDomain : DomainBase
     {

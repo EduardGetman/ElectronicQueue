@@ -11,7 +11,7 @@ namespace ElectronicQueue.Data.Dto.Entitys
     {
         public string Location { get; set; }
         public ServicePointState ServicePointState { get; set; }
-        public ulong? ProviderId { get; set; }
+        public long? ProviderId { get; set; }
         public ServicePointDto(ServicePointDomain domain) : base(domain)
         {
             Location = domain.Location;

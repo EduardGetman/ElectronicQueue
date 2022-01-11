@@ -17,6 +17,6 @@
         /// <summary>
         /// Обслужен
         /// </summary>
-        Closed
+        Closed,
     }
 }

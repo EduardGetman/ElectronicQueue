@@ -11,9 +11,11 @@ namespace ElectronicQueue.Data.Configuration
         {
             builder.ToTable("ServicePoint");
 
-            builder.Property(p => p.Location).HasMaxLength(200);
+            builder.Property(p => p.Location)
+                   .HasMaxLength(200);
 
-            builder.Property(p => p.ServicePointState).HasDefaultValue(ServicePointState.Closed);
+            builder.Property(p => p.ServicePointState)
+                   .HasDefaultValue(ServicePointState.Closed);
         }
     }
 }

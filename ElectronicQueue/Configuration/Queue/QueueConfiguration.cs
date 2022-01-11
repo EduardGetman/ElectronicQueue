@@ -13,14 +13,14 @@ namespace ElectronicQueue.Data.Configuration
             builder.Property(p => p.Letters)
                    .HasMaxLength(10)
                    .IsRequired();
+           
+            builder.Property(p => p.NextTicketNumber)
+                   .HasDefaultValue(1)
+                   .IsRequired();
 
             builder.Property(p => p.IsEnabled)
                    .HasDefaultValue(false);
 
-            builder.HasOne(p => p.LastTicket)
-                   .WithOne(p => p.Queue)
-                   .OnDelete(DeleteBehavior.NoAction)
-                   .HasConstraintName("FK_LastTiket_Queue");
         }
     }
 }

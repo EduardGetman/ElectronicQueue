@@ -16,6 +16,7 @@ namespace ElectronicQueue.Data.Configuration
             builder.Property(p => p.Name)
                    .HasMaxLength(200)
                    .IsRequired();
+
         }
     }
 }

@@ -9,7 +9,7 @@ namespace ElectronicQueue.Data.Models
     {
         public string Location { get; set; }
         public ServicePointState ServicePointState { get; set; }
-        public ulong? ProviderId { get; set; }
+        public long? ProviderId { get; set; }
         public ServicePointModel Provider { get; set; }
     }
 }

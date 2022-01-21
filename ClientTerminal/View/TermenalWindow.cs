@@ -1,4 +1,5 @@
 ﻿using ElectronicQueue.Data.Dto.Entitys;
+using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
 using ElectronicQueue.RestEndpoint.Endpoints;
 using System.Collections.Generic;
 using System.Linq;

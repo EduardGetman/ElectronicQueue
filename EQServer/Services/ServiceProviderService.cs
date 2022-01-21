@@ -3,6 +3,7 @@ using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
 using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System;
 using System.Linq;
 
 namespace ElectronicQueue.EQServer.Services
@@ -12,21 +13,23 @@ namespace ElectronicQueue.EQServer.Services
         public IEnumerable<ServiceProviderDto> GetAll()
         {
             using EqDbContext context = ContextFactory.CreateContext();
-            return context.ServiceProviders.Select(x => new ServiceProviderDto(x));
+            throw new NotImplementedException();    
+            //return context.ServiceProviders.Select(x => new ServiceProviderDto(x));
         }
         public IEnumerable<ServiceProviderDto> GetAllWithServices()
         {
             using EqDbContext context = new EqDbContext();
-            return context.ServiceProviders.Include(x => x.Services)
-                .Select(x => new ServiceProviderDto(x)
-                { Services = x.Services.Select(x => new ServiceDto(x)) }).ToList();
+            throw new NotImplementedException();
+            //return context.ServiceProviders.Include(x => x.Services)
+            //    .Select(x => new ServiceProviderDto(x)
+            //    { Services = x.Services.Select(x => new ServiceDto(x)) }).ToList();
         }
         public void Add(ServiceProviderDto serviceProvider)
         {
             using EqDbContext context = ContextFactory.CreateContext();
             Validation(serviceProvider);
 
-            var oldServiceProvider = context.ServiceProviders.Add(serviceProvider.ToDomain());
+            //var oldServiceProvider = context.ServiceProviders.Add(serviceProvider.ToDomain());
 
             context.SaveChanges();
         }

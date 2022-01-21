@@ -1,0 +1,48 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="Styles.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+    
+    <Button x:Key="AddButton" Content="Добавить"/>
+    <Button x:Key="UpdateButton" Content="Изменить"/>
+    <Button x:Key="DeleteButton"  Content="Удалить"/>
+
+    <MenuItem x:Key="SaveMenuItem" Header="Сохранить"/>
+    <MenuItem x:Key="UpdateMenuItem"  Header="Обновить"/>
+
+    <Grid     x:Key="StatisticPeriodPicker"
+              Margin="10 5"
+              HorizontalAlignment="Stretch">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel
+                Grid.Column="0"
+                Style="{StaticResource ResourceKey=StackContainerHorizontal}">
+            <TextBlock Text="Дата начала:" 
+                       VerticalAlignment="Center"/>
+            <DatePicker/>
+        </StackPanel>
+        <StackPanel                 
+                Grid.Column="1"
+                Style="{StaticResource ResourceKey=StackContainerHorizontal}">
+            <TextBlock Text="Дата конца:" 
+                       VerticalAlignment="Center"/>
+            <DatePicker/>
+        </StackPanel>
+        <StackPanel                 
+                Grid.Column="2"
+                Style="{StaticResource ResourceKey=StackContainerHorizontal}">
+            <TextBlock Text="Режим агрегации:" 
+                       VerticalAlignment="Center"/>
+            <ComboBox>
+                <ComboBoxItem Content="За день" IsSelected="True"/>
+                <ComboBoxItem Content="За месяц"/>
+                <ComboBoxItem Content="За указанный период"/>
+            </ComboBox>
+        </StackPanel>
+    </Grid>
+</ResourceDictionary>

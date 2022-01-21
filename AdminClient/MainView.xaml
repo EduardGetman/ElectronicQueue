@@ -9,7 +9,7 @@
         Title="MainWindow" WindowState="Maximized" Height="450" Width="800">
     <Window.Resources>
         <Style TargetType="TreeViewItem" x:Key="BaseTreViewItemStyle">
-                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontSize" Value="16"/>
                 <Setter Property="HorizontalAlignment" Value="Stretch"/>
         </Style>
         
@@ -23,6 +23,7 @@
                x:Key="TreeItemSheetStyle" 
                BasedOn="{StaticResource ResourceKey=BaseTreViewItemStyle}">
             <Style.Setters>
+                <Setter Property="Margin" Value="-10 0"/>
                 <Setter Property="Padding" Value="0 3"/>
                 <Setter Property="HorizontalAlignment" Value="Stretch"/>
                 <Setter Property="Width" Value="200"/>
@@ -40,13 +41,12 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Grid.Column="0">
             <DockPanel>
-                <StackPanel>
                     <TreeView BorderBrush="White">
                         <TreeViewItem Header="Cервисы" 
                                       HorizontalAlignment="Stretch" 
@@ -64,8 +64,16 @@
                             <TreeViewItem Header="Состояние очередей"
                                           Style="{StaticResource TreeItemSheetStyle }"/>
                         </TreeViewItem>
+                        <TreeViewItem Header="Статистика" HorizontalAlignment="Stretch" 
+                                      Style="{StaticResource TreeItemRootStyle}">
+
+                            <TreeViewItem Header="Статистика рабоников"                                          
+                                          Style="{StaticResource TreeItemSheetStyle }"/>
+                            
+                            <TreeViewItem Header="Статистика сервисов"
+                                          Style="{StaticResource TreeItemSheetStyle }"/>
+                        </TreeViewItem>
                     </TreeView>
-                </StackPanel>
             </DockPanel>
         </ScrollViewer>
         

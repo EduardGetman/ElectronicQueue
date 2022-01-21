@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="ElectronicQueue.AdminClient.View.ServiceStatisticView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ElectronicQueue.AdminClient.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="White">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles.xaml"/>
+                <ResourceDictionary Source="Resources/Controls.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.ColumnSpan ="2">
+            <StaticResource ResourceKey="UpdateMenuItem" />
+        </Menu>
+        
+        <DockPanel Grid.Row="1">
+            <StaticResource ResourceKey="StatisticPeriodPicker"/>
+            <StackPanel VerticalAlignment="Center" 
+                        Style="{StaticResource StackContainerHorizontal}">
+                <TextBlock Text="Для сервиса"/>
+                <CheckBox IsThreeState="False" />
+            </StackPanel>
+        </DockPanel>
+
+        <DataGrid  HorizontalAlignment="Stretch" 
+                   ItemsSource="{Binding SelectedServiceProvider }"
+                   Grid.Row="2" 
+                   Grid.Column ="1" 
+                   ColumnHeaderStyle="{StaticResource ResourceKey=DataGridHeadersStyle}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование"/>
+                <DataGridTextColumn Header="Продолжительность работы"/>
+                <DataGridTextColumn Header="Обслужено клиентов"/>
+                <DataGridTextColumn Header="Не обслужено клиентов"/>
+                <DataGridTextColumn Header="Начало периода"/>
+                <DataGridTextColumn Header="Конец периода"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

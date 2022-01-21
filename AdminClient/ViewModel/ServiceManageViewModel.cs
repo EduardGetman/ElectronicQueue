@@ -48,10 +48,10 @@ namespace ElectronicQueue.AdminClient.ViewModel
         {
             try
             {
-                EndpoinCollection.ServicesProvider.GetAllServiceProviders()
-                                                  .Where(x => x != null)
-                                                  .ToList()
-                                                  .ForEach(x => ServiceProviders.Add(x.ToModel()));
+                //EndpoinCollection.ServicesProvider.GetAllServiceProviders()
+                //                                  .Where(x => x != null)
+                //                                  .ToList()
+                //                                  .ForEach(x => ServiceProviders.Add(x.ToModel()));
             }
             catch (Exception ex)
             {

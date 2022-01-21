@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <Style x:Key="MenuSectionHederTextBlock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="10 5 10 2"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+    
+    <Style x:Key="StackContainer" TargetType="StackPanel">
+        <Setter Property="Margin" Value="0 10"/>
+    </Style>
+    
+    <Style x:Key="StackContainerHorizontal" TargetType="StackPanel">
+        <Setter Property="Margin" Value="10 0"/>
+        <Setter Property="Orientation" Value="Horizontal"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    
+    <DataTemplate x:Key="HeaderTemplate">
+        <TextBlock Text="{Binding}" TextWrapping="Wrap"  TextAlignment="Center"/>
+    </DataTemplate>
+
+    <Style TargetType="DataGridColumnHeader" x:Key="DataGridHeadersStyle">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="2"/>
+        <!--Задаем отступ в ячейке-->
+        <Setter Property="ContentTemplate" Value="{StaticResource HeaderTemplate}"/>
+    </Style>
+</ResourceDictionary>

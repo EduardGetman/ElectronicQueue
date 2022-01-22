@@ -6,6 +6,7 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="10 5 10 2"/>
         <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Background" Value="WhiteSmoke"/>
     </Style>
     
     <Style x:Key="StackContainer" TargetType="StackPanel">
@@ -16,6 +17,10 @@
         <Setter Property="Margin" Value="10 0"/>
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    
+    <Style x:Key="PageStyle" TargetType="UserControl">
+        <Setter Property="Background" Value="WhiteSmoke"/>
     </Style>
     
     <DataTemplate x:Key="HeaderTemplate">

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800"
-             Background="White">
+             Background="WhiteSmoke">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -29,6 +29,10 @@
         <Menu Grid.ColumnSpan ="2">
             <StaticResource ResourceKey="UpdateMenuItem" />
         </Menu>
+        <DockPanel Grid.ColumnSpan ="2">
+            <StaticResource ResourceKey="PageNameTextBlock"/>
+        </DockPanel>
+        
         <DockPanel Grid.Row="1">
             <StaticResource ResourceKey="StatisticPeriodPicker"/>
         </DockPanel>

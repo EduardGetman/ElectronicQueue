@@ -4,84 +4,106 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectronicQueue.AdminClient"
+        xmlns:v="clr-namespace:ElectronicQueue.AdminClient.View"
         xmlns:vm="clr-namespace:ElectronicQueue.AdminClient.ViewModel"
+        xmlns:pages="clr-namespace:ElectronicQueue.AdminClient.ViewModel.Pages"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="MainWindow" WindowState="Maximized" Height="450" Width="800">
+        Title="MainWindow" 
+        WindowState="Maximized"
+        Height="450" 
+        Width="800">
     <Window.Resources>
-        <Style TargetType="TreeViewItem" x:Key="BaseTreViewItemStyle">
-                <Setter Property="FontSize" Value="16"/>
-                <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        </Style>
-        
-        <Style TargetType="TreeViewItem" 
-               x:Key="TreeItemRootStyle" 
-               BasedOn="{StaticResource ResourceKey=BaseTreViewItemStyle}">
-            <Setter Property="Foreground" Value="Gray"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View/Resources/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <DataTemplate DataType="{x:Type pages:ServiceStatisticView}">
+                <v:ServiceStatisticView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type pages:WorkerStatisticViewModel}">
+                <v:WorkerStatisticView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type pages:ServiceManageViewModel}">
+                <v:ServiceManageView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type pages:ServicePointViewModel}">
+                <v:ServicePointView/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type pages:QueueViewModel}">
+                <v:QueueView/>
+            </DataTemplate>
 
-        <Style TargetType="TreeViewItem" 
-               x:Key="TreeItemSheetStyle" 
-               BasedOn="{StaticResource ResourceKey=BaseTreViewItemStyle}">
-            <Style.Setters>
-                <Setter Property="Margin" Value="-10 0"/>
-                <Setter Property="Padding" Value="0 3"/>
-                <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                <Setter Property="Width" Value="200"/>
-            </Style.Setters>
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="FontSize" Value="17" />
-                    <Setter Property="Foreground" Value="DarkGray" />
-                </Trigger>
-                <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="FontSize" Value="17" />
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+            <Style TargetType="Button" 
+               x:Key="NavigationButton" >
+                <Style.Setters>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="Padding" Value="0 10"/>
+                    <Setter Property="Background" Value="WhiteSmoke"/>
+                    <Setter Property="MinWidth" Value="190"/>
+                </Style.Setters>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="FontSize" Value="17" />
+                        <Setter Property="Background" Value="LightGray" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
     </Window.Resources>
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" Grid.Column="0">
-            <DockPanel>
-                    <TreeView BorderBrush="White">
-                        <TreeViewItem Header="Cервисы" 
-                                      HorizontalAlignment="Stretch" 
-                                      Style="{StaticResource TreeItemRootStyle}" >
-                            
-                            <TreeViewItem Header="Услуги"  
-                                          Style="{StaticResource TreeItemSheetStyle }"/>
-                            
-                            <TreeViewItem Header="Точки обслуживания" 
-                                          Style="{StaticResource TreeItemSheetStyle }"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Очереди" HorizontalAlignment="Stretch" 
-                                      Style="{StaticResource TreeItemRootStyle}">
-                            
-                            <TreeViewItem Header="Состояние очередей"
-                                          Style="{StaticResource TreeItemSheetStyle }"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Статистика" HorizontalAlignment="Stretch" 
-                                      Style="{StaticResource TreeItemRootStyle}">
 
-                            <TreeViewItem Header="Статистика рабоников"                                          
-                                          Style="{StaticResource TreeItemSheetStyle }"/>
-                            
-                            <TreeViewItem Header="Статистика сервисов"
-                                          Style="{StaticResource TreeItemSheetStyle }"/>
-                        </TreeViewItem>
-                    </TreeView>
-            </DockPanel>
-        </ScrollViewer>
-        
+        <StackPanel HorizontalAlignment="Stretch">
+
+            <Button Content="Сервисы и услуги"
+                    Style="{StaticResource NavigationButton }"
+                    Command="{Binding ChangePageCommand}"
+                    CommandParameter="{x:Type pages:ServiceManageViewModel}"/>
+
+            <Button Content="Точки обслуживания" 
+                    Style="{StaticResource NavigationButton }"
+                    Command="{Binding ChangePageCommand}"
+                    CommandParameter="{x:Type pages:ServicePointViewModel}"/>
+
+            <Button Content="Состояние очередей"
+                    Style="{StaticResource NavigationButton }"
+                    Command="{Binding ChangePageCommand}"
+                    CommandParameter="{x:Type pages:QueueViewModel}"/>
+
+            <Button Content="Статистика рабоников"                                          
+                    Style="{StaticResource NavigationButton }"
+                    Command="{Binding ChangePageCommand}"
+                    CommandParameter="{x:Type pages:ServiceStatisticView}"/>
+
+            <Button Content="Статистика сервисов"
+                    Style="{StaticResource NavigationButton }"
+                    Command="{Binding ChangePageCommand}"
+                    CommandParameter="{x:Type pages:WorkerStatisticViewModel}"/>
+        </StackPanel>
+
         <GridSplitter Grid.Column="1" 
                       Width="3"
                       HorizontalAlignment="Center"
-                      VerticalAlignment="Stretch" />
-        
+                      VerticalAlignment="Stretch" 
+                      Background="Gray"/>
+
+        <ContentControl Grid.Column="2" Content="{Binding Page}"/>
 
     </Grid>
 </Window>

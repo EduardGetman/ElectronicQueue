@@ -4,10 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ElectronicQueue.AdminClient.View"
-             xmlns:viewmodel="clr-namespace:ElectronicQueue.AdminClient.ViewModel" 
+             xmlns:viewmodel="clr-namespace:ElectronicQueue.AdminClient.ViewModel.Pages" 
              d:DataContext="{d:DesignInstance Type=viewmodel:ServiceManageViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" Background="White">
+             d:DesignHeight="450" 
+             d:DesignWidth="800"
+             Background="WhiteSmoke">
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -17,57 +19,42 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+
+
+        <TextBlock Grid.ColumnSpan="2" 
+                   Grid.Row="1"
+                   HorizontalAlignment="Center"
+                   FontSize="25"
+                   Margin="0 10"
+                   Foreground="DarkGray"
+                   Text="{Binding Title}"
+                   Style="{StaticResource MenuSectionHederTextBlock}"/>
 
         <Menu Grid.ColumnSpan ="2">
             <StaticResource ResourceKey="SaveMenuItem" />
             <StaticResource ResourceKey="UpdateMenuItem" />
         </Menu>
 
-        <StackPanel Margin="5" Grid.Row="1" >
-            <StackPanel Style="{StaticResource ResourceKey=StackContainer}">
-                <TextBlock Text="Список сервисов"
-                       Style="{StaticResource MenuSectionHederTextBlock}"/>
-                <ListView ItemsSource="{Binding ServiceProviders}" 
-                      SelectedItem="{Binding SelectedServiceProvider}"
-                      d:ItemsSource="{d:SampleData ItemCount=5}"/>
-            </StackPanel>
-
-
-            <StackPanel Style="{StaticResource ResourceKey=StackContainer}">
-                <TextBlock Text="Параметры сервиса" 
-                       Style="{StaticResource MenuSectionHederTextBlock}"/>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Имя: " Grid.Column="0"/>
-                    <TextBlock Text="{Binding SelectedServiceProvider.Name}"
-                           Grid.Column="1"/>
-                </StackPanel>
-            </StackPanel>
-
-            <StackPanel Style="{StaticResource ResourceKey=StackContainer}">
-                <TextBlock Text="Управление сервисами"
-                       Style="{StaticResource MenuSectionHederTextBlock}"/>
-                <StackPanel Margin="0 5">
-                    <TextBlock Text="Имя: " Grid.Column="0"/>
-                    <TextBox Text="{Binding SelectedServiceProvider.Name}" 
-                         Grid.Column="1"/>
-                </StackPanel>
-                <StaticResource ResourceKey="AddButton" />
-                <StaticResource ResourceKey="DeleteButton" />
-                <StaticResource ResourceKey="UpdateButton" />
-            </StackPanel>
-        </StackPanel>
-
         <DataGrid  HorizontalAlignment="Stretch" 
                    ItemsSource="{Binding SelectedServiceProvider }"
-                   Grid.Row="1" Grid.Column ="1">
+                   Grid.Row="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование сервиса" />
+                <DataGridTextColumn Header="Количество услуг" />
+                <DataGridCheckBoxColumn Header="Включен" 
+                                        IsThreeState="False"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <DataGrid  HorizontalAlignment="Stretch" 
+                   ItemsSource="{Binding SelectedServiceProvider }"
+                   Grid.Row="3">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование услуги" />
                 <DataGridCheckBoxColumn Header="Услуга предоставляется" 

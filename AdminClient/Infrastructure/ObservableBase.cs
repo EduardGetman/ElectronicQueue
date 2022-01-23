@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-namespace ElectronicQueue.AdminClient.ViewModel
+namespace ElectronicQueue.AdminClient.Infrastructure
 {
     public class ObservableBase : INotifyPropertyChanged
     {
@@ -12,7 +12,7 @@ namespace ElectronicQueue.AdminClient.ViewModel
                                 TValue newValue,
                                 [CallerMemberName] string propertyName = "")
         {
-            if (EqualityComparer<TValue>.Default.Equals(field, default(TValue)) || !field.Equals(newValue))
+            if (EqualityComparer<TValue>.Default.Equals(field, default) || !field.Equals(newValue))
             {
                 field = newValue;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

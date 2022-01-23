@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
 
-namespace ElectronicQueue.AdminClient.Commands
+namespace ElectronicQueue.AdminClient.Infrastructure.Commands
 {
     public abstract class CommandBase : ICommand
     {

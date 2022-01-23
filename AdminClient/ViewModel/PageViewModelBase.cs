@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.AdminClient.Commands;
+﻿using ElectronicQueue.AdminClient.Infrastructure.Commands;
 using ElectronicQueue.AdminClient.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -23,15 +23,7 @@ namespace ElectronicQueue.AdminClient.ViewModel
             }
         }
 
-        public void RefreshData()
-        {
-            ClearDataSource();
-            LoadData();
-            RefreshDataSource();
-        }
-        protected abstract void ClearDataSource();
-        protected abstract void LoadData();
+        protected abstract void RefreshData();
         protected abstract void SaveData();
-        protected abstract void RefreshDataSource();
     }
 }

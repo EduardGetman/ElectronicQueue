@@ -10,18 +10,10 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {
     public class ServiceManageViewModel : PageViewModelBase
     {
-
         public override string Title => "Сервисы и услуги";
-
-        private List<ServiceProviderDto> _loadedData;
 
         private ObservableCollection<ServiceProviderModel> _serviceProviders;
         private ServiceProviderModel _selectedServiceProvider;
-        public ServiceManageViewModel()
-        {
-            SelectedProvider = new ServiceProviderModel();
-        }
-
         public ServiceProviderModel SelectedProvider
         {
             get => _selectedServiceProvider;
@@ -32,18 +24,16 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
             get => _serviceProviders;
             set => Set(ref _serviceProviders, value);
         }
-        protected override void ClearDataSource()
+        protected void ClearDataSource()
         {
             DataSource.Clear();
             SelectedProvider = default;
         }
-        protected override void LoadData()
+        protected void LoadData()
         {
             try
             {
-                _loadedData = EndpoinCollection.ServicesProvider.GetAllServiceProviders()
-                                                                .Where(x => x != null)
-                                                                .ToList();
+                
             }
             catch (Exception ex)
             {
@@ -55,8 +45,10 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
         {
 
         }
-        protected override void RefreshDataSource()
+
+        protected override void RefreshData()
         {
+            throw new NotImplementedException();
         }
     }
 }

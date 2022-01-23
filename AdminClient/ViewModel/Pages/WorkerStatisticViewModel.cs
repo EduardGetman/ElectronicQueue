@@ -6,17 +6,22 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {
     class WorkerStatisticViewModel : PageViewModelBase
     {
-        public override string Title => "Статистика рабоников";
+        public override string Title => "Статистика работников";
 
-        protected override void ClearDataSource()
+        protected void ClearDataSource()
         {;
         }
 
-        protected override void LoadData()
+        protected void LoadData()
         {
         }
 
-        protected override void RefreshDataSource()
+        protected override void RefreshData()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void RefreshDataSource()
         {
         }
 

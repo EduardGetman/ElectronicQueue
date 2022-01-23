@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ElectronicQueue.AdminClient.Commands
+namespace ElectronicQueue.AdminClient.Infrastructure.Commands
 {
     public class NonparameterizedCommand : RelayCommand<object>
     {

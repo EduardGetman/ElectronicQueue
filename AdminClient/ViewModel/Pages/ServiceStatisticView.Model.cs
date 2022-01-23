@@ -8,15 +8,20 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
     {
         public override string Title => "Статистика сервисов";
 
-        protected override void ClearDataSource()
+        protected void ClearDataSource()
         {
         }
 
-        protected override void LoadData()
+        protected void LoadData()
         {
         }
 
-        protected override void RefreshDataSource()
+        protected override void RefreshData()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void RefreshDataSource()
         {
         }
 

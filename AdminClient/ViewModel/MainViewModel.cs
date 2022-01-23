@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.AdminClient.Commands;
+﻿using ElectronicQueue.AdminClient.Infrastructure.Commands;
 using ElectronicQueue.AdminClient.Interfaces;
 using ElectronicQueue.AdminClient.ViewModel.Pages;
 using System;

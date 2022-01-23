@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using ElectronicQueue.Data.Dto.Maps;
+using System.Windows;
 
 namespace ElectronicQueue.AdminClient
 {
@@ -7,5 +8,10 @@ namespace ElectronicQueue.AdminClient
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            Configuration.Configure();
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.AdminClient.Commands;
+﻿using ElectronicQueue.AdminClient.Infrastructure;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;

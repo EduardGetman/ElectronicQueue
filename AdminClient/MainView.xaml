@@ -70,7 +70,6 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel HorizontalAlignment="Stretch">
-
             <Button Content="Сервисы и услуги"
                     Style="{StaticResource NavigationButton }"
                     Command="{Binding ChangePageCommand}"
@@ -86,12 +85,12 @@
                     Command="{Binding ChangePageCommand}"
                     CommandParameter="{x:Type pages:QueueViewModel}"/>
 
-            <Button Content="Статистика рабоников"                                          
+            <Button Content="Статистика сервисов"                                          
                     Style="{StaticResource NavigationButton }"
                     Command="{Binding ChangePageCommand}"
                     CommandParameter="{x:Type pages:ServiceStatisticView}"/>
 
-            <Button Content="Статистика сервисов"
+            <Button Content="Статистика работников"
                     Style="{StaticResource NavigationButton }"
                     Command="{Binding ChangePageCommand}"
                     CommandParameter="{x:Type pages:WorkerStatisticViewModel}"/>

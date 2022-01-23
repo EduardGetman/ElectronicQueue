@@ -8,15 +8,7 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
     {
         public override string Title => "Состояние очередей";
 
-        protected override void ClearDataSource()
-        {
-        }
-
-        protected override void LoadData()
-        {
-        }
-
-        protected override void RefreshDataSource()
+        protected override void RefreshData()
         {
         }
 

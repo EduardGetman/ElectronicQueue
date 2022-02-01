@@ -17,7 +17,7 @@ namespace ClientTerminal
 
         private void StartButtonClick(object sender, RoutedEventArgs e)
         {
-            var providerDtos = _servicesEndpoint.GetAllServiceProviders();
+            var providerDtos = _servicesEndpoint.Get();
             var terminalWindow = new TermenalWindow(providerDtos);
             terminalWindow.Show();
         }

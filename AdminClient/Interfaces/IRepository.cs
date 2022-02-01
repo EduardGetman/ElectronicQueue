@@ -7,8 +7,8 @@ namespace ElectronicQueue.AdminClient.Interfaces
 {
     public interface IRepository<TModel> where TModel : ModelBase
     {
-        public ICollection<TModel> GetCollection();
-        public bool Refresh();
-        public void Save();
+        ICollection<TModel> Data { get; }
+        public void Refresh();
+        public void Save(IEnumerable<TModel> models);
     }
 }

@@ -3,10 +3,8 @@ using ElectronicQueue.AdminClient.Interfaces;
 using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
 using ElectronicQueue.Data.Models;
 using ElectronicQueue.RestEndpoint;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
 {
@@ -17,34 +15,35 @@ namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
 
         public ServicesRepository()
         {
-        }
-
-        public ICollection<ServiceProviderModel> GetCollection()
-        {
             var config = new MapperConfiguration(cfg =>
-                     cfg.CreateMap<ServiceProviderDto, ServiceProviderModel>());
-            var mapper = new Mapper(config);
-            if (_data is null)
+            cfg.CreateMap<ServiceProviderDto, ServiceProviderModel>());
+            _mapper = new Mapper(config);
+        }
+
+        public ICollection<ServiceProviderModel> Data 
+        { 
+            get 
             {
-                LoadData();
-            }
-            return _data.Select(x => mapper.Map<ServiceProviderModel>(x)).ToList();
+                if (_data is null)
+                {
+                    Refresh();
+                }
+                return _data.Select(x => _mapper.Map<ServiceProviderModel>(x)).ToList();
+            } 
         }
 
-        public bool Refresh()
+        public void Refresh()
         {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
-        }
-        private void LoadData()
-        {
-            _data = EndpoinCollection.ServicesProvider.GetAllServiceProviders()
+            _data = EndpoinCollection.ServicesProvider.Get()
                                                                 .Where(x => x != null)
                                                                 .ToList();
+        }
+
+        public void Save(IEnumerable<ServiceProviderModel> models)
+        {
+            var dto = models.Select(x => _mapper.Map<ServiceProviderDto>(x));
+            var toAdd = dto.Where(x => x.Id == default).ToList();
+            var ToUpdate = dto.Except(_data).Where(x => x.Id == default).ToList();
         }
     }
 }

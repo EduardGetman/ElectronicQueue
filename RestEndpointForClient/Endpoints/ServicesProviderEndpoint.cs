@@ -7,14 +7,18 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
     public class ServicesProviderEndpoint : BaseEndpoint
     {
         private const string UrlController = URL_ROOT + "/ServiceProvider";
-        public IEnumerable<ServiceProviderDto> GetAllServiceProviders()
+        public IEnumerable<ServiceProviderDto> Get()
         {
             return _restApiClient.RequestGet<IEnumerable<ServiceProviderDto>>(UrlController);
         }
-
-        public static string AddTicket(ServiceDto service)
+        public IEnumerable<ServiceProviderDto> Save(IEnumerable<ServiceProviderDto> toAdd, IEnumerable<ServiceProviderDto> toUpdate)
         {
-            throw new NotImplementedException();
+            return _restApiClient.RequestPost<IEnumerable<ServiceProviderDto>>(UrlController,
+                                                                              new Dictionary<string, object> 
+                                                                              {
+                                                                                  { nameof(toAdd), toAdd }, 
+                                                                                  { nameof(toUpdate), toUpdate } 
+                                                                              });
         }
     }
 }

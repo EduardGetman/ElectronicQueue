@@ -7,6 +7,7 @@ using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
 using ElectronicQueue.Data.Domain.Domains.OrganizationInfoDomain;
 using ElectronicQueue.Data.Domain.Domains.Queue;
 using ElectronicQueue.Data.Domain.Domains.Statistic;
+using ElectronicQueue.Data.Domain.Repository;
 using Microsoft.EntityFrameworkCore;
 
 namespace ElectronicQueue.Data.Domain

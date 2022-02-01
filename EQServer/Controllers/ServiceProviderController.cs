@@ -11,21 +11,36 @@ namespace ElectronicQueue.EQServer.Controllers
     [Route("api/ServiceProvider")]
     public class ServiceProviderController : ControllerBase
     {
-        private readonly ServiceProviderService _serviceProviderService = new ServiceProviderService();
-
+        // GET: api/<ServiceStatistcController>
         [HttpGet]
-        public IActionResult Get()
+        public IEnumerable<ServiceProviderDto> Get()
         {
-            try
-            {
-                var serviceProviders = _serviceProviderService.GetAllWithServices();
-                string json = JsonSerializer.Serialize(serviceProviders);
-                return base.Ok(serviceProviders);
-            }
-            catch (Exception ex)
-            {
-                return Problem(detail: ex.StackTrace, title: ex.Message);
-            }
+            throw new NotImplementedException();
+        }
+
+        // GET api/<ServiceStatistcController>/5
+        [HttpGet("{id}")]
+        public ServiceProviderDto Get(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        // POST api/<ServiceStatistcController>
+        [HttpPost]
+        public void Post([FromBody] ServiceProviderDto value)
+        {
+        }
+
+        // PUT api/<ServiceStatistcController>/5
+        [HttpPut("{id}")]
+        public void Put(long id, [FromBody] ServiceProviderDto value)
+        {
+        }
+
+        // DELETE api/<ServiceStatistcController>/5
+        [HttpDelete("{id}")]
+        public void Delete(long id)
+        {
         }
 
         [HttpPost]

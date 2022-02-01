@@ -1,45 +1,27 @@
-using ElectronicQueue.Data.Domain;
-using ElectronicQueue.Data.Domain.Domains.Queue;
-using ElectronicQueue.Data.Dto.Entitys.Queue;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using ElectronicQueue.Data.Domain.Domains.Queue;
 
 namespace ElectronicQueue.EQServer.Services
 {
-    internal class QueueService
+    internal class WorkerService
     {
-    //    public QueueDomain GetQueue(long ServiceProviderId)
-    //    {
-    //        QueueDomain domain = new QueueDomain();
-    //        Peek(3);
-    //        Dequeu(3);
-    //        throw new NotImplementedException();
-    //    }
-
-        public void StopQueue(long ServiceProviderId)
+        public void StartWork(long WorkerId, bool ServiceProviderId, long ServicePointId)
         {
-            throw new NotImplementedException();
         }
-
-        public void StartQueue(long ServiceProviderId)
+        public void StopWork(long WorkerId)
         {
-            throw new NotImplementedException();
         }
-
-        public TicketDomain Dequeu(long ServiceProviderId)
+        public TicketDomain CallClient(long WorkerId)
         {
-            throw new NotImplementedException();
+            return null;
         }
-
-        public TicketDomain Peek(long ServiceProviderId)
+        public void StopWating(long WorkerId)
         {
-            throw new NotImplementedException();
         }
-
-        public void Push(long ServiceProviderId, TicketDomain ticket)
+        public void BeginServiced(long WorkerId)
         {
-            throw new NotImplementedException();
+        }
+        public void EndServiced(long WorkerId)
+        {
         }
     }
     //{

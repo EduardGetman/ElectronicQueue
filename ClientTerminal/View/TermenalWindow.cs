@@ -1,6 +1,5 @@
 ﻿using ElectronicQueue.Data.Dto.Entitys;
 using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
-using ElectronicQueue.RestEndpoint.Endpoints;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -64,7 +63,7 @@ namespace ClientTerminal
                 }
                 else if (button.Content is ServiceDto service)
                 {
-                   // ServicesProviderEndpoint.AddTicket(service);
+                    // ServicesProviderEndpoint.AddTicket(service);
                 }
             }
         }

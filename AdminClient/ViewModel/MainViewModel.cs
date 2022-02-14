@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Windows.Input;
 
 namespace ElectronicQueue.AdminClient.ViewModel
@@ -50,7 +49,7 @@ namespace ElectronicQueue.AdminClient.ViewModel
 
         private void ChangePageCommandExecuted(object type) => Page = _pages[type as Type].Value;
 
-        private bool ChangePageCommandCanExecuted(object type) 
+        private bool ChangePageCommandCanExecuted(object type)
             => (type as Type).GetTypeInfo().ImplementedInterfaces.Contains(typeof(IPage)) && _pages.ContainsKey(type as Type);
 
 

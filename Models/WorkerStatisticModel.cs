@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace ElectronicQueue.Data.Models
+﻿namespace ElectronicQueue.Data.Models
 {
     public class WorkerStatisticModel : ModelBase
     {

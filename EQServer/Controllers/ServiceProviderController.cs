@@ -1,13 +1,11 @@
+using AutoMapper;
+using ElectronicQueue.Data.Domain;
 using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
-using ElectronicQueue.EQServer.Services;
+using ElectronicQueue.Data.Dto.Maps;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Text.Json;
-using AutoMapper;
-using ElectronicQueue.Data.Dto.Maps;
-using ElectronicQueue.Data.Domain;
-using Microsoft.EntityFrameworkCore;
 
 namespace ElectronicQueue.EQServer.Controllers
 {
@@ -29,7 +27,7 @@ namespace ElectronicQueue.EQServer.Controllers
         {
             try
             {
-                var domain = _context.ServiceProviders.Include(x=> x.Services);
+                var domain = _context.ServiceProviders.Include(x => x.Services);
                 var serviceProviders = _mapper.Map<IEnumerable<ServiceProviderDto>>(domain);
                 return base.Ok(serviceProviders);
 

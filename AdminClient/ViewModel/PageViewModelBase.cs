@@ -1,8 +1,5 @@
 ﻿using ElectronicQueue.AdminClient.Infrastructure.Commands;
 using ElectronicQueue.AdminClient.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 
 namespace ElectronicQueue.AdminClient.ViewModel

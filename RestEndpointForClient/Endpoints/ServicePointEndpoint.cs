@@ -1,7 +1,5 @@
 ﻿using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace ElectronicQueue.RestEndpoint.Endpoints
 {

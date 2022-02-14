@@ -1,5 +1,4 @@
 ﻿using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
-using System;
 using System.Collections.Generic;
 
 namespace ElectronicQueue.RestEndpoint.Endpoints
@@ -14,10 +13,10 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
         public IEnumerable<ServiceProviderDto> Save(IEnumerable<ServiceProviderDto> toAdd, IEnumerable<ServiceProviderDto> toUpdate)
         {
             return _restApiClient.RequestPost<IEnumerable<ServiceProviderDto>>(UrlController,
-                                                                              new Dictionary<string, object> 
+                                                                              new Dictionary<string, object>
                                                                               {
-                                                                                  { nameof(toAdd), toAdd }, 
-                                                                                  { nameof(toUpdate), toUpdate } 
+                                                                                  { nameof(toAdd), toAdd },
+                                                                                  { nameof(toUpdate), toUpdate }
                                                                               });
         }
     }

@@ -1,13 +1,9 @@
-﻿using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
-using ElectronicQueue.Data.Models;
-using ElectronicQueue.RestEndpoint;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections;
-using System.Linq;
-using ElectronicQueue.AdminClient.Infrastructure.Repositories;
+﻿using ElectronicQueue.AdminClient.Infrastructure.Repositories;
 using ElectronicQueue.AdminClient.Interfaces;
+using ElectronicQueue.Data.Models;
+using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {

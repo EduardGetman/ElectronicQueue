@@ -7,7 +7,6 @@ using ElectronicQueue.RestEndpoint;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
 {

@@ -1,5 +1,4 @@
-﻿using ElectronicQueue.Data.Dto.Maps;
-using System.Windows;
+﻿using System.Windows;
 
 namespace ElectronicQueue.AdminClient
 {

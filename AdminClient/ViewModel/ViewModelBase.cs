@@ -1,9 +1,6 @@
 ﻿using ElectronicQueue.AdminClient.Infrastructure;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Windows;
-using System.Windows.Input;
 
 namespace ElectronicQueue.AdminClient.ViewModel
 {

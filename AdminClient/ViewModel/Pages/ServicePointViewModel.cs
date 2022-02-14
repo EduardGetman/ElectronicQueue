@@ -3,11 +3,9 @@ using ElectronicQueue.AdminClient.Interfaces;
 using ElectronicQueue.Data.Common.Enums;
 using ElectronicQueue.Data.Models;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
 
 namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {

@@ -1,43 +1,60 @@
-﻿using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
+﻿using AutoMapper;
+using ElectronicQueue.Data.Domain;
+using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
+using ElectronicQueue.Data.Dto.Maps;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using ElectronicQueue.Data.Common.Extansion;
+using ElectronicQueue.Data.Common.Enums;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ElectronicQueue.EQServer.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/ServicePoint")]
     [ApiController]
     public class ServicePointController : ControllerBase
     {
-        // GET: api/<ServiceStatistcController>
+        private readonly EqDbContext _context =new EqDbContext();
+        private readonly IMapper _mapper = DtoMapperConfiguration.CreateMapper();
+
+        // GET: api/<ServicePoint>
         [HttpGet]
-        public IEnumerable<ServicePointDto> Get()
+        public IActionResult Get()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var name = ServicePointState.Paused.ToName();
+                return base.Ok(_context.ServicePoints.Select(x => _mapper.Map<ServicePointDto>(x)));
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
         }
 
-        // GET api/<ServiceStatistcController>/5
+        // GET api/<ServicePointController>/5
         [HttpGet("{id}")]
         public ServicePointDto Get(long id)
         {
             throw new NotImplementedException();
         }
 
-        // POST api/<ServiceStatistcController>
+        // POST api/<ServicePointController>
         [HttpPost]
         public void Post([FromBody] ServicePointDto value)
         {
         }
 
-        // PUT api/<ServiceStatistcController>/5
+        // PUT api/<ServicePointController>/5
         [HttpPut("{id}")]
         public void Put(long id, [FromBody] ServicePointDto value)
         {
         }
 
-        // DELETE api/<ServiceStatistcController>/5
+        // DELETE api/<ServicePointController>/5
         [HttpDelete("{id}")]
         public void Delete(long id)
         {

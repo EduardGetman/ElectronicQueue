@@ -6,25 +6,24 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace ElectronicQueue.Data.Dto.Maps
 {
-    public class Configuration
+    public class DtoMapperConfiguration
     {
-        public static void Configure()
+        private static readonly MapperConfiguration _configuration = new MapperConfiguration(x =>
         {
-#pragma warning disable CS0618 // Тип или член устарел
-            //Mapper.Initialize(x =>
-            //{
-            //    x.AddProfile<QueueLogProfile>();
-            //    x.AddProfile<QueueProfile>();
-            //    x.AddProfile<ServiceProviderProfile>();
-            //    x.AddProfile<ServicePointProfile>();
-            //    x.AddProfile<ServiceStatisticProfile>();
-            //    x.AddProfile<ServiceProfile>();
-            //    x.AddProfile<SpecialTicketProfile>();
-            //    x.AddProfile<TicketProfile>();
-            //    x.AddProfile<WorkerLogProfile>();
-            //    x.AddProfile<WorkerStatisticProfile>();
-            //});
-#pragma warning restore CS0618 // Тип или член устарел
-        }
+            x.AddProfile<QueueLogProfile>();
+            x.AddProfile<QueueProfile>();
+            x.AddProfile<ServiceProviderProfile>();
+            x.AddProfile<ServicePointProfile>();
+            x.AddProfile<ServiceStatisticProfile>();
+            x.AddProfile<ServiceProfile>();
+            x.AddProfile<SpecialTicketProfile>();
+            x.AddProfile<TicketProfile>();
+            x.AddProfile<WorkerLogProfile>();
+            x.AddProfile<WorkerStatisticProfile>();
+
+            x.AllowNullCollections = true;
+            x.AllowNullDestinationValues = true;
+        });
+        public static IMapper CreateMapper() => _configuration.CreateMapper();
     }
 }

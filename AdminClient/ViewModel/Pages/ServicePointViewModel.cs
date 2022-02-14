@@ -1,5 +1,12 @@
-﻿using System;
+﻿using ElectronicQueue.AdminClient.Infrastructure.Repositories;
+using ElectronicQueue.AdminClient.Interfaces;
+using ElectronicQueue.Data.Common.Enums;
+using ElectronicQueue.Data.Models;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 
 namespace ElectronicQueue.AdminClient.ViewModel.Pages
@@ -8,25 +15,39 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
     {
         public override string Title => "Точки обслуживания";
 
-        protected void ClearDataSource()
+        private IRepository<ServicePointModel> _servicesRepository;
+        private ObservableCollection<ServicePointModel> _servicePoints;
+
+        public List<string> States => new List<string>(typeof(ServicePointState).GetEnumNames());
+
+        public ObservableCollection<ServicePointModel> DataSource
         {
+            get => _servicePoints;
+            set => Set(ref _servicePoints, value);
         }
 
-        protected void LoadData()
+        public ServicePointViewModel()
         {
-        }
-
-        protected override void RefreshData()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected void RefreshDataSource()
-        {
+            _servicesRepository = new ServicePointRepository();
+            DataSource = new ObservableCollection<ServicePointModel>();
         }
 
         protected override void SaveData()
         {
+
+        }
+
+        protected override void RefreshData()
+        {
+            try
+            {
+                DataSource.Clear();
+                _servicesRepository.Data.ToList().ForEach(x => DataSource.Add(x));
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessage(ex.Message);
+            }
         }
     }
 }

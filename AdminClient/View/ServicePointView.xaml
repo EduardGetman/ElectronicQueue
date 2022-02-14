@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:ElectronicQueue.AdminClient.ViewModel.Pages"
              xmlns:local="clr-namespace:ElectronicQueue.AdminClient.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
@@ -16,6 +17,11 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
+    
+    <UserControl.DataContext>
+        <vm:ServicePointViewModel/>
+    </UserControl.DataContext>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -34,11 +40,18 @@
         </DockPanel>
 
         <DataGrid  HorizontalAlignment="Stretch" 
-                   ItemsSource="{Binding SelectedServiceProvider }"
-                   Grid.Row="1" Grid.Column ="1">
+                   ItemsSource="{Binding DataSource}"
+                   Grid.Row="1"
+                   Grid.Column ="1"
+                   AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Место положение"/>
-                <DataGridComboBoxColumn Header="Услуга предоставляется"/>                
+                <DataGridTextColumn Header="Место положение"
+                                    Binding="{Binding Location}"/>
+                <DataGridComboBoxColumn Header="Услуга предоставляется"
+                                        ItemsSource="{Binding e}"
+                                        SelectedItemBinding="{Binding ServicePointState}"/>
+                <DataGridTextColumn Header="Текщий сервис"
+                                    Binding="{Binding Provider}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

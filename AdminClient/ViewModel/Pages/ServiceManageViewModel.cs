@@ -4,7 +4,10 @@ using ElectronicQueue.RestEndpoint;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections;
 using System.Linq;
+using ElectronicQueue.AdminClient.Infrastructure.Repositories;
+using ElectronicQueue.AdminClient.Interfaces;
 
 namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {
@@ -12,8 +15,10 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
     {
         public override string Title => "Сервисы и услуги";
 
+        private IRepository<ServiceProviderModel> _servicesRepository;
         private ObservableCollection<ServiceProviderModel> _serviceProviders;
         private ServiceProviderModel _selectedServiceProvider;
+
         public ServiceProviderModel SelectedProvider
         {
             get => _selectedServiceProvider;
@@ -24,21 +29,11 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
             get => _serviceProviders;
             set => Set(ref _serviceProviders, value);
         }
-        protected void ClearDataSource()
+
+        public ServiceManageViewModel()
         {
-            DataSource.Clear();
-            SelectedProvider = default;
-        }
-        protected void LoadData()
-        {
-            try
-            {
-                
-            }
-            catch (Exception ex)
-            {
-                ShowErrorMessage(ex.Message);
-            }
+            _servicesRepository = new ServicesRepository();
+            DataSource = new ObservableCollection<ServiceProviderModel>();
         }
 
         protected override void SaveData()
@@ -48,7 +43,16 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
 
         protected override void RefreshData()
         {
-            throw new NotImplementedException();
+            try
+            {
+                DataSource.Clear();
+                SelectedProvider = default;
+                _servicesRepository.Data.ToList().ForEach(x => DataSource.Add(x));
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessage(ex.Message);
+            }
         }
     }
 }

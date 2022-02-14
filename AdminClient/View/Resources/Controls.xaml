@@ -8,8 +8,8 @@
     <Button x:Key="UpdateButton" Content="Изменить"/>
     <Button x:Key="DeleteButton"  Content="Удалить"/>
 
-    <MenuItem x:Key="SaveMenuItem" Header="Сохранить"/>
-    <MenuItem x:Key="UpdateMenuItem"  Header="Обновить"/>
+    <MenuItem x:Key="SaveMenuItem" Header="Сохранить" Command="{Binding SaveDataCommand}"/>
+    <MenuItem x:Key="UpdateMenuItem"  Header="Обновить" Command="{Binding RefreshDataCommand}"/>
 
     <Grid     x:Key="StatisticPeriodPicker"
               Margin="10 5"

@@ -4,22 +4,23 @@ using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
 using ElectronicQueue.Data.Dto.Maps;
 using ElectronicQueue.Data.Models;
 using ElectronicQueue.RestEndpoint;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
 {
-    public class ServicesRepository : IRepository<ServiceProviderModel>
+    public class ServicePointRepository : IRepository<ServicePointModel>
     {
         private readonly IMapper _mapper;
-        private List<ServiceProviderDto> _data;
+        private List<ServicePointDto> _data;
 
-        public ServicesRepository()
+        public ServicePointRepository()
         {
             _mapper = DtoMapperConfiguration.CreateMapper();
         }
-
-        public ICollection<ServiceProviderModel> Data
+        public ICollection<ServicePointModel> Data
         {
             get
             {
@@ -27,22 +28,21 @@ namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
                 {
                     Refresh();
                 }
-                return _data.Select(x => _mapper.Map<ServiceProviderModel>(x)).ToList();
+                return _data.Select(x => _mapper.Map<ServicePointModel>(x)).ToList();
             }
         }
 
         public void Refresh()
         {
-            _data = EndpoinCollection.ServicesProvider.Get()
+
+            _data = EndpoinCollection.ServicePoint.Get()
                                                       .Where(x => x != null)
                                                       .ToList();
         }
 
-        public void Save(IEnumerable<ServiceProviderModel> models)
+        public void Save(IEnumerable<ServicePointModel> models)
         {
-            var dto = models.Select(x => _mapper.Map<ServiceProviderDto>(x));
-            var toAdd = dto.Where(x => x.Id == default).ToList();
-            var ToUpdate = dto.Except(_data).Where(x => x.Id == default).ToList();
+            throw new NotImplementedException();
         }
     }
 }

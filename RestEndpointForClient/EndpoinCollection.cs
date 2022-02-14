@@ -5,5 +5,7 @@ namespace ElectronicQueue.RestEndpoint
     public static class EndpoinCollection
     {
         public static ServicesProviderEndpoint ServicesProvider => new ServicesProviderEndpoint();
+
+        public static ServicePointEndpoint ServicePoint => new ServicePointEndpoint();
     }
 }

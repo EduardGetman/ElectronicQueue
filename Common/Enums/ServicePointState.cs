@@ -1,26 +1,22 @@
-﻿namespace ElectronicQueue.Data.Common.Enums
+﻿using ElectronicQueue.Data.Common.Attributes;
+
+namespace ElectronicQueue.Data.Common.Enums
 {
     public enum ServicePointState
     {
-        /// <summary>
-        /// Не работает
-        /// </summary>
+        [Name("Не работатет")]
         Closed,
-        /// <summary>
-        /// Свободен
-        /// </summary>
+
+        [Name("Свободен")]
         Free,
-        /// <summary>
-        /// Ожидает клиента
-        /// </summary>
+
+        [Name("Ожидает клиента")]
         WaitNext,
-        /// <summary>
-        /// Обслуживает
-        /// </summary>
+
+        [Name("Обслуживает")]
         Servicing,
-        /// <summary>
-        /// Обслуживание приостановленно
-        /// </summary>
+
+        [Name("Обслуживание приостановленно")]
         Paused
     }
 }

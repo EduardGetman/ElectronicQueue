@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>ElectronicQueue.Data.Domain</RootNamespace>
+    <RootNamespace>ElectronicQueue.Core.Domain</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

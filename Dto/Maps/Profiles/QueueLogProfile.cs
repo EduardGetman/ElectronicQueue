@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ElectronicQueue.Data.Domain.Domains.LogDomain;
+using ElectronicQueue.Core.Domain;
 using ElectronicQueue.Data.Dto.Entitys.Log_;
 using ElectronicQueue.Data.Models;
 

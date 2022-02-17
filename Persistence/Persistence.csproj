@@ -1,14 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ElectronicQueue\Domain.csproj" />
-    <ProjectReference Include="..\RestEndpointForClient\RestEndpoint.csproj" />
   </ItemGroup>
 
 </Project>

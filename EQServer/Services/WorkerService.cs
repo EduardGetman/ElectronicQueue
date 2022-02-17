@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.Data.Domain.Domains.Queue;
+﻿using ElectronicQueue.Core.Domain;
 
 namespace ElectronicQueue.EQServer.Services
 {

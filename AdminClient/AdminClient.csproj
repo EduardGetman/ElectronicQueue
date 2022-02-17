@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ElectronicQueue\Domain.csproj" />
-    <ProjectReference Include="..\RestEndpointForClient\RestEndpointForClient.csproj" />
+    <ProjectReference Include="..\RestEndpointForClient\RestEndpoint.csproj" />
   </ItemGroup>
 
 </Project>

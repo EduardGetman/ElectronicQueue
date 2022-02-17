@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ElectronicQueue.Data.Domain.Domains.OrganizationInfo;
+using ElectronicQueue.Core.Domain;
 using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
 using ElectronicQueue.Data.Models;
 

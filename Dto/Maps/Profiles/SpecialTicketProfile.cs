@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ElectronicQueue.Data.Domain.Domains.Queue;
+using ElectronicQueue.Core.Domain;
 using ElectronicQueue.Data.Dto.Entitys.Queue;
 
 namespace ElectronicQueue.Data.Dto.Maps

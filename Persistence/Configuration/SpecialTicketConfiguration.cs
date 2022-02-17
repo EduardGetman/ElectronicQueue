@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ElectronicQueue.Data.Domain.Configuration.Queue
+namespace ElectronicQueue.Infrastructure.Persistence.Configuration
 {
     internal class SpecialTicketConfiguration : IEntityTypeConfiguration<SpecialTicketDomain>
     {

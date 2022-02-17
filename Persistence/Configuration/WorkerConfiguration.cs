@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ElectronicQueue.Data.Domain.Configuration.OrganizationInfo
+namespace ElectronicQueue.Infrastructure.Persistence.Configuration
 {
     public class WorkerConfiguration : IEntityTypeConfiguration<WorkerDomain>
     {

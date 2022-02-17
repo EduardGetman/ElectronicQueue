@@ -1,13 +1,11 @@
 ﻿using ElectronicQueue.Core.Domain;
-using ElectronicQueue.Data.Domain.Configuration.Logs_;
-using ElectronicQueue.Data.Domain.Configuration.OrganizationInfo;
-using ElectronicQueue.Data.Domain.Configuration.Queue;
-using ElectronicQueue.Data.Domain.Configuration.Statistic;
+using ElectronicQueue.Core.Application.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using ElectronicQueue.Infrastructure.Persistence.Configuration;
 
-namespace ElectronicQueue.Data.Domain
+namespace ElectronicQueue.Infrastructure.Persistence
 {
-    public class EqDbContext : DbContext
+    public class EqDbContext : DbContext, IDataContext
     {
         private const string ServerName = @"DESKTOP-SAKIRQV\SQLEXPRESS";
         private const string DbName = "ElectronicQueueDb";

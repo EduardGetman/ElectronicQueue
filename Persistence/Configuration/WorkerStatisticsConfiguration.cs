@@ -3,7 +3,7 @@ using ElectronicQueue.Data.Common.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ElectronicQueue.Data.Domain.Configuration.Statistic
+namespace ElectronicQueue.Infrastructure.Persistence.Configuration
 {
     public class WorkerStatisticsConfiguration : IEntityTypeConfiguration<WorkerStatisticDomain>
     {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace ElectronicQueue.Data.Domain.Configuration.Logs_
+namespace ElectronicQueue.Infrastructure.Persistence.Configuration
 {
     public class QueueLogConfiguration : IEntityTypeConfiguration<QueueLogDomain>
     {

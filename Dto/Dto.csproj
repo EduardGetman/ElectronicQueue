@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Entitys\ServiceProviderDto.cs">
+    <Compile Update="Dto\ServiceProviderDto.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

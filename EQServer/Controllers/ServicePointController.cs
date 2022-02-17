@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
+using ElectronicQueue.Core.Application.Dto;
 using ElectronicQueue.Data.Common.Enums;
 using ElectronicQueue.Data.Common.Extansion;
-using ElectronicQueue.Data.Domain;
-using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
 using ElectronicQueue.Data.Dto.Maps;
+using ElectronicQueue.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;

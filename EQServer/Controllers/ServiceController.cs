@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
+﻿using ElectronicQueue.Core.Application.Dto;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

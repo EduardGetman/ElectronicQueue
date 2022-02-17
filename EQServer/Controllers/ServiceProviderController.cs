@@ -1,7 +1,7 @@
 using AutoMapper;
-using ElectronicQueue.Data.Domain;
-using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
+using ElectronicQueue.Core.Application.Dto;
 using ElectronicQueue.Data.Dto.Maps;
+using ElectronicQueue.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;

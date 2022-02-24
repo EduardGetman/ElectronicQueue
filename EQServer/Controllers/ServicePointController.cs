@@ -1,14 +1,14 @@
 ﻿using AutoMapper;
 using ElectronicQueue.Core.Application.Dto;
+using ElectronicQueue.Core.Domain;
 using ElectronicQueue.Data.Common.Enums;
 using ElectronicQueue.Data.Common.Extansion;
 using ElectronicQueue.Data.Dto.Maps;
 using ElectronicQueue.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ElectronicQueue.EQServer.Controllers
 {
@@ -19,7 +19,6 @@ namespace ElectronicQueue.EQServer.Controllers
         private readonly EqDbContext _context = new EqDbContext();
         private readonly IMapper _mapper = DtoMapperConfiguration.CreateMapper();
 
-        // GET: api/<ServicePoint>
         [HttpGet]
         public IActionResult Get()
         {
@@ -33,29 +32,45 @@ namespace ElectronicQueue.EQServer.Controllers
             }
         }
 
-        // GET api/<ServicePointController>/5
-        [HttpGet("{id}")]
-        public ServicePointDto Get(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        // POST api/<ServicePointController>
         [HttpPost]
-        public void Post([FromBody] ServicePointDto value)
+        public IActionResult Post([FromBody] IEnumerable<ServicePointDto> value)
         {
+            try
+            {
+                _context.AddRange(value.Select(x => _mapper.Map<ServicePointDomain>(x)));
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
         }
 
-        // PUT api/<ServicePointController>/5
-        [HttpPut("{id}")]
-        public void Put(long id, [FromBody] ServicePointDto value)
+        public IActionResult Put([FromBody] IEnumerable<ServicePointDto> value)
         {
+            try
+            {
+                _context.UpdateRange(value.Select(x => _mapper.Map<ServicePointDomain>(x)));
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
         }
 
-        // DELETE api/<ServicePointController>/5
-        [HttpDelete("{id}")]
-        public void Delete(long id)
+        [HttpDelete]
+        public IActionResult Delete([FromBody] IEnumerable<long> ids)
         {
+            try
+            {
+                _context.ServicePoints.RemoveRange(_context.ServicePoints.Find(ids.ToArray()));
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
         }
     }
 }

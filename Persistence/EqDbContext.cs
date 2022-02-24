@@ -1,7 +1,7 @@
-﻿using ElectronicQueue.Core.Domain;
-using ElectronicQueue.Core.Application.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using ElectronicQueue.Core.Application.Interfaces;
+using ElectronicQueue.Core.Domain;
 using ElectronicQueue.Infrastructure.Persistence.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace ElectronicQueue.Infrastructure.Persistence
 {

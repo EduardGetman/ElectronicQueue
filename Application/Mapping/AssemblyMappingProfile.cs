@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace ElectronicQueue.Core.Application.Mapping
 {
-    public class AssemblyMappingProfile: Profile
+    public class AssemblyMappingProfile : Profile
     {
         public AssemblyMappingProfile(Assembly assembly) => ApplyMappingsFromAssembly(assembly);
 

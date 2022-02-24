@@ -4,7 +4,7 @@
     {
         public static void Initialize(EqDbContext context)
         {
-            context.Database.EnsureCreated();   
+            context.Database.EnsureCreated();
         }
     }
 }

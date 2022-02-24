@@ -31,5 +31,5 @@ namespace ElectronicQueue.EQServer.Services
             throw new NotImplementedException();
         }
     }
-    
+
 }

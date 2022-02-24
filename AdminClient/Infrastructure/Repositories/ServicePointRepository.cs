@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ElectronicQueue.AdminClient.Interfaces;
-using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
+using ElectronicQueue.Core.Application.Dto;
 using ElectronicQueue.Data.Dto.Maps;
 using ElectronicQueue.Data.Models;
 using ElectronicQueue.RestEndpoint;
@@ -41,7 +41,13 @@ namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
 
         public void Save(IEnumerable<ServicePointModel> models)
         {
-            throw new NotImplementedException();
+            var oldModels = Data;
+            var changedModels = models.Except(oldModels).ToList();
+            var toAdd = changedModels.Where(x => x.Id == default);
+            var toUpdate = changedModels.Where(x => x.Id != default);
+            var toDelete = oldModels.Except(models);
+
+            if (toUpdate.Any()) { }
         }
     }
 }

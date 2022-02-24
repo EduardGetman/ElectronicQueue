@@ -2,10 +2,9 @@
 {
     internal class QueueLogService
     {
-        IE
         public QueueLogService()
         {
-            
+
         }
         public void PullTicketEventHandler(long ServiceId, bool IsSpecial)
         {
@@ -23,5 +22,5 @@
         {
         }
     }
-    
+
 }

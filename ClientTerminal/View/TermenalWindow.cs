@@ -1,5 +1,4 @@
-﻿using ElectronicQueue.Data.Dto.Entitys;
-using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
+﻿using ElectronicQueue.Core.Application.Dto;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;

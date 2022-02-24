@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.Data.Dto.Entitys.OrganizationInfo;
+﻿using ElectronicQueue.Core.Application.Dto;
 using System.Collections.Generic;
 
 namespace ElectronicQueue.RestEndpoint.Endpoints

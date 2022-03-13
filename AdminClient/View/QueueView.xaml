@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ElectronicQueue.AdminClient.View"
+             xmlns:model="clr-namespace:ElectronicQueue.Data.Models;assembly=Models"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800"
@@ -42,28 +43,38 @@
                    Style="{StaticResource ResourceKey=MenuSectionHederTextBlock}"/>
         
         <DataGrid  Grid.Row="2" 
-                       VerticalAlignment="Stretch"
-                       ItemsSource="{Binding SelectedServiceProvider }">
+                   VerticalAlignment="Stretch"
+                   x:Name="DataGrid1"
+                   AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование сервиса"/>
-                <DataGridTextColumn Header="Индентификатор очереди"/>
-                <DataGridTextColumn Header="Количетсво талонов"/>
-                <DataGridCheckBoxColumn Header="Очередь запущена"/>
+                <DataGridTextColumn Header="Наименование сервиса"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Индентификатор очереди"
+                                    Binding="{Binding Letters}"/>
+                <DataGridTextColumn Header="Количетсво талонов"
+                                    Binding="{Binding ServicesCount}"/>
+                <DataGridCheckBoxColumn Header="Очередь запущена"
+                                    Binding="{Binding IsProvided}"/>
             </DataGrid.Columns>
         </DataGrid>
         
         <TextBlock Grid.Row="3"
                        Text="Талоны" 
                        Style="{StaticResource ResourceKey=MenuSectionHederTextBlock}"/>
-        
-        <DataGrid  HorizontalAlignment="Stretch" 
-                   ItemsSource="{Binding SelectedServiceProvider }"
-                   Grid.Row="5">
+
+        <DataGrid x:Name="DataGrid2"
+                   HorizontalAlignment="Stretch" 
+                   Grid.Row="5"
+                  AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Состояние"/>
-                <DataGridTextColumn Header="Наименование услуги"/>
-                <DataGridTextColumn Header="Вид"/>
-                <DataGridCheckBoxColumn Header="Подтвержден"/>
+                <DataGridTextColumn Header="Состояние"
+                                    Binding="{Binding State}"/>
+                <DataGridTextColumn Header="Наименование услуги"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Вид"
+                                    Binding="{Binding Type}"/>
+                <DataGridCheckBoxColumn Header="Подтвержден"
+                                    Binding="{Binding isProvided}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

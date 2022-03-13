@@ -39,22 +39,29 @@
             <StackPanel VerticalAlignment="Center" DockPanel.Dock="Right" 
                         Style="{StaticResource StackContainerHorizontal}">
                 <TextBlock Text="Для сервиса"/>
-                <CheckBox IsThreeState="False" />
+                <CheckBox IsThreeState="False" IsChecked="True" />
             </StackPanel>
         </DockPanel>
 
-        <DataGrid  HorizontalAlignment="Stretch" 
-                   ItemsSource="{Binding SelectedServiceProvider }"
+        <DataGrid   x:Name="DataGrid1"
+                    AutoGenerateColumns="False"
+                    HorizontalAlignment="Stretch" 
                    Grid.Row="2" 
                    Grid.Column ="1" 
                    ColumnHeaderStyle="{StaticResource ResourceKey=DataGridHeadersStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование"/>
-                <DataGridTextColumn Header="Продолжительность работы"/>
-                <DataGridTextColumn Header="Обслужено клиентов"/>
-                <DataGridTextColumn Header="Не обслужено клиентов"/>
-                <DataGridTextColumn Header="Начало периода"/>
-                <DataGridTextColumn Header="Конец периода"/>
+                <DataGridTextColumn Header="Наименование"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Продолжительность работы"
+                                    Binding="{Binding Continues}"/>
+                <DataGridTextColumn Header="Обслужено клиентов"
+                                    Binding="{Binding ClientCount}"/>
+                <DataGridTextColumn Header="Не обслужено клиентов"
+                                    Binding="{Binding UnServicedCount}"/>
+                <DataGridTextColumn Header="Начало периода"
+                                    Binding="{Binding StratPeriod}"/>
+                <DataGridTextColumn Header="Конец периода"
+                                    Binding="{Binding EndPeriod}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

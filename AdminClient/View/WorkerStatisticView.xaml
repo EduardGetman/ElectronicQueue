@@ -37,18 +37,26 @@
             <StaticResource ResourceKey="StatisticPeriodPicker"/>
         </DockPanel>
 
-        <DataGrid  HorizontalAlignment="Stretch" 
+        <DataGrid x:Name="DataGrid1"
+                    AutoGenerateColumns="False"
+                  HorizontalAlignment="Stretch" 
                    ItemsSource="{Binding SelectedServiceProvider }"
                    Grid.Row="2" 
                    Grid.Column ="1" 
                    ColumnHeaderStyle="{StaticResource ResourceKey=DataGridHeadersStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Имя работника"/>
-                <DataGridTextColumn Header="Продолжительность работы"/>
-                <DataGridComboBoxColumn Header="Обслужено клиентов"/>
-                <DataGridComboBoxColumn Header="Обслужено клиентов"/>
-                <DataGridComboBoxColumn Header="Начало периода"/>
-                <DataGridComboBoxColumn Header="Конец периода"/>
+                <DataGridTextColumn Header="Имя работника" 
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Продолжительность работы"
+                                    Binding="{Binding Continues}"/>
+                <DataGridTextColumn Header="Обслужено клиентов"
+                                    Binding="{Binding ClientCount}"/>
+                <DataGridTextColumn Header="Не обслужено клиентов"
+                                    Binding="{Binding UnServicedCount}"/>
+                <DataGridTextColumn Header="Начало периода"
+                                    Binding="{Binding StratPeriod}"/>
+                <DataGridTextColumn Header="Конец периода"
+                                    Binding="{Binding EndPeriod}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

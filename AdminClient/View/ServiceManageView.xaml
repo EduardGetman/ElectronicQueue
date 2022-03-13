@@ -41,24 +41,31 @@
             <StaticResource ResourceKey="UpdateMenuItem" />
         </Menu>
 
-        <DataGrid  HorizontalAlignment="Stretch" 
-                   ItemsSource="{Binding SelectedServiceProvider }"
-                   Grid.Row="2">
+        <DataGrid x:Name="DataGrid1"
+                   HorizontalAlignment="Stretch" 
+                   Grid.Row="2"
+                  AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование сервиса" />
-                <DataGridTextColumn Header="Количество услуг" />
+                <DataGridTextColumn Header="Наименование сервиса"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Количество услуг" 
+                                    Binding="{Binding ServicesCount}"/>
                 <DataGridCheckBoxColumn Header="Включен" 
-                                        IsThreeState="False"/>
+                                        IsThreeState="False"
+                                    Binding="{Binding IsProvided}"/>
             </DataGrid.Columns>
         </DataGrid>
-        
-        <DataGrid  HorizontalAlignment="Stretch" 
-                   ItemsSource="{Binding SelectedServiceProvider }"
-                   Grid.Row="3">
+
+        <DataGrid  x:Name="DataGrid2"
+                   HorizontalAlignment="Stretch" 
+                   Grid.Row="3"
+                  AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование услуги" />
+                <DataGridTextColumn Header="Наименование услуги" 
+                                    Binding="{Binding Name}"/>
                 <DataGridCheckBoxColumn Header="Услуга предоставляется" 
-                                        IsThreeState="False"/>
+                                        IsThreeState="False"
+                                        Binding="{Binding IsProvided}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:ElectronicQueue.AdminClient.ViewModel.Pages"
              xmlns:local="clr-namespace:ElectronicQueue.AdminClient.View"
+             xmlns:model="clr-namespace:ElectronicQueue.Data.MockModel;assembly=Models"
              mc:Ignorable="d" 
              d:DesignHeight="450" 
              d:DesignWidth="800"
@@ -15,7 +16,10 @@
                 <ResourceDictionary Source="Resources/Styles.xaml"/>
                 <ResourceDictionary Source="Resources/Controls.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+            <model:ServicePointModel x:Key="ServicePointModel" Location="Окно #1"
+                                                               ServicePointState="Servicing" 
+                                                               Provider="asdasd"/>
+        </ResourceDictionary>        
     </UserControl.Resources>
     
     <UserControl.DataContext>
@@ -39,17 +43,16 @@
             <StaticResource ResourceKey="PageNameTextBlock"/>
         </DockPanel>
 
-        <DataGrid  HorizontalAlignment="Stretch" 
-                   ItemsSource="{Binding DataSource}"
+        <DataGrid x:Name="DataGrid1"
+                   HorizontalAlignment="Stretch" 
                    Grid.Row="1"
                    Grid.Column ="1"
                    AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Место положение"
                                     Binding="{Binding Location}"/>
-                <DataGridComboBoxColumn Header="Услуга предоставляется"
-                                        ItemsSource="{Binding e}"
-                                        SelectedItemBinding="{Binding ServicePointState}"/>
+                <DataGridTextColumn Header="Состояние услуги"
+                                    Binding="{Binding ServicePointState}"/>
                 <DataGridTextColumn Header="Текщий сервис"
                                     Binding="{Binding Provider}"/>
             </DataGrid.Columns>

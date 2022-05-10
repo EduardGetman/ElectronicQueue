@@ -21,7 +21,7 @@ namespace ClientTerminal
             FillButtonStackWithDto(_serviceProviders);
             VisibilityBackButton(false);
         }
-        private void FillButtonStackWithDto(IEnumerable<DtoBase> dto)
+        private void FillButtonStackWithDto(IEnumerable<IHaveName> dto)
         {
             if (dto is null)
             {
@@ -44,9 +44,9 @@ namespace ClientTerminal
             }
         }
 
-        private Button CreateButton(DtoBase provider)
+        private Button CreateButton(IHaveName provider)
         {
-            var button = new Button { Content = provider };
+            var button = new Button { Content = provider.Name };
             button.Click += ClickButton;
             return button;
         }
@@ -81,4 +81,5 @@ namespace ClientTerminal
             BackButton.Visibility = isVisible ? Visibility.Visible : Visibility.Collapsed;
         }
     }
+
 }

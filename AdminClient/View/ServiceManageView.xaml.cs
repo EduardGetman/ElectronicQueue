@@ -20,8 +20,8 @@ namespace ElectronicQueue.AdminClient.View
             };
             DataGrid2.ItemsSource = new List<ServiceModel>
             {
-                new ServiceModel() { Name="Первичный осмотр", IsProvided = true},
-                new ServiceModel() { Name="Консультация", IsProvided = false},
+                new ServiceModel() { Name="Первичный осмотр",   IsProvided = true},
+                new ServiceModel() { Name="Консультация",       IsProvided = false},
                 new ServiceModel() { Name="Открытие больничего", IsProvided = true},
                 new ServiceModel() { Name="Закрытие больничего", IsProvided = true},
             };

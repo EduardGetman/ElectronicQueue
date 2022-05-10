@@ -5,12 +5,15 @@ namespace ElectronicQueue.Core.Application.Dto
     /// <summary>
     /// Точка предоставления услуги (кабинет, окно ...)
     /// </summary>
-    public class ServiceProviderDto : DtoBase
+    public class ServiceProviderDto : DtoBase, IHaveName
     {
         public string Name { get; set; }
         public QueueDto Queue { get; set; }
-        public ICollection<ServiceDto> Services { get; }
+        public ICollection<ServiceDto> Services { get; set; }
         public ICollection<ServicePointDto> ServicePoints { get; }
     }
-
+    public interface IHaveName
+    {
+        string Name { get; }
+    }
 }

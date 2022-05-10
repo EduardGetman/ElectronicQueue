@@ -1,4 +1,6 @@
-﻿using ElectronicQueue.RestEndpoint.Endpoints;
+﻿using ElectronicQueue.Core.Application.Dto;
+using ElectronicQueue.RestEndpoint.Endpoints;
+using System.Collections.Generic;
 using System.Windows;
 
 namespace ClientTerminal
@@ -17,7 +19,27 @@ namespace ClientTerminal
 
         private void StartButtonClick(object sender, RoutedEventArgs e)
         {
-            var providerDtos = _servicesEndpoint.Get();
+            var providerDtos = new List<ServiceProviderDto>()
+            {
+                new ServiceProviderDto()
+                {
+                    Name = "Терапевт", 
+                    Services = new List<ServiceDto>
+                    { 
+                        new ServiceDto { Name="Первичный осмотр",},
+                        new ServiceDto { Name="Консультация", },
+                        new ServiceDto {Name="Открытие больничего", },
+                        new ServiceDto { Name="Закрытие больничего", }
+                    }
+                },           
+                new ServiceProviderDto()
+                {
+                    Name = "Лор",
+                    Services = new List<ServiceDto>
+                    {
+                    }
+                },
+            };
             var terminalWindow = new TermenalWindow(providerDtos);
             terminalWindow.Show();
         }

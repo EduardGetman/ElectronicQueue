@@ -9,8 +9,8 @@ namespace ElectronicQueue.Core.Application.Dto
     {
         public string Name { get; set; }
         public QueueDto Queue { get; set; }
-        public ICollection<ServiceDto> Services { get; }
-        public ICollection<ServicePointDto> ServicePoints { get; }
+        public ICollection<ServiceDto> Services { get; set; }
+        public ICollection<ServicePointDto> ServicePoints { get; set; }
     }
 
 }

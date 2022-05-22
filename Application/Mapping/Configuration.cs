@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using System;
+using System.Reflection;
 
 namespace ElectronicQueue.Data.Dto.Maps
 {
@@ -21,5 +23,6 @@ namespace ElectronicQueue.Data.Dto.Maps
             x.AllowNullDestinationValues = true;
         });
         public static IMapper CreateMapper() => _configuration.CreateMapper();
+        public static Assembly[] GetAssemblies() => AppDomain.CurrentDomain.GetAssemblies();
     }
 }

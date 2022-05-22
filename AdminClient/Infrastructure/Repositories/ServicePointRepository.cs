@@ -4,7 +4,6 @@ using ElectronicQueue.Core.Application.Dto;
 using ElectronicQueue.Data.Dto.Maps;
 using ElectronicQueue.Data.Models;
 using ElectronicQueue.RestEndpoint;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 

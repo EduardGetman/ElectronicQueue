@@ -12,7 +12,6 @@ namespace ElectronicQueue.Core.Application.Dto
         public ServicePointState ServicePointState { get; set; }
 
         public long? ProviderId { get; set; }
-        public ServiceProviderDto Provider { get; set; }
         public ICollection<WorkerDto> Workers { get; set; }
     }
 }

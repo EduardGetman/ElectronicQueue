@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using ElectronicQueue.Core.Application.Dto;
 using ElectronicQueue.Core.Domain;
-using ElectronicQueue.Data.Dto.Maps;
 using ElectronicQueue.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +15,19 @@ namespace ElectronicQueue.EQServer.Controllers
     public class ServicePointController : ControllerBase
     {
         private readonly EqDbContext _context = new EqDbContext();
-        private readonly IMapper _mapper = DtoMapperConfiguration.CreateMapper();
+        private readonly IMapper _mapper;
+
+        public ServicePointController(IMapper mapper)
+        {
+            _mapper = mapper;
+        }
 
         [HttpGet]
         public IActionResult Get()
         {
             try
             {
-                return base.Ok(_context.ServicePoints.Select(x => _mapper.Map<ServicePointDto>(x)));
+                return base.Ok(_context.ServicePoints.AsNoTracking().Select(x => _mapper.Map<ServicePointDto>(x)));
             }
             catch (Exception ex)
             {
@@ -36,6 +41,7 @@ namespace ElectronicQueue.EQServer.Controllers
             try
             {
                 _context.AddRange(value.Select(x => _mapper.Map<ServicePointDomain>(x)));
+                _context.SaveChanges();
                 return Ok();
             }
             catch (Exception ex)
@@ -43,12 +49,13 @@ namespace ElectronicQueue.EQServer.Controllers
                 return Problem(detail: ex.StackTrace, title: ex.Message);
             }
         }
-
+        [HttpPut]
         public IActionResult Put([FromBody] IEnumerable<ServicePointDto> value)
         {
             try
             {
                 _context.UpdateRange(value.Select(x => _mapper.Map<ServicePointDomain>(x)));
+                _context.SaveChanges();
                 return Ok();
             }
             catch (Exception ex)
@@ -62,7 +69,8 @@ namespace ElectronicQueue.EQServer.Controllers
         {
             try
             {
-                _context.ServicePoints.RemoveRange(_context.ServicePoints.Find(ids.ToArray()));
+                _context.ServicePoints.RemoveRange(_context.ServicePoints.Where(x => ids.Contains(x.Id)));
+                _context.SaveChanges();
                 return Ok();
             }
             catch (Exception ex)

@@ -9,8 +9,8 @@ namespace ElectronicQueue.Core.Domain
     {
         public string Name { get; set; }
         public QueueDomain Queue { get; set; }
-        public ICollection<ServiceDomain> Services { get; }
-        public ICollection<ServicePointDomain> ServicePoints { get; }
+        public ICollection<ServiceDomain> Services { get; set; }
+        public ICollection<ServicePointDomain> ServicePoints { get; set; }
     }
 
 }

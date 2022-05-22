@@ -1,7 +1,9 @@
-﻿using ElectronicQueue.Core.Application.Dto;
+﻿using AutoMapper;
+using ElectronicQueue.Core.Application.Dto;
+using ElectronicQueue.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ElectronicService.EQServer.Controllers
 {
@@ -9,20 +11,26 @@ namespace ElectronicService.EQServer.Controllers
     [ApiController]
     public class ServiceController : ControllerBase
     {
-        // GET: api/<ValuesController>
-        [HttpGet]
-        // GET: api/<ServiceStatistcController>
-        [HttpGet]
-        public IEnumerable<ServiceDto> Get()
+        private readonly EqDbContext _context;
+        private readonly IMapper _mapper;
+
+        public ServiceController(IMapper mapper)
         {
-            throw new NotImplementedException();
+            _mapper = mapper;
+            _context = new EqDbContext();
         }
 
-        // GET api/<ServiceStatistcController>/5
-        [HttpGet("{id}")]
-        public ServiceDto Get(long id)
+        [HttpGet("providerId")]
+        public IActionResult Get(long providerId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return Ok(_context.Services.Where(x => x.ProviderId == providerId).Select(x => _mapper.Map<ServiceDto>(x)));
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
         }
 
         // POST api/<ServiceStatistcController>

@@ -1,6 +1,8 @@
 using AutoMapper;
 using ElectronicQueue.Core.Application.Dto;
 using ElectronicQueue.Core.Domain;
+using ElectronicQueue.EQServer.Interfaces;
+using ElectronicQueue.EQServer.Services;
 using ElectronicQueue.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -14,13 +16,16 @@ namespace ElectronicQueue.EQServer.Controllers
     [Route("api/ServiceProvider")]
     public class ServiceProviderController : ControllerBase
     {
+        private readonly IQueueServices _queueServices;
         private readonly EqDbContext _context;
         private readonly IMapper _mapper;
 
         public ServiceProviderController(IMapper mapper)
         {
             _mapper = mapper;
-            _context = new EqDbContext();
+            _context = EqDbContextFactory.GetContext();
+            _queueServices = new QueueServices();
+
         }
 
         [HttpGet]
@@ -75,27 +80,12 @@ namespace ElectronicQueue.EQServer.Controllers
         {
             try
             {
-                _context.AddRange(dtos.Select(x => _mapper.Map<ServiceProviderDomain>(x)));
-                _context.SaveChanges();
-                return Ok();
-            }
-            catch (Exception ex)
-            {
-                return Problem(detail: ex.StackTrace, title: ex.Message);
-            }
-        }
-
-        [HttpPost]
-        [Route("AddWithService")]
-        public IActionResult AddWithService([FromBody] IEnumerable<ServiceProviderDto> dtos)
-        {
-            try
-            {
-                foreach (var dto in dtos)
+                var existedLetters = new List<string>();
+                foreach (var item in dtos.Select(x => _mapper.Map<ServiceProviderDomain>(x)))
                 {
-                    var domain = _mapper.Map<ServiceProviderDomain>(dto);
-                    domain.Services = dto.Services.Select(x => _mapper.Map<ServiceDomain>(x)).ToList();
-                    _context.Add(domain);
+                    item.Queue = _queueServices.CreateQueue(existedLetters);
+                    existedLetters.Add(item.Queue.Letters);
+                    _context.Add(item);
                 }
                 _context.SaveChanges();
                 return Ok();
@@ -126,7 +116,11 @@ namespace ElectronicQueue.EQServer.Controllers
         {
             try
             {
-                _context.RemoveRange(_context.ServiceProviders.Where(x => ids.Contains(x.Id)));
+                var domains = _context.ServiceProviders.Where(x => ids.Contains(x.Id));
+
+                var pointid = domains.SelectMany(x => x.ServicePoints.Select(x => x.Id));
+                _context.RemoveRange(_context.ServicePoints.Where(x => pointid.Contains(x.Id)));
+                _context.RemoveRange(domains);
                 _context.SaveChanges();
                 return Ok();
             }

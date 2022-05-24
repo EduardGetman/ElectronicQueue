@@ -47,8 +47,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Место положение"
                                     Binding="{Binding Location}"/>
-                <DataGridComboBoxColumn Header="Услуга предоставляется"
-                                        ItemsSource="{Binding e}"
+                <DataGridComboBoxColumn Header="Состояние"
+                                        ItemsSource="{Binding States}"
                                         SelectedItemBinding="{Binding ServicePointState}"/>
                 <DataGridTextColumn Header="Текщий сервис"
                                     Binding="{Binding Provider}"/>

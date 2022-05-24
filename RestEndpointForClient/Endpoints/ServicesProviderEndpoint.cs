@@ -3,21 +3,28 @@ using System.Collections.Generic;
 
 namespace ElectronicQueue.RestEndpoint.Endpoints
 {
-    public class ServicesProviderEndpoint : BaseEndpoint
+    public class ServicesProviderEndpoint : BaseEndpoint, IRestEndpoint<ServiceProviderDto>
     {
         private const string UrlController = URL_ROOT + "/ServiceProvider";
+
         public IEnumerable<ServiceProviderDto> Get()
         {
             return _restApiClient.RequestGet<IEnumerable<ServiceProviderDto>>(UrlController);
         }
-        public IEnumerable<ServiceProviderDto> Save(IEnumerable<ServiceProviderDto> toAdd, IEnumerable<ServiceProviderDto> toUpdate)
+
+        public void Post(IEnumerable<ServiceProviderDto> toAdd)
         {
-            return _restApiClient.RequestPost<IEnumerable<ServiceProviderDto>>(UrlController,
-                                                                              new Dictionary<string, object>
-                                                                              {
-                                                                                  { nameof(toAdd), toAdd },
-                                                                                  { nameof(toUpdate), toUpdate }
-                                                                              });
+            _restApiClient.RequestPost<IEnumerable<ServiceProviderDto>>(UrlController, toAdd);
+        }
+
+        public void Put(IEnumerable<ServiceProviderDto> toUpdate)
+        {
+            _restApiClient.RequestPut<IEnumerable<ServiceProviderDto>>(UrlController, toUpdate);
+        }
+
+        public void Delete(IEnumerable<long> toDelete)
+        {
+            _restApiClient.RequestDelete<IEnumerable<long>>(UrlController, toDelete);
         }
     }
 }

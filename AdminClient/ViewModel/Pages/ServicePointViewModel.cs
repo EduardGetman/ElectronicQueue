@@ -26,7 +26,7 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
 
         public ServicePointViewModel()
         {
-            _servicesRepository = new ServicePointRepository();
+            _servicesRepository = new ServicesPointRepository();
             DataSource = new ObservableCollection<ServicePointModel>();
         }
 

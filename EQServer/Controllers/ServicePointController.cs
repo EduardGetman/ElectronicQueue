@@ -14,12 +14,13 @@ namespace ElectronicQueue.EQServer.Controllers
     [ApiController]
     public class ServicePointController : ControllerBase
     {
-        private readonly EqDbContext _context = new EqDbContext();
+        private readonly EqDbContext _context = EqDbContextFactory.GetContext();
         private readonly IMapper _mapper;
 
         public ServicePointController(IMapper mapper)
         {
             _mapper = mapper;
+            _context = EqDbContextFactory.GetContext();
         }
 
         [HttpGet]

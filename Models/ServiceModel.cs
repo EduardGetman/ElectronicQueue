@@ -8,7 +8,8 @@
 
         public string Name
         {
-            get => name; set
+            get => name;
+            set
             {
                 name = value;
                 OnPropertyChanged();
@@ -16,7 +17,8 @@
         }
         public bool IsProvided
         {
-            get => isProvided; set
+            get => isProvided;
+            set
             {
                 isProvided = value;
                 OnPropertyChanged();
@@ -24,11 +26,11 @@
         }
         public long ProviderId
         {
-            get => providerId; set
+            get => providerId;
+            set
             {
                 providerId = value;
             }
         }
-        public ServiceProviderModel Provider { get; set; }
     }
 }

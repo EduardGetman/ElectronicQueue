@@ -18,7 +18,10 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
         public ServiceProviderModel SelectedProvider
         {
             get => _selectedServiceProvider;
-            set => Set(ref _selectedServiceProvider, value);
+            set
+            {
+                Set(ref _selectedServiceProvider, value);
+            }
         }
         public ObservableCollection<ServiceProviderModel> DataSource
         {
@@ -34,16 +37,39 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
 
         protected override void SaveData()
         {
-
+            try
+            {
+                _servicesRepository.Save(DataSource);
+                RefreshData();
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessage(ex.Message);
+            }
         }
 
         protected override void RefreshData()
         {
             try
             {
-                DataSource.Clear();
-                SelectedProvider = default;
+                ClearData();
+                _servicesRepository.Refresh();
                 _servicesRepository.Data.ToList().ForEach(x => DataSource.Add(x));
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessage(ex.Message);
+            }
+        }
+        protected void ClearData()
+        {
+            try
+            {
+                while (DataSource.Count > 0)
+                {
+                    DataSource.Remove(DataSource[0]);
+                }
+                SelectedProvider = null;
             }
             catch (Exception ex)
             {

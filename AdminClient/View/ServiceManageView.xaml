@@ -42,23 +42,29 @@
         </Menu>
 
         <DataGrid  HorizontalAlignment="Stretch" 
-                   ItemsSource="{Binding SelectedServiceProvider }"
-                   Grid.Row="2">
+                   ItemsSource="{Binding DataSource }"
+                   Grid.Row="2"
+                   SelectedItem="{Binding SelectedProvider}"
+                   AutoGenerateColumns="False"
+                   CanUserAddRows="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование сервиса" />
-                <DataGridTextColumn Header="Количество услуг" />
+                <DataGridTextColumn Header="Наименование сервиса" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Количество услуг" Binding="{Binding ServicesCount, Mode=OneWay}"/>
                 <DataGridCheckBoxColumn Header="Включен" 
+                                        Binding="{Binding IsProvided, Mode=OneWay}"
                                         IsThreeState="False"/>
             </DataGrid.Columns>
         </DataGrid>
-        
+
         <DataGrid  HorizontalAlignment="Stretch" 
-                   ItemsSource="{Binding SelectedServiceProvider }"
-                   Grid.Row="3">
+                   ItemsSource="{Binding SelectedProvider.Services }"
+                   Grid.Row="3"
+                   AutoGenerateColumns="False"
+                   CanUserAddRows="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование услуги" />
+                <DataGridTextColumn Header="Наименование услуги" Binding="{Binding Name}" />
                 <DataGridCheckBoxColumn Header="Услуга предоставляется" 
-                                        IsThreeState="False"/>
+                                        IsThreeState="False" Binding="{Binding IsProvided}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

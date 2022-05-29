@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.AdminClient.Infrastructure;
+﻿using ElectronicQueue.Core.Application.MvvmInfrastructure;
 using System.ComponentModel;
 using System.Windows;
 
@@ -12,7 +12,7 @@ namespace ElectronicQueue.AdminClient.ViewModel
         }
         public bool IsInDesignMode()
         {
-            return Application.Current.MainWindow != null
+            return Application.Current.MainWindow == null
                    || DesignerProperties.GetIsInDesignMode(Application.Current.MainWindow);
         }
     }

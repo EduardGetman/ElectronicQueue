@@ -48,9 +48,11 @@
                 <DataGridTextColumn Header="Место положение"
                                     Binding="{Binding Location}"/>
                 <DataGridTextColumn Header="Состояние"
-                                    Binding="{Binding ServicePointStateName}"/>
+                                    Binding="{Binding ServicePointStateName}"
+                                    IsReadOnly="True"/>
                 <DataGridTextColumn Header="Текщий сервис"
-                                    Binding="{Binding ProviderName}"/>
+                                    Binding="{Binding ProviderName}"
+                                    IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

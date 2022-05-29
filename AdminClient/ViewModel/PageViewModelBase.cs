@@ -1,8 +1,7 @@
 ﻿using ElectronicQueue.AdminClient.Infrastructure.Commands;
 using ElectronicQueue.AdminClient.Interfaces;
-using ElectronicQueue.Data.Models;
+using ElectronicQueue.Core.Application.Model;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -19,10 +18,6 @@ namespace ElectronicQueue.AdminClient.ViewModel
         {
             RefreshDataCommand = new NonparameterizedCommand(RefreshData);
             SaveDataCommand = new NonparameterizedCommand(SaveData);
-            if (!IsInDesignMode())
-            {
-                RefreshData();
-            }
         }
 
         protected abstract void RefreshData();
@@ -49,7 +44,7 @@ namespace ElectronicQueue.AdminClient.ViewModel
         {
             try
             {
-                while (DataSource.Count > 0)
+                while (DataSource != null && DataSource.Count > 0)
                 {
                     DataSource.Remove(DataSource[0]);
                 }
@@ -64,8 +59,8 @@ namespace ElectronicQueue.AdminClient.ViewModel
             try
             {
                 ClearData();
-                repository.Refresh();
-                repository.Data.ToList().ForEach(x => DataSource.Add(x));
+                repository?.Refresh();
+                repository?.Data.ToList().ForEach(x => DataSource.Add(x));
             }
             catch (Exception ex)
             {

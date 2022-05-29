@@ -1,7 +1,7 @@
 ﻿using ElectronicQueue.AdminClient.Infrastructure.Repositories;
 using ElectronicQueue.AdminClient.Interfaces;
+using ElectronicQueue.Core.Application.Model;
 using ElectronicQueue.Data.Common.Enums;
-using ElectronicQueue.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,6 +30,10 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
         {
             _servicesRepository = new ServicesPointRepository();
             DataSource = new ObservableCollection<ServicePointModel>();
+            if (!IsInDesignMode())
+            {
+                RefreshData();
+            }
         }
     }
 }

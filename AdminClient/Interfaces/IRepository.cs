@@ -1,4 +1,4 @@
-﻿using ElectronicQueue.Data.Models;
+﻿using ElectronicQueue.Core.Application.Model;
 using System.Collections.Generic;
 
 namespace ElectronicQueue.AdminClient.Interfaces

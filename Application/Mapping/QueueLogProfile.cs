@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using ElectronicQueue.Core.Application.Dto;
+using ElectronicQueue.Core.Application.Model;
 using ElectronicQueue.Core.Domain;
-using ElectronicQueue.Data.Models;
 
 namespace ElectronicQueue.Data.Dto.Maps
 {

@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ElectronicQueue\Domain.csproj" />
-    <ProjectReference Include="..\Models\Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>

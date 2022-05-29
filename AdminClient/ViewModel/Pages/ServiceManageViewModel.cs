@@ -1,6 +1,6 @@
 ﻿using ElectronicQueue.AdminClient.Infrastructure.Repositories;
 using ElectronicQueue.AdminClient.Interfaces;
-using ElectronicQueue.Data.Models;
+using ElectronicQueue.Core.Application.Model;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -35,6 +35,10 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
         {
             _servicesRepository = new ServicesRepository();
             DataSource = new ObservableCollection<ServiceProviderModel>();
+            if (!IsInDesignMode())
+            {
+                RefreshData();
+            }
         }
         protected override void ClearData()
         {

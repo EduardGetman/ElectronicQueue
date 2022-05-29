@@ -1,5 +1,5 @@
 ﻿using ElectronicQueue.Core.Application.Dto;
-using ElectronicQueue.Data.Models;
+using ElectronicQueue.Core.Application.Model;
 using ElectronicQueue.RestEndpoint;
 
 namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
@@ -9,6 +9,10 @@ namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
         protected override IRestEndpoint<ServicePointDto> RestEndpoint => EndpoinCollection.ServicePoint;
     }
     public class ServicesRepository : ModelRepository<ServiceProviderModel, ServiceProviderDto>
+    {
+        protected override IRestEndpoint<ServiceProviderDto> RestEndpoint => EndpoinCollection.ServicesProvider;
+    }
+    public class QueueRepository : ModelRepository<QueueModel, QueueDto>
     {
         protected override IRestEndpoint<ServiceProviderDto> RestEndpoint => EndpoinCollection.ServicesProvider;
     }

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using ElectronicQueue.AdminClient.Interfaces;
 using ElectronicQueue.Core.Application.Dto;
+using ElectronicQueue.Core.Application.Model;
 using ElectronicQueue.Data.Dto.Maps;
-using ElectronicQueue.Data.Models;
 using ElectronicQueue.RestEndpoint;
 using System.Collections.Generic;
 using System.Linq;

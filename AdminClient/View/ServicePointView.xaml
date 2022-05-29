@@ -47,11 +47,10 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Место положение"
                                     Binding="{Binding Location}"/>
-                <DataGridComboBoxColumn Header="Состояние"
-                                        ItemsSource="{Binding States}"
-                                        SelectedItemBinding="{Binding ServicePointState}"/>
+                <DataGridTextColumn Header="Состояние"
+                                    Binding="{Binding ServicePointStateName}"/>
                 <DataGridTextColumn Header="Текщий сервис"
-                                    Binding="{Binding Provider}"/>
+                                    Binding="{Binding ProviderName}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

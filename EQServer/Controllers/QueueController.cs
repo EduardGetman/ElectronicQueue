@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace ElectronicQueue.EQServer.Controllers
 {
@@ -11,35 +10,31 @@ namespace ElectronicQueue.EQServer.Controllers
     [ApiController]
     public class QueueController : ControllerBase
     {
-        // GET: api/<ValuesController>
-        [HttpGet]
-        // GET: api/<ServiceStatistcController>
-        [HttpGet]
-        public IEnumerable<QueueDto> Get()
-        {
-            throw new NotImplementedException();
-        }
-
-        // GET api/<ServiceStatistcController>/5
         [HttpGet("{id}")]
-        public QueueDto Get(long id)
+        public QueueDto Get()
         {
             throw new NotImplementedException();
         }
 
-        // POST api/<ServiceStatistcController>
+        [HttpGet("{id}")]
+        public QueueDto GetByProviderId(long id)
+        {
+            throw new NotImplementedException();
+        }
+
+        [Route("Push")]
         [HttpPost]
-        public void Post([FromBody] QueueDto value)
+        public void Push([FromBody] TicketDto value)
         {
         }
 
-        // PUT api/<ServiceStatistcController>/5
+
         [HttpPut("{id}")]
         public void Put(long id, [FromBody] QueueDto value)
         {
         }
 
-        // DELETE api/<ServiceStatistcController>/5
+
         [HttpDelete("{id}")]
         public void Delete(long id)
         {

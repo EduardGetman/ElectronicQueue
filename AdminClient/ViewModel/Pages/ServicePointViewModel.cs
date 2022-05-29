@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {
-    public class ServicePointViewModel : PageViewModelBase
+    public class ServicePointViewModel : DataEditPageViewModelBase <ServicePointModel>
     {
         public override string Title => "Точки обслуживания";
 
@@ -18,34 +18,18 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
 
         public List<string> States => new List<string>(typeof(ServicePointState).GetEnumNames());
 
-        public ObservableCollection<ServicePointModel> DataSource
+        public override ObservableCollection<ServicePointModel> DataSource
         {
             get => _servicePoints;
             set => Set(ref _servicePoints, value);
         }
 
+        protected override IRepository<ServicePointModel> repository => _servicesRepository;
+
         public ServicePointViewModel()
         {
             _servicesRepository = new ServicesPointRepository();
             DataSource = new ObservableCollection<ServicePointModel>();
-        }
-
-        protected override void SaveData()
-        {
-
-        }
-
-        protected override void RefreshData()
-        {
-            try
-            {
-                DataSource.Clear();
-                _servicesRepository.Data.ToList().ForEach(x => DataSource.Add(x));
-            }
-            catch (Exception ex)
-            {
-                ShowErrorMessage(ex.Message);
-            }
         }
     }
 }

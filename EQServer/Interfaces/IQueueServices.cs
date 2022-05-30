@@ -10,7 +10,7 @@ namespace ElectronicQueue.EQServer.Interfaces
 
         public void StartQueue(long ServiceProviderId);
 
-        public TicketDomain Dequeu(long ServiceProviderId);
+        public TicketDomain Pull(long ServiceProviderId);
 
         public TicketDomain Peek(long ServiceProviderId);
 

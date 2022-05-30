@@ -1,22 +1,19 @@
-﻿namespace ElectronicQueue.Data.Common.Enums
+﻿using ElectronicQueue.Data.Common.Attributes;
+
+namespace ElectronicQueue.Data.Common.Enums
 {
     public enum TicketState
     {
-        /// <summary>
-        /// Ожидает вызова
-        /// </summary>
+        [Name("Ожидает вызова")]
         Waiting,
-        /// <summary>
-        /// Вызван
-        /// </summary>
+
+        [Name("Вызван")]
         Called,
-        /// <summary>
-        /// Обслуживается
-        /// </summary>
+
+        [Name("Обслуживается")]
         Serviced,
-        /// <summary>
-        /// Обслужен
-        /// </summary>
+
+        [Name("Обслужен")]
         Closed,
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
+using System;
 
 namespace ElectronicQueue.Core.Domain
 {
@@ -7,6 +8,8 @@ namespace ElectronicQueue.Core.Domain
     /// </summary>
     public class TicketDomain : DomainBase
     {
+        public string Name { get; set; }
+        public DateTime CreateTime { get; set; }
         public TicketState State { get; set; }
         public long ServiceId { get; set; }
         public long QueueId { get; set; }

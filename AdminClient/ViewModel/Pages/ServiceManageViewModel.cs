@@ -3,7 +3,6 @@ using ElectronicQueue.AdminClient.Interfaces;
 using ElectronicQueue.Core.Application.Model;
 using System;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {
@@ -18,10 +17,7 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
         public ServiceProviderModel SelectedProvider
         {
             get => _selectedServiceProvider;
-            set
-            {
-                Set(ref _selectedServiceProvider, value);
-            }
+            set => Set(ref _selectedServiceProvider, value);
         }
         public override ObservableCollection<ServiceProviderModel> DataSource
         {

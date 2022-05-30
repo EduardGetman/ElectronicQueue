@@ -9,7 +9,9 @@ namespace ElectronicQueue.EQServer
         public DomainDtoProfile()
         {
             CreateMap<QueueLogDomain, QueueLogDto>().ReverseMap();
-            CreateMap<QueueDomain, QueueDto>().ReverseMap();
+            CreateMap<QueueDomain, QueueDto>().ReverseMap()
+                .ForMember(dest => dest.Tickets, opt => opt.Ignore())
+                .ForMember(dest => dest.Provider, opt => opt.MapFrom(src => src.Provider));
             CreateMap<ServicePointDomain, ServicePointDto>().ReverseMap();
             CreateMap<ServiceDomain, ServiceDto>().ReverseMap();
             CreateMap<ServiceProviderDomain, ServiceProviderDto>()
@@ -17,6 +19,8 @@ namespace ElectronicQueue.EQServer
                 .ForMember(dest => dest.Queue, opt => opt.MapFrom(src => src.Queue))
                 .ForMember(dest => dest.ServicePoints, opt => opt.Ignore())
                 .ReverseMap();
+
+            CreateMap<ServiceProviderDomain, ServiceProviderShortDto>().ReverseMap();
 
             CreateMap<ServiceStatisticDomain, ServiceStatisticDto>().ReverseMap();
             CreateMap<SpecialTicketDomain, SpecialTicketDto>().ReverseMap();

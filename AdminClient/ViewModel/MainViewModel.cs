@@ -29,9 +29,9 @@ namespace ElectronicQueue.AdminClient.ViewModel
 
             AddPage(typeof(ServiceManageViewModel));
             AddPage(typeof(ServicePointViewModel));
+            AddPage(typeof(QueueViewModel));
             AddPage(typeof(ServiceStatisticView));
             AddPage(typeof(WorkerStatisticViewModel));
-            AddPage(typeof(QueueViewModel));
 
             ChangePageCommandExecuted(typeof(ServiceManageViewModel));
 

@@ -14,6 +14,6 @@ namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
     }
     public class QueueRepository : ModelRepository<QueueModel, QueueDto>
     {
-        protected override IRestEndpoint<ServiceProviderDto> RestEndpoint => EndpoinCollection.ServicesProvider;
+        protected override IRestEndpoint<QueueDto> RestEndpoint => EndpoinCollection.Queue;
     }
 }

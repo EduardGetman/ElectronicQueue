@@ -11,6 +11,13 @@ namespace ElectronicQueue.Infrastructure.Persistence.Configuration
         {
             builder.ToTable("Ticket");
 
+            builder.Property(p => p.Name)
+                   .IsRequired();
+
+            builder.Property(p => p.CreateTime)
+                   .HasDefaultValueSql("getdate()")
+                   .IsRequired();
+
             builder.Property(p => p.State)
                    .HasDefaultValue(TicketState.Waiting);
 

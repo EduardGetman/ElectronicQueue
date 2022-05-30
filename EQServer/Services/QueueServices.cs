@@ -45,7 +45,7 @@ namespace ElectronicQueue.EQServer.Services
             throw new NotImplementedException();
         }
 
-        public TicketDomain Dequeu(long ServiceProviderId)
+        public TicketDomain Pull(long ServiceProviderId)
         {
             throw new NotImplementedException();
         }

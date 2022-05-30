@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ElectronicQueue.Core.Application.Dto
 {
@@ -11,7 +12,8 @@ namespace ElectronicQueue.Core.Application.Dto
         public string Letters { get; set; }
         public bool IsEnabled { get; set; }
         public long ProviderId { get; set; }
-        public ServiceProviderDto Provider { get; set; }
+        public List<TicketDto> Tickets { get; set; }
+        public ServiceProviderShortDto Provider { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -26,7 +26,6 @@ namespace ElectronicQueue.Core.Application.Dto
                    (Queue?.Equals(other.Queue) ?? other.Queue is null) &&
                    (Services?.SequenceEqual(other.Services) ?? other.Queue is null) &&
                    (ServicePoints?.SequenceEqual(other.ServicePoints) ?? other.Queue is null);
-
         }
 
         public override int GetHashCode()
@@ -34,5 +33,4 @@ namespace ElectronicQueue.Core.Application.Dto
             return HashCode.Combine(Id, Name, Queue, Services, ServicePoints);
         }
     }
-
 }

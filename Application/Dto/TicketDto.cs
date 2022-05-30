@@ -1,4 +1,5 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
+using System;
 
 namespace ElectronicQueue.Core.Application.Dto
 {
@@ -7,10 +8,11 @@ namespace ElectronicQueue.Core.Application.Dto
     /// </summary>
     public class TicketDto : DtoBase
     {
+        public string Name { get; set; }
+        public DateTime CreateTime { get; set; }
         public TicketState State { get; set; }
         public long ServiceId { get; set; }
         public long QueueId { get; set; }
-        public QueueDto Queue { get; set; }
         public ServiceDto Service { get; set; }
     }
 }

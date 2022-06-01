@@ -18,12 +18,12 @@ namespace ElectronicQueue.Core.Application.Model
 
         public string Name
         {
-            get => _name; 
+            get => _name;
             set => Set(ref _name, value);
         }
-        public DateTime CreateTime 
+        public DateTime CreateTime
         {
-            get => _createTime; 
+            get => _createTime;
             set => Set(ref _createTime, value);
         }
         public TicketState State

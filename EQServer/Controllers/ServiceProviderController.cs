@@ -68,7 +68,7 @@ namespace ElectronicQueue.EQServer.Controllers
                 {
                     var dto = _mapper.Map<ServiceProviderDto>(domain);
                     dto.Services = domain.Services.Select(x => _mapper.Map<ServiceDto>(x)).ToList();
-                    if (dto.Services.Any(x=> x.IsProvided))
+                    if (dto.Services.Any(x => x.IsProvided))
                     {
                         dtos.Add(dto);
                     }

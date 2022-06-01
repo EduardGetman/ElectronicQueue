@@ -28,10 +28,10 @@ namespace ElectronicQueue.Core.Application.Model
             get => _providerId;
             set => Set(ref _providerId, value);
         }
-        public int NextTicketNumber 
+        public int NextTicketNumber
         {
-            get => _nextTicketNumber; 
-            set => Set(ref _nextTicketNumber, value); 
+            get => _nextTicketNumber;
+            set => Set(ref _nextTicketNumber, value);
         }
         public ServiceProviderModel Provider
         {

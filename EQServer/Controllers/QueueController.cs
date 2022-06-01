@@ -75,7 +75,7 @@ namespace ElectronicQueue.EQServer.Controllers
         }
 
         [HttpPut()]
-        public IActionResult Put([FromBody]IEnumerable<QueueDto> dtos)
+        public IActionResult Put([FromBody] IEnumerable<QueueDto> dtos)
         {
             try
             {

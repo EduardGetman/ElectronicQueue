@@ -21,7 +21,7 @@ namespace ElectronicQueue.Data.Dto.Maps
             CreateMap<ServiceProviderModel, ServiceProviderDto>()
                     .ForMember(dest => dest.Services, opt => opt.MapFrom(src => src.Services))
                     .ReverseMap();
-            CreateMap<ServiceProviderModel,ServiceProviderShortDto>().ReverseMap();
+            CreateMap<ServiceProviderModel, ServiceProviderShortDto>().ReverseMap();
         }
     }
 }

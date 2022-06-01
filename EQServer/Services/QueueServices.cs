@@ -98,7 +98,7 @@ namespace ElectronicQueue.EQServer.Services
                 {
                     if (dto.IsEnabled)
                     {
-                        if (!_context.Services.Any(x=> x.ProviderId == domain.ProviderId && x.IsProvided))
+                        if (!_context.Services.Any(x => x.ProviderId == domain.ProviderId && x.IsProvided))
                         {
                             throw new Exception($"Не возможно запустить очередь не имеющую предоставляемых услуг");
                         }
@@ -110,7 +110,7 @@ namespace ElectronicQueue.EQServer.Services
                         {
                             //TODO: При сохранении логов менять талон на необслужен
                             _context.Remove(ticket);
-                        }                   
+                        }
                     }
                 }
                 domain.IsEnabled = dto.IsEnabled;

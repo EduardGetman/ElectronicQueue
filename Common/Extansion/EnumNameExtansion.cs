@@ -1,6 +1,5 @@
 ﻿using ElectronicQueue.Data.Common.Attributes;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace ElectronicQueue.Data.Common.Extansion

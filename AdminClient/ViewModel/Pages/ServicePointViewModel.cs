@@ -2,14 +2,12 @@
 using ElectronicQueue.AdminClient.Interfaces;
 using ElectronicQueue.Core.Application.Model;
 using ElectronicQueue.Data.Common.Enums;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
 
 namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {
-    public class ServicePointViewModel : DataEditPageViewModelBase <ServicePointModel>
+    public class ServicePointViewModel : DataEditPageViewModelBase<ServicePointModel>
     {
         public override string Title => "Точки обслуживания";
 

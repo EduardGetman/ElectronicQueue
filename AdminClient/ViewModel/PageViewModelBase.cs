@@ -26,7 +26,7 @@ namespace ElectronicQueue.AdminClient.ViewModel
     public abstract class DataEditPageViewModelBase<TModel> : PageViewModelBase where TModel : ModelBase
     {
         public abstract ObservableCollection<TModel> DataSource { get; set; }
-        abstract protected IRepository<TModel> repository { get; }
+        protected abstract IRepository<TModel> repository { get; }
         protected override void SaveData()
         {
             try

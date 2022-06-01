@@ -30,7 +30,7 @@ namespace ElectronicQueue.Core.Application.Dto
                    IsEnabled == other.IsEnabled &&
                    ProviderId == other.ProviderId &&
                    (Provider == Provider) &&
-                   ((Tickets?.Any() ?? false) ==  (other.Tickets?.Any() ?? false )
+                   ((Tickets?.Any() ?? false) == (other.Tickets?.Any() ?? false)
                     || Tickets.SequenceEqual(other.Tickets));
         }
 

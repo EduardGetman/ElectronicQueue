@@ -53,6 +53,35 @@ namespace ElectronicQueue.EQServer.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("Provided")]
+        public IActionResult GetProvided()
+        {
+            try
+            {
+                var domains = _context.ServiceProviders.Include(x => x.Services)
+                                                       .AsNoTracking()
+                                                       .ToList();
+                var dtos = new List<ServiceProviderDto>();
+
+                foreach (var domain in domains)
+                {
+                    var dto = _mapper.Map<ServiceProviderDto>(domain);
+                    dto.Services = domain.Services.Select(x => _mapper.Map<ServiceDto>(x)).ToList();
+                    if (dto.Services.Any(x=> x.IsProvided))
+                    {
+                        dtos.Add(dto);
+                    }
+                }
+
+                return Ok(dtos);
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
+        }
+
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {

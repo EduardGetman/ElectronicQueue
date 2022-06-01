@@ -29,5 +29,6 @@ namespace ElectronicQueue.Core.Application.Dto
         {
             return HashCode.Combine(Id, Name, IsProvided, ProviderId);
         }
+        public override string ToString() => Name;
     }
 }

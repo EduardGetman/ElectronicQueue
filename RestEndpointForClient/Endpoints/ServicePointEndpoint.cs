@@ -7,24 +7,23 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
     {
         private const string UrlController = URL_ROOT + "/ServicePoint";
 
-        public void Delete(IEnumerable<long> toDelete)
-        {
-            _restApiClient.RequestDelete<IEnumerable<ServiceProviderDto>>(UrlController, toDelete);
-        }
-
         public IEnumerable<ServicePointDto> Get()
         {
             return _restApiClient.RequestGet<IEnumerable<ServicePointDto>>(UrlController);
         }
+        public void Delete(IEnumerable<long> toDelete)
+        {
+            _restApiClient.RequestDelete<object>(UrlController, toDelete);
+        }
 
         public void Post(IEnumerable<ServicePointDto> toAdd)
         {
-            _restApiClient.RequestPost<IEnumerable<ServiceProviderDto>>(UrlController, toAdd);
+            _restApiClient.RequestPost<object>(UrlController, toAdd);
         }
 
         public void Put(IEnumerable<ServicePointDto> toUpdate)
         {
-            _restApiClient.RequestPut<IEnumerable<ServiceProviderDto>>(UrlController, toUpdate);
+            _restApiClient.RequestPut<object>(UrlController, toUpdate);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ElectronicQueue.Core.Application.Dto
 {
@@ -28,7 +29,9 @@ namespace ElectronicQueue.Core.Application.Dto
                    Letters == other.Letters &&
                    IsEnabled == other.IsEnabled &&
                    ProviderId == other.ProviderId &&
-                   (Provider?.Equals(other.Provider) ?? other is null);
+                   (Provider == Provider) &&
+                   ((Tickets?.Any() ?? false) ==  (other.Tickets?.Any() ?? false )
+                    || Tickets.SequenceEqual(other.Tickets));
         }
 
         public override int GetHashCode()

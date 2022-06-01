@@ -1,5 +1,4 @@
-﻿using ElectronicQueue.RestEndpoint.Endpoints;
-using System.Windows;
+﻿using System.Windows;
 
 namespace ClientTerminal
 {
@@ -8,8 +7,6 @@ namespace ClientTerminal
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ServicesProviderEndpoint _servicesEndpoint = new ServicesProviderEndpoint();
-
         public MainWindow()
         {
             InitializeComponent();
@@ -17,8 +14,7 @@ namespace ClientTerminal
 
         private void StartButtonClick(object sender, RoutedEventArgs e)
         {
-            var providerDtos = _servicesEndpoint.Get();
-            var terminalWindow = new TermenalWindow(providerDtos);
+            var terminalWindow = new TermenalWindow();
             terminalWindow.Show();
         }
         private void CloseButtonClick(object sender, RoutedEventArgs e)

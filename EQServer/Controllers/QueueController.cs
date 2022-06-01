@@ -74,25 +74,46 @@ namespace ElectronicQueue.EQServer.Controllers
             }
         }
 
+        [HttpPut()]
+        public IActionResult Put([FromBody]IEnumerable<QueueDto> dtos)
+        {
+            try
+            {
+                _queueServices.UpdateQueues(dtos);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
+        }
+
         [Route("Push")]
         [HttpPost]
-        public IActionResult Push([FromBody] TicketDto value)
+        public IActionResult Push([FromBody] TicketCreateDto value)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return Ok(_mapper.Map<TicketDto>(_queueServices.Push(value)));
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
         }
 
-
-        [HttpPut("{id}")]
-        public IActionResult Put(long id, [FromBody] QueueDto value)
+        [Route("SwitchTicketStatus")]
+        [HttpPut()]
+        public IActionResult SwitchTicketStatus([FromBody] SwitchTicketStatusDto dto)
         {
-            throw new NotImplementedException();
-        }
-
-
-        [HttpDelete("{id}")]
-        public IActionResult Delete(long id)
-        {
-            throw new NotImplementedException();
+            try
+            {
+                return Ok(_mapper.Map<TicketDto>(_queueServices.SwitchTicketStatus(dto)));
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ElectronicQueue.Core.Application.Dto;
+using ElectronicQueue.RestEndpoint;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -12,9 +13,9 @@ namespace ClientTerminal
     public partial class TermenalWindow : Window
     {
         private readonly IEnumerable<ServiceProviderDto> _serviceProviders;
-        public TermenalWindow(IEnumerable<ServiceProviderDto> serviceProviders)
+        public TermenalWindow()
         {
-            _serviceProviders = serviceProviders;
+            _serviceProviders = EndpoinCollection.ServicesProvider.GetProvided();
 
             InitializeComponent();
 
@@ -62,7 +63,11 @@ namespace ClientTerminal
                 }
                 else if (button.Content is ServiceDto service)
                 {
-                    // ServicesProviderEndpoint.AddTicket(service);
+                    EndpoinCollection.Queue.Push(new TicketCreateDto()
+                    {
+                        ProviderId = service.ProviderId,
+                        ServiceId = service.Id
+                    });
                 }
             }
         }

@@ -13,6 +13,9 @@ namespace ElectronicQueue.Core.Application.Dto
         public TicketState State { get; set; }
         public long ServiceId { get; set; }
         public long QueueId { get; set; }
+        public long? СallingServicePointId { get; set; }
+
         public ServiceDto Service { get; set; }
+        public ServicePointDto СallingServicePoint { get; set; }
     }
 }

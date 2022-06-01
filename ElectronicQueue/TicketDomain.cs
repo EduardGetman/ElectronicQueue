@@ -11,11 +11,13 @@ namespace ElectronicQueue.Core.Domain
         public string Name { get; set; }
         public DateTime CreateTime { get; set; }
         public TicketState State { get; set; }
+        public long? СallingServicePointId { get; set; }
         public long ServiceId { get; set; }
         public long QueueId { get; set; }
 
 
         public QueueDomain Queue { get; set; }
         public ServiceDomain Service { get; set; }
+        public ServicePointDomain СallingServicePoint { get; set; }
     }
 }

@@ -10,11 +10,13 @@ namespace ElectronicQueue.Core.Application.Model
         private string _letters;
         private bool _isEnabled;
         private long _providerId;
+        private int _nextTicketNumber;
         private ServiceProviderModel _provider;
-        public string Letters 
-        { 
-            get => _letters; 
-            set => Set(ref _letters, value); 
+
+        public string Letters
+        {
+            get => _letters;
+            set => Set(ref _letters, value);
         }
         public bool IsEnabled
         {
@@ -25,6 +27,11 @@ namespace ElectronicQueue.Core.Application.Model
         {
             get => _providerId;
             set => Set(ref _providerId, value);
+        }
+        public int NextTicketNumber 
+        {
+            get => _nextTicketNumber; 
+            set => Set(ref _nextTicketNumber, value); 
         }
         public ServiceProviderModel Provider
         {

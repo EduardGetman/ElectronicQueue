@@ -15,5 +15,8 @@ namespace ElectronicQueue.Data.Common.Enums
 
         [Name("Обслужен")]
         Closed,
+
+        [Name("Необслужен")]
+        NotServiced,
     }
 }

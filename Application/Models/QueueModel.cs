@@ -1,6 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 
-namespace ElectronicQueue.Core.Application.Model
+namespace ElectronicQueue.Core.Application.Models
 {
     /// <summary>
     /// Очередь в обслуживающий сервис

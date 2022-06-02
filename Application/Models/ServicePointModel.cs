@@ -1,6 +1,6 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
 
-namespace ElectronicQueue.Core.Application.Model
+namespace ElectronicQueue.Core.Application.Models
 {
     /// <summary>
     /// Обслуживающий сервис

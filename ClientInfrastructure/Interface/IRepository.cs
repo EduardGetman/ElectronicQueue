@@ -1,7 +1,7 @@
-﻿using ElectronicQueue.Core.Application.Model;
+﻿using ElectronicQueue.Core.Application.Models;
 using System.Collections.Generic;
 
-namespace ElectronicQueue.AdminClient.Interfaces
+namespace ElectronicQueue.ClientInfrastructure.Interface
 {
     public interface IRepository<TModel> where TModel : ModelBase
     {

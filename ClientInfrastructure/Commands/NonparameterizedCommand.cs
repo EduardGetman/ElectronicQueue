@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ElectronicQueue.AdminClient.Infrastructure.Commands
+namespace ElectronicQueue.ClientInfrastructure.Commands
 {
     public class NonparameterizedCommand : RelayCommand<object>
     {

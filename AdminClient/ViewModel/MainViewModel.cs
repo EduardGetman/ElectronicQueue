@@ -1,6 +1,7 @@
-﻿using ElectronicQueue.AdminClient.Infrastructure.Commands;
-using ElectronicQueue.AdminClient.Interfaces;
-using ElectronicQueue.AdminClient.ViewModel.Pages;
+﻿using ElectronicQueue.AdminClient.ViewModel.Pages;
+using ElectronicQueue.ClientInfrastructure;
+using ElectronicQueue.ClientInfrastructure.Commands;
+using ElectronicQueue.ClientInfrastructure.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,6 @@ namespace ElectronicQueue.AdminClient.ViewModel
             get => _page;
             set => Set(ref _page, value);
         }
-
 
         public MainViewModel()
         {

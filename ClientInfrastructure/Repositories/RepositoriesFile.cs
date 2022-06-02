@@ -1,8 +1,8 @@
 ﻿using ElectronicQueue.Core.Application.Dto;
-using ElectronicQueue.Core.Application.Model;
+using ElectronicQueue.Core.Application.Models;
 using ElectronicQueue.RestEndpoint;
 
-namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
+namespace ElectronicQueue.ClientInfrastructure.Repositories
 {
     public class ServicesPointRepository : ModelRepository<ServicePointModel, ServicePointDto>
     {

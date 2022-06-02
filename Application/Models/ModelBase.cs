@@ -1,6 +1,4 @@
-﻿using ElectronicQueue.Core.Application.MvvmInfrastructure;
-
-namespace ElectronicQueue.Core.Application.Model
+﻿namespace ElectronicQueue.Core.Application.Models
 {
     public abstract class ModelBase : ObservableBase
     {

@@ -1,6 +1,6 @@
-﻿using ElectronicQueue.AdminClient.Infrastructure.Repositories;
-using ElectronicQueue.AdminClient.Interfaces;
-using ElectronicQueue.Core.Application.Model;
+﻿using ElectronicQueue.ClientInfrastructure.Interface;
+using ElectronicQueue.ClientInfrastructure.Repositories;
+using ElectronicQueue.Core.Application.Models;
 using System;
 using System.Collections.ObjectModel;
 

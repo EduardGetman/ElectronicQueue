@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace ElectronicQueue.Core.Application.MvvmInfrastructure
+namespace ElectronicQueue.Core.Application.Models
 {
     public class ObservableBase : INotifyPropertyChanged
     {

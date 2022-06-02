@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace ElectronicQueue.AdminClient.Infrastructure.Commands
+namespace ElectronicQueue.ClientInfrastructure.Commands
 {
     public abstract class CommandBase : ICommand
     {

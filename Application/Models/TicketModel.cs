@@ -2,7 +2,7 @@
 using ElectronicQueue.Data.Common.Extansion;
 using System;
 
-namespace ElectronicQueue.Core.Application.Model
+namespace ElectronicQueue.Core.Application.Models
 {
     /// <summary>
     /// Талон на обслуживание

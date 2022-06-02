@@ -1,8 +1,8 @@
-﻿using ElectronicQueue.Core.Application.MvvmInfrastructure;
+﻿using ElectronicQueue.Core.Application.Models;
 using System.ComponentModel;
 using System.Windows;
 
-namespace ElectronicQueue.AdminClient.ViewModel
+namespace ElectronicQueue.ClientInfrastructure
 {
     public abstract class ViewModelBase : ObservableBase
     {

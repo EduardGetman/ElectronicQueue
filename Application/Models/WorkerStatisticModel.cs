@@ -1,4 +1,4 @@
-﻿namespace ElectronicQueue.Core.Application.Model
+﻿namespace ElectronicQueue.Core.Application.Models
 {
     public class WorkerStatisticModel : ModelBase
     {

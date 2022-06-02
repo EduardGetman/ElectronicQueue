@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace ElectronicQueue.Core.Application.Model
+namespace ElectronicQueue.Core.Application.Models
 {
     public class ServiceProviderModel : ModelBase
     {

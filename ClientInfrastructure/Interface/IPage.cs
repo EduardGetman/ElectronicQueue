@@ -1,4 +1,4 @@
-﻿namespace ElectronicQueue.AdminClient.Interfaces
+﻿namespace ElectronicQueue.ClientInfrastructure.Interface
 {
     public interface IPage
     {

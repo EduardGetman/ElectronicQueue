@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using ElectronicQueue.AdminClient.Interfaces;
+using ElectronicQueue.ClientInfrastructure.Interface;
 using ElectronicQueue.Core.Application.Dto;
-using ElectronicQueue.Core.Application.Model;
+using ElectronicQueue.Core.Application.Models;
 using ElectronicQueue.Data.Dto.Maps;
 using ElectronicQueue.RestEndpoint;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ElectronicQueue.AdminClient.Infrastructure.Repositories
+namespace ElectronicQueue.ClientInfrastructure.Repositories
 {
     public abstract class ModelRepository<TModel, TDto> : IRepository<TModel>
         where TModel : ModelBase

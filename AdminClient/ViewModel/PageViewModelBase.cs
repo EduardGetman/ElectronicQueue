@@ -1,6 +1,7 @@
-﻿using ElectronicQueue.AdminClient.Infrastructure.Commands;
-using ElectronicQueue.AdminClient.Interfaces;
-using ElectronicQueue.Core.Application.Model;
+﻿using ElectronicQueue.ClientInfrastructure;
+using ElectronicQueue.ClientInfrastructure.Commands;
+using ElectronicQueue.ClientInfrastructure.Interface;
+using ElectronicQueue.Core.Application.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;

@@ -17,10 +17,10 @@ namespace ElectronicQueue.EQServer.Controllers
         private readonly EqDbContext _context = EqDbContextFactory.GetContext();
         private readonly IMapper _mapper;
 
-        public ServicePointController(IMapper mapper)
+        public ServicePointController(IMapper mapper, EqDbContext context)
         {
             _mapper = mapper;
-            _context = EqDbContextFactory.GetContext();
+            _context = context;
         }
 
         [HttpGet]

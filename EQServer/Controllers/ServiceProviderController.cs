@@ -20,12 +20,11 @@ namespace ElectronicQueue.EQServer.Controllers
         private readonly EqDbContext _context;
         private readonly IMapper _mapper;
 
-        public ServiceProviderController(IMapper mapper)
+        public ServiceProviderController(IMapper mapper, EqDbContext context)
         {
             _mapper = mapper;
-            _context = EqDbContextFactory.GetContext();
-            _queueServices = new QueueServices();
-
+            _context = context;
+            _queueServices = new QueueServices(context);
         }
 
         [HttpGet]

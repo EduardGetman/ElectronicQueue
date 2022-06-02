@@ -10,7 +10,9 @@ namespace ElectronicQueue.Data.Dto.Maps
         public DtoModelProfile()
         {
             CreateMap<QueueLogDto, QueueModel>().ReverseMap();
-            CreateMap<QueueDto, QueueModel>().ReverseMap();
+            CreateMap<QueueDto, QueueModel>()
+                    .ForMember(dest => dest.Tikets, opt => opt.MapFrom(src => src.Tickets))
+                    .ReverseMap();
             CreateMap<ServicePointModel, ServicePointDto>().ReverseMap();
             CreateMap<ServiceModel, ServiceDto>().ReverseMap();
             CreateMap<SpecialTicketDomain, SpecialTicketDto>().ReverseMap();

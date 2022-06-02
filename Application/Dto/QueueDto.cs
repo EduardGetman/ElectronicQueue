@@ -29,9 +29,7 @@ namespace ElectronicQueue.Core.Application.Dto
                    Letters == other.Letters &&
                    IsEnabled == other.IsEnabled &&
                    ProviderId == other.ProviderId &&
-                   (Provider == Provider) &&
-                   ((Tickets?.Any() ?? false) == (other.Tickets?.Any() ?? false)
-                    || Tickets.SequenceEqual(other.Tickets));
+                   (Provider == Provider);
         }
 
         public override int GetHashCode()

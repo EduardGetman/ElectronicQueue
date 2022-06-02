@@ -14,7 +14,7 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
         }
         public IEnumerable<ServiceProviderDto> GetProvided()
         {
-            return _restApiClient.RequestGet<IEnumerable<ServiceProviderDto>>(UrlController);
+            return _restApiClient.RequestGet<IEnumerable<ServiceProviderDto>>(ProvidedUrlController);
         }
         public void Post(IEnumerable<ServiceProviderDto> toAdd)
         {

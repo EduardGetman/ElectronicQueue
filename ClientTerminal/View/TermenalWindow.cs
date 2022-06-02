@@ -1,5 +1,8 @@
-﻿using ElectronicQueue.Core.Application.Dto;
+﻿using ClientTerminal.View;
+using ElectronicQueue.Core.Application.Dto;
+using ElectronicQueue.Core.Application.Interfaces;
 using ElectronicQueue.RestEndpoint;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -12,6 +15,7 @@ namespace ClientTerminal
     /// </summary>
     public partial class TermenalWindow : Window
     {
+        private readonly ITicketPrinter _ticketPrinter;
         private readonly IEnumerable<ServiceProviderDto> _serviceProviders;
         public TermenalWindow()
         {
@@ -54,22 +58,33 @@ namespace ClientTerminal
 
         private void ClickButton(object sender, RoutedEventArgs e)
         {
-            if (sender is Button button)
+            try
             {
-                if (button.Content is ServiceProviderDto provider)
+                if (sender is Button button)
                 {
-                    FillButtonStackWithDto(provider.Services.Where(s => s.IsProvided));
-                    VisibilityBackButton(true);
-                }
-                else if (button.Content is ServiceDto service)
-                {
-                    EndpoinCollection.Queue.Push(new TicketCreateDto()
+                    if (button.Content is ServiceProviderDto provider)
                     {
-                        ProviderId = service.ProviderId,
-                        ServiceId = service.Id
-                    });
+                        FillButtonStackWithDto(provider.Services.Where(s => s.IsProvided));
+                        VisibilityBackButton(true);
+                    }
+                    else if (button.Content is ServiceDto service)
+                    {
+                        var ticket = EndpoinCollection.Queue.Push(new TicketCreateDto()
+                        {
+                            ProviderId = service.ProviderId,
+                            ServiceId = service.Id
+                        });
+                        _ticketPrinter?.PrintTicket(ticket);
+                        var window = new TicketPresentWindow(ticket);
+                        window.ShowDialog();
+                        BackButtonClick(null, null);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                WarningMessage(ex.Message);
+            }           
         }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {

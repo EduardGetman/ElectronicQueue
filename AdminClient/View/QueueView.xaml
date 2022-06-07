@@ -69,6 +69,7 @@
         <DataGrid  HorizontalAlignment="Stretch" 
                    ItemsSource="{Binding SelectedQueue.Tikets}"
                    Grid.Row="5"
+                   AutoGenerateColumns="False"
                    CanUserAddRows="False"
                    CanUserDeleteRows="False">
             <DataGrid.Columns>

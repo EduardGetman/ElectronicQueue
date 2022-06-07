@@ -15,8 +15,9 @@ namespace ElectronicQueue.EQServer.Services
     {
         private readonly EqDbContext _context;
         private readonly QueueLettersConverter _lettersConverter;
-        public QueueServices(EqDbContext _context)
-        {
+        public QueueServices() 
+        { 
+            _context = EqDbContextFactory.GetContext();
             _lettersConverter = new QueueLettersConverter();
         }
 

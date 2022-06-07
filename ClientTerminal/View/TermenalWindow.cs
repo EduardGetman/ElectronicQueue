@@ -15,8 +15,15 @@ namespace ClientTerminal
     /// </summary>
     public partial class TermenalWindow : Window
     {
-        private readonly ITicketPrinter _ticketPrinter;
+        private const string ProviderChoiseWindowName = "Выберите сервис";
+        private const string ServiceChoiseWindowName = "Выберите услугу";
+        private readonly ITicketPrinter _ticketPrinter = null;
         private readonly IEnumerable<ServiceProviderDto> _serviceProviders;
+        public string WindowNameText
+        {
+            get => WindowNameTextBlock.Text;
+            set => WindowNameTextBlock.Text = value;
+        }
         public TermenalWindow()
         {
             _serviceProviders = EndpoinCollection.ServicesProvider.GetProvided();
@@ -25,6 +32,7 @@ namespace ClientTerminal
 
             FillButtonStackWithDto(_serviceProviders);
             VisibilityBackButton(false);
+            WindowNameText = ProviderChoiseWindowName;
         }
         private void FillButtonStackWithDto(IEnumerable<DtoBase> dto)
         {
@@ -43,9 +51,9 @@ namespace ClientTerminal
 
         private void ButtonStackClear()
         {
-            while (ButtonStack.Children.Count > 1)
+            while (ButtonStack.Children.Count > 2)
             {
-                ButtonStack.Children.RemoveAt(1);
+                ButtonStack.Children.RemoveAt(2);
             }
         }
 
@@ -66,6 +74,7 @@ namespace ClientTerminal
                     {
                         FillButtonStackWithDto(provider.Services.Where(s => s.IsProvided));
                         VisibilityBackButton(true);
+                        WindowNameText = ServiceChoiseWindowName;
                     }
                     else if (button.Content is ServiceDto service)
                     {
@@ -84,12 +93,13 @@ namespace ClientTerminal
             catch (Exception ex)
             {
                 WarningMessage(ex.Message);
-            }           
+            }
         }
         private void BackButtonClick(object sender, RoutedEventArgs e)
         {
             VisibilityBackButton(false);
             FillButtonStackWithDto(_serviceProviders);
+            WindowNameText = ProviderChoiseWindowName;
         }
         private static void WarningMessage(string message)
         {

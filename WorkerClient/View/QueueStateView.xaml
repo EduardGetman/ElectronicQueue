@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="WorkerClient.View.QueueStateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewmodel="clr-namespace:ElectronicQueue.WorkerClient.ViewModel"             
+             xmlns:local="clr-namespace:WorkerClient.View"             
+             mc:Ignorable="d"     
+             d:DataContext="{d:DesignInstance Type=viewmodel:QueueStateViewModel}" 
+             HorizontalAlignment="Stretch" 
+             VerticalAlignment="Stretch">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Menu>
+            <MenuItem Header="Обновить" Command="{Binding RefreshDataCommand}"/>
+        </Menu>
+        <DataGrid  HorizontalAlignment="Stretch" 
+                   ItemsSource="{Binding DataSource }"
+                   Grid.Column="1" Grid.Row="1" Grid.RowSpan="4">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор талона" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Наименование услуги" Binding="{Binding ServiceName}"/>
+                <DataGridTextColumn Header="Состояние" Binding="{Binding StateName}"/>
+                <DataGridTextColumn Header="Время создания" Binding="{Binding CreateTime}"/>                
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

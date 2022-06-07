@@ -14,7 +14,10 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
         {
             return _restApiClient.RequestGet<IEnumerable<QueueDto>>(UrlController);
         }
-
+        public QueueDto GetByProviderId(long providerId)
+        {
+            return _restApiClient.RequestGet<QueueDto>(UrlController + $"/{providerId}");
+        }
         public void Post(IEnumerable<QueueDto> toAdd)
         {
             throw new NotImplementedException();

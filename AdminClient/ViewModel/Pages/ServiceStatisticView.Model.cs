@@ -1,8 +1,9 @@
-﻿using System;
+﻿using ElectronicQueue.ClientInfrastructure;
+using System;
 
 namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {
-    public class ServiceStatisticView : PageViewModelBase
+    public class ServiceStatisticViewModel : PageViewModelBase
     {
         public override string Title => "Статистика сервисов";
 

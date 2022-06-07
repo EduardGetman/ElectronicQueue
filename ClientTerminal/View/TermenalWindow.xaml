@@ -14,6 +14,14 @@
         </ResourceDictionary>
     </Window.Resources>
     <StackPanel x:Name="ButtonStack">
-        <Button x:Name="BackButton" Content="Назад" Click="BackButtonClick"/>
+        <TextBlock x:Name="WindowNameTextBlock"
+                   Text="Наименование окна"
+                   HorizontalAlignment="Center" 
+                   Margin="10"
+                   FontSize="25" 
+                   FontWeight="Bold"/>
+        <Button x:Name="BackButton" 
+                Content="Назад"
+                Click="BackButtonClick"/>
     </StackPanel>
 </Window>

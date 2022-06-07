@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElectronicQueue.ClientInfrastructure;
+using System;
 
 namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {

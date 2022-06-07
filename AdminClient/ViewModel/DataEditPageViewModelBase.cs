@@ -1,29 +1,12 @@
 ﻿using ElectronicQueue.ClientInfrastructure;
-using ElectronicQueue.ClientInfrastructure.Commands;
 using ElectronicQueue.ClientInfrastructure.Interface;
 using ElectronicQueue.Core.Application.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Input;
 
 namespace ElectronicQueue.AdminClient.ViewModel
 {
-    public abstract class PageViewModelBase : ViewModelBase, IPage
-    {
-        public ICommand RefreshDataCommand { get; }
-        public ICommand SaveDataCommand { get; }
-        public abstract string Title { get; }
-
-        public PageViewModelBase()
-        {
-            RefreshDataCommand = new NonparameterizedCommand(RefreshData);
-            SaveDataCommand = new NonparameterizedCommand(SaveData);
-        }
-
-        protected abstract void RefreshData();
-        protected abstract void SaveData();
-    }
     public abstract class DataEditPageViewModelBase<TModel> : PageViewModelBase where TModel : ModelBase
     {
         public abstract ObservableCollection<TModel> DataSource { get; set; }

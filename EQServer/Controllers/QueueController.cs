@@ -23,7 +23,7 @@ namespace ElectronicQueue.EQServer.Controllers
         {
             _mapper = mapper;
             _context = context;
-            _queueServices = new QueueServices(context);
+            _queueServices = new QueueServices();
         }
         [HttpGet]
         public IActionResult Get()

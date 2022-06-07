@@ -19,7 +19,7 @@
                 <ResourceDictionary Source="View/Resources/Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
-            <DataTemplate DataType="{x:Type pages:ServiceStatisticView}">
+            <DataTemplate DataType="{x:Type pages:ServiceStatisticViewModel}">
                 <v:ServiceStatisticView/>
             </DataTemplate>
             
@@ -88,7 +88,7 @@
             <Button Content="Статистика сервисов"                                          
                     Style="{StaticResource NavigationButton }"
                     Command="{Binding ChangePageCommand}"
-                    CommandParameter="{x:Type pages:ServiceStatisticView}"/>
+                    CommandParameter="{x:Type pages:ServiceStatisticViewModel}"/>
 
             <Button Content="Статистика работников"
                     Style="{StaticResource NavigationButton }"

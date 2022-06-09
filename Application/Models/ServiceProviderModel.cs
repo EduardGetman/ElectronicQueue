@@ -20,5 +20,9 @@ namespace ElectronicQueue.Core.Application.Models
         public int ServicesCount => Services?.Count ?? 0;
         public bool IsProvided => Services?.Where(x => x.IsProvided).Any() ?? false;
         public ObservableCollection<ServiceModel> Services { get; set; }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

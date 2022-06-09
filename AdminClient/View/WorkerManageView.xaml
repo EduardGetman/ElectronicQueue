@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="ElectronicQueue.AdminClient.View.WorkerManageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:ElectronicQueue.AdminClient.ViewModel.Pages"
+             xmlns:local="clr-namespace:ElectronicQueue.AdminClient.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" 
+             d:DesignWidth="800"
+             Background="WhiteSmoke">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles.xaml"/>
+                <ResourceDictionary Source="Resources/Controls.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <vm:WorkerManageViewModel/>
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Menu Grid.ColumnSpan ="2">
+            <StaticResource ResourceKey="SaveMenuItem" />
+            <StaticResource ResourceKey="UpdateMenuItem" />
+        </Menu>
+        <DockPanel Grid.ColumnSpan ="2">
+            <StaticResource ResourceKey="PageNameTextBlock"/>
+        </DockPanel>
+
+        <DataGrid  HorizontalAlignment="Stretch" 
+                   ItemsSource="{Binding DataSource}"
+                   Grid.Row="1"
+                   Grid.Column ="1"
+                   AutoGenerateColumns="False"
+                   CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО"
+                                    Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Место положение"
+                                    Binding="{Binding PointName}"
+                                    IsReadOnly="True"/>
+                <DataGridTextColumn Header="Состояние обслуживания"
+                                    Binding="{Binding StateName}"
+                                    IsReadOnly="True"/>
+                <DataGridTextColumn Header="Логин"
+                                    Binding="{Binding Account.Login}"
+                                    IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Добавить сотрудника" Padding="10 5" Command="{Binding AddAccountCommand}" Style="{StaticResource DefaultButton}"/>
+            <Button Content="Изменить данные аккаунта сотрудника" Grid.Column="1" Padding="10 5" Command="{Binding EditAccountCommand}" Style="{StaticResource DefaultButton}"/>
+        </Grid>
+    </Grid>
+</UserControl>

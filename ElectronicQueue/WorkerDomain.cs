@@ -9,9 +9,11 @@ namespace ElectronicQueue.Core.Domain
     {
         public string Name { get; set; }
         public string Specialization { get; set; }
+        public long AccountId { get; set; }
         public long? PointId { get; set; }
         public ServicePointDomain Point { get; set; }
+        public AccountDomain Account { get; set; }
         public ICollection<WorkerStatisticDomain> Statistics { get; set; }
         public ICollection<WorkerLogDomain> Logs { get; set; }
-    }
+    } 
 }

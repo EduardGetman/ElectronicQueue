@@ -32,7 +32,8 @@ namespace ElectronicQueue.Core.Application.Models
             set => Set(ref _provider, value);
         }
 
-        public string ServicePointStateName => _servicePointState.ToString();
+        public string ServicePointStateName => ServicePointState.ToString();
         public string ProviderName => Provider?.Name ?? "Не указан";
+        public override string ToString() => Location;
     }
 }

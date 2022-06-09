@@ -25,6 +25,7 @@ namespace ElectronicQueue.Infrastructure.Persistence
         public DbSet<WorkerStatisticDomain> WorkerStatistics { get; set; }
         public DbSet<ServiceStatisticDomain> ServiceStatistics { get; set; }
         public DbSet<SpecialTicketDomain> SpecialTickets { get; set; }
+        public DbSet<AccountDomain> Accounts { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -43,6 +44,7 @@ namespace ElectronicQueue.Infrastructure.Persistence
             modelBuilder.ApplyConfiguration(new QueueLogConfiguration());
             modelBuilder.ApplyConfiguration(new ServiceStatisticConfiguration());
             modelBuilder.ApplyConfiguration(new WorkerStatisticsConfiguration());
+            modelBuilder.ApplyConfiguration(new AccountConfiguration());
         }
 
     }

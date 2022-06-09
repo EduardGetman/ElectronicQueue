@@ -33,4 +33,24 @@
         <!--Задаем отступ в ячейке-->
         <Setter Property="ContentTemplate" Value="{StaticResource HeaderTemplate}"/>
     </Style>
+    <Style TargetType="Button" x:Key="DefaultButton">
+        <Style.Setters>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="Padding" Value="0 10"/>
+            <Setter Property="MinWidth" Value="190"/>
+        </Style.Setters>
+    </Style>
+    <Style TargetType="Button" 
+               x:Key="NavigationButton" BasedOn="{StaticResource DefaultButton}">
+        <Style.Setters>
+            <Setter Property="Background" Value="WhiteSmoke"/>
+        </Style.Setters>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="FontSize" Value="21" />
+                <Setter Property="Background" Value="LightGray" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

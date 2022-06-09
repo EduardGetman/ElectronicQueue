@@ -1,10 +1,17 @@
 ﻿namespace ElectronicQueue.Core.Application.Models
 {
-    public class WorkerModel
+    public class WorkerModel : ModelBase
     {
-        public string Name { get; set; }
-        public string Specialization { get; set; }
-        public long? PointId { get; set; }
-        public ServicePointModel Point { get; set; }
+        private string name;
+        private long? pointId;
+        private ServicePointModel point;
+        private AccountModel _account;
+
+        public string Name { get => name; set => Set(ref name, value); }
+        public long? PointId { get => pointId; set => Set(ref pointId, value); }
+        public ServicePointModel Point { get => point; set => Set(ref point, value); }
+        public AccountModel Account { get => _account; set => Set(ref _account, value); }
+        public string PointName => Point?.Location ?? "Не определён";
+        public string StateName => Point?.ServicePointStateName ?? "Не находиться на точке обслуживания";
     }
 }

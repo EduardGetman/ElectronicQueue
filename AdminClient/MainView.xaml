@@ -39,22 +39,9 @@
                 <v:QueueView/>
             </DataTemplate>
 
-            <Style TargetType="Button" 
-               x:Key="NavigationButton" >
-                <Style.Setters>
-                    <Setter Property="FontSize" Value="16"/>
-                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                    <Setter Property="Padding" Value="0 10"/>
-                    <Setter Property="Background" Value="WhiteSmoke"/>
-                    <Setter Property="MinWidth" Value="190"/>
-                </Style.Setters>
-                <Style.Triggers>
-                    <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="FontSize" Value="17" />
-                        <Setter Property="Background" Value="LightGray" />
-                    </Trigger>
-                </Style.Triggers>
-            </Style>
+            <DataTemplate DataType="{x:Type pages:WorkerManageViewModel}">
+                <v:WorkerManageView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Window.Resources>
 
@@ -84,6 +71,11 @@
                     Style="{StaticResource NavigationButton }"
                     Command="{Binding ChangePageCommand}"
                     CommandParameter="{x:Type pages:QueueViewModel}"/>
+
+            <Button Content="Сотруники"
+                    Style="{StaticResource NavigationButton }"
+                    Command="{Binding ChangePageCommand}"
+                    CommandParameter="{x:Type pages:WorkerManageViewModel}"/>
 
             <Button Content="Статистика сервисов"                                          
                     Style="{StaticResource NavigationButton }"

@@ -30,6 +30,7 @@ namespace ElectronicQueue.AdminClient.ViewModel
             AddPage(typeof(ServiceManageViewModel));
             AddPage(typeof(ServicePointViewModel));
             AddPage(typeof(QueueViewModel));
+            AddPage(typeof(WorkerManageViewModel));
             AddPage(typeof(ServiceStatisticViewModel));
             AddPage(typeof(WorkerStatisticViewModel));
 

@@ -7,6 +7,7 @@ namespace ElectronicQueue.RestEndpoint
         private static ServicesProviderEndpoint _servicesProvider;
         private static ServicePointEndpoint _servicePoint;
         private static QueueEndpoint _queue;
+        private static WorkerEndpoint _worker;
         public static ServicesProviderEndpoint ServicesProvider
         {
             get
@@ -40,6 +41,17 @@ namespace ElectronicQueue.RestEndpoint
                     _queue = new QueueEndpoint();
                 }
                 return _queue;
+            }
+        }
+        public static WorkerEndpoint Worker
+        {
+            get
+            {
+                if (_worker is null)
+                {
+                    _worker = new WorkerEndpoint();
+                }
+                return _worker;
             }
         }
     }

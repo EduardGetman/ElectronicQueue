@@ -28,7 +28,8 @@ namespace ElectronicQueue.EQServer.Controllers
         {
             try
             {
-                return base.Ok(_context.ServicePoints.AsNoTracking().Select(x => _mapper.Map<ServicePointDto>(x)));
+                var dtos = _context.ServicePoints.AsNoTracking().Select(x => _mapper.Map<ServicePointDto>(x)).ToList();
+                return base.Ok(dtos);
             }
             catch (Exception ex)
             {

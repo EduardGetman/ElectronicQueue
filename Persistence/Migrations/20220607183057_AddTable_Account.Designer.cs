@@ -4,14 +4,16 @@ using ElectronicQueue.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ElectronicQueue.Data.Migrations
 {
     [DbContext(typeof(EqDbContext))]
-    partial class EqDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220607183057_AddTable_Account")]
+    partial class AddTable_Account
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

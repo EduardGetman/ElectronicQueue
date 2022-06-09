@@ -8,24 +8,39 @@ namespace ElectronicQueue.EQServer
     {
         public DomainDtoProfile()
         {
-            CreateMap<QueueLogDomain, QueueLogDto>().ReverseMap();
-            CreateMap<QueueDomain, QueueDto>().ReverseMap()
+            CreateMap<QueueDomain, QueueDto>()
                 .ForMember(dest => dest.Tickets, opt => opt.Ignore())
-                .ForMember(dest => dest.Provider, opt => opt.MapFrom(src => src.Provider));
-            CreateMap<ServicePointDomain, ServicePointDto>().ReverseMap();
-            CreateMap<ServiceDomain, ServiceDto>().ReverseMap();
+                .ForMember(dest => dest.Provider, opt => opt.MapFrom(src => src.Provider))
+                .ReverseMap();
+
             CreateMap<ServiceProviderDomain, ServiceProviderDto>()
                 .ForMember(dest => dest.Services, opt => opt.Ignore())
                 .ForMember(dest => dest.Queue, opt => opt.MapFrom(src => src.Queue))
                 .ForMember(dest => dest.ServicePoints, opt => opt.Ignore())
                 .ReverseMap();
 
+            CreateMap<WorkerDomain, WorkerDto>()
+                .ForMember(dest => dest.Account, opt => opt.MapFrom(src => src.Account))
+                .ReverseMap();
+
+            CreateMap<AccountDomain, AccountDto>().ReverseMap();
+
+            CreateMap<SpecialTicketDomain, SpecialTicketDto>().ReverseMap();
+
+            CreateMap<TicketDomain, TicketDto>().ReverseMap();
+
+            CreateMap<ServicePointDomain, ServicePointDto>().ReverseMap();
+
+            CreateMap<ServiceDomain, ServiceDto>().ReverseMap();
+
             CreateMap<ServiceProviderDomain, ServiceProviderShortDto>().ReverseMap();
 
             CreateMap<ServiceStatisticDomain, ServiceStatisticDto>().ReverseMap();
-            CreateMap<SpecialTicketDomain, SpecialTicketDto>().ReverseMap();
-            CreateMap<TicketDomain, TicketDto>().ReverseMap();
+
+            CreateMap<QueueLogDomain, QueueLogDto>().ReverseMap();
+
             CreateMap<WorkerLogDomain, WorkerLogDto>().ReverseMap();
+
             CreateMap<WorkerStatisticDomain, WorkerStatisticDto>().ReverseMap();
         }
     }

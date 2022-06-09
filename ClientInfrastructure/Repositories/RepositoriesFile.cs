@@ -16,4 +16,8 @@ namespace ElectronicQueue.ClientInfrastructure.Repositories
     {
         protected override IRestEndpoint<QueueDto> RestEndpoint => EndpoinCollection.Queue;
     }
+    public class WorkerRepository : ModelRepository<WorkerModel, WorkerDto>
+    {
+        protected override IRestEndpoint<WorkerDto> RestEndpoint => EndpoinCollection.Worker;
+    }
 }

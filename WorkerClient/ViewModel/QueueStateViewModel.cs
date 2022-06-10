@@ -10,15 +10,12 @@ namespace ElectronicQueue.WorkerClient.ViewModel
 {
     public class QueueStateViewModel : PageViewModelBase
     {
+        private long _serviceProviderId;
         private IMapper _mapper = DtoMapperConfiguration.CreateMapper();
         private QueueModel _queue;
         private ObservableCollection<TicketModel> _tickets;
         public override string Title => "Состояние очереди";
 
-        public QueueStateViewModel(long serviceProviderId)
-        {
-            ServiceProviderId = serviceProviderId;
-        }
         public QueueModel Queue
         {
             get => _queue;
@@ -29,7 +26,19 @@ namespace ElectronicQueue.WorkerClient.ViewModel
             get => _tickets;
             set => Set(ref _tickets, value);
         }
-        public long ServiceProviderId { get; }
+        public long ServiceProviderId
+        {
+            get => _serviceProviderId;
+            set
+            {
+                Set(ref _serviceProviderId, value);
+                if (_serviceProviderId != 0)
+                {
+                    RefreshData();
+                }
+            }
+
+        }
 
         private void ClearData()
         {
@@ -45,13 +54,17 @@ namespace ElectronicQueue.WorkerClient.ViewModel
                 ShowErrorMessage(ex.Message);
             }
         }
+        public void Refresh() => RefreshData();
         protected override void RefreshData()
         {
             try
             {
-                ClearData();
-                Queue = _mapper.Map<QueueModel>(EndpoinCollection.Queue.GetByProviderId(ServiceProviderId));
-                DataSource = Queue.Tikets; ;
+                if (ServiceProviderId != 0)
+                {
+                    ClearData();
+                    Queue = _mapper.Map<QueueModel>(EndpoinCollection.Queue.GetByProviderId(ServiceProviderId));
+                    DataSource = Queue.Tikets;
+                }
             }
             catch (Exception ex)
             {

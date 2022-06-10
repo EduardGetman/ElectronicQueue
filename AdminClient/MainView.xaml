@@ -72,7 +72,7 @@
                     Command="{Binding ChangePageCommand}"
                     CommandParameter="{x:Type pages:QueueViewModel}"/>
 
-            <Button Content="Сотруники"
+            <Button Content="Сотрудники"
                     Style="{StaticResource NavigationButton }"
                     Command="{Binding ChangePageCommand}"
                     CommandParameter="{x:Type pages:WorkerManageViewModel}"/>

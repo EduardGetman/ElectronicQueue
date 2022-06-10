@@ -62,6 +62,7 @@ namespace ElectronicQueue.EQServer.Controllers
                 return Problem(detail: ex.StackTrace, title: ex.Message);
             }
         }
+
         [HttpPut]
         public IActionResult Put([FromBody] IEnumerable<WorkerDto> dtos)
         {
@@ -99,7 +100,26 @@ namespace ElectronicQueue.EQServer.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("Autorize")]
+        public IActionResult Autorize([FromBody] AccountDto dto)
+        {
+            try
+            {
+                var result = new AutorizeResounseDto
+                {
+                    Worker = _mapper.Map<WorkerDto>(
+                        _context.Worker.FirstOrDefault(x => x.Account.PasswordHash == _hashFunction.GetHash(dto.PasswordHash)
+                                                         && x.Account.Login == dto.Login))
+                };
 
-
+                result.IsSuccessfull = result.Worker != null;
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
+        }
     }
 }

@@ -7,7 +7,8 @@
         xmlns:viewmodel="clr-namespace:ElectronicQueue.WorkerClient.ViewModel"
         xmlns:local="clr-namespace:WorkerClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Приложение сотрудника" 
+        WindowState="Maximized">
     <Window.DataContext>
         <viewmodel:MainViewModel/>
     </Window.DataContext>
@@ -16,7 +17,7 @@
             <Setter Property="Orientation" Value="Horizontal"/>
             <Setter Property="Margin" Value="10 0"/>
         </Style>
-        
+
         <Style TargetType="TextBlock" x:Key="SectionTitle">
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -35,8 +36,16 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Menu Grid.ColumnSpan="2">
+            <MenuItem Header="Обновить" Command="{Binding Page}"/>
+            <MenuItem Header="Аккаунт">
+                <MenuItem Header="Авторизоваться" Command="{Binding AuthorizeCommand}"/>
+                <MenuItem Header="Выйти из аккаунта" Command="{Binding DeauthorizeCommand}"/>
+            </MenuItem>
+        </Menu>
         <StackPanel HorizontalAlignment="Stretch" Grid.Row="1">
 
             <TextBlock Text="Запуск" 
@@ -51,27 +60,37 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
-                
+
                 <TextBlock Text="Сервис" 
-                           Margin="10 0"/>                
+                           Margin="10 0"/>
                 <ComboBox Grid.Column="1" 
                           ItemsSource="{Binding Providers}" 
-                          SelectedItem="{Binding SelectedProvider}" />
-                
+                          SelectedItem="{Binding SelectedProvider}"  />
+
                 <TextBlock Text="Локация"
                            Grid.Row= "1"
-                           Margin="10 0"/>                
+                           Margin="10 0"/>
                 <ComboBox  Grid.Column="1"
                            Grid.Row= "1" 
                            ItemsSource="{Binding ServicePoints}"
                            SelectedItem="{Binding SelectedServicePoint}" />
+
+                <TextBlock Text="Сотрудник"
+                           Grid.Row= "2"
+                           Margin="10 0"/>
+                <TextBox Grid.Column="1"
+                           Grid.Row= "2" 
+                           Text="{Binding Worker.Name}"
+                           Background="WhiteSmoke"
+                           IsReadOnly="True"/>
             </Grid>
-            <Button Content="Начать"/>
-            <Button Content="Закончить" IsEnabled="False"/>
-            <Button Content="Выйти" IsEnabled="False"/>
+            <Button Content="Начать обслуживание" Command="{Binding StartServicedCommand}" IsEnabled="{Binding CanStartServiced}"/>
+            <Button Content="Приостановить обслуживание" Command="{Binding PausedServicedCommand}" IsEnabled="{Binding CanPausedServiced}" />
+            <Button Content="Закончить обслуживание" Command="{Binding StopServicedCommand}" IsEnabled="{Binding CanStopServiced}"/>
         </StackPanel>
-        
+
         <StackPanel HorizontalAlignment="Stretch" 
                     Grid.Row="2"
                     Margin="0 10">
@@ -104,7 +123,7 @@
         </StackPanel>
         <ContentControl Grid.Row="1" 
                         Grid.Column="1" 
-                        Grid.RowSpan="3" 
+                        Grid.RowSpan="4" 
                         Content="{Binding Page}"/>
     </Grid>
 </Window>

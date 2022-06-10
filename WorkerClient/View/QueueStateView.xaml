@@ -15,12 +15,15 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Menu>
+        <!--<Menu>
             <MenuItem Header="Обновить" Command="{Binding RefreshDataCommand}"/>
-        </Menu>
+        </Menu>-->
         <DataGrid  HorizontalAlignment="Stretch" 
                    ItemsSource="{Binding DataSource }"
-                   Grid.Column="1" Grid.Row="1" Grid.RowSpan="4">
+                   Grid.Column="1" 
+                   Grid.Row="1"
+                   Grid.RowSpan="4"
+                   AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Идентификатор талона" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Наименование услуги" Binding="{Binding ServiceName}"/>

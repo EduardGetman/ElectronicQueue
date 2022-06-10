@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ElectronicQueue.AdminClient.View.DialogWindow"
         mc:Ignorable="d"
-        Title="Редактировать аккаунт" Height="450" Width="Auto">
+        Title="Редактировать аккаунт"
+        Height="450" 
+        WindowState="Minimized">
     <Window.Resources>
         <Style x:Key="BaseStyle" TargetType="FrameworkElement">
             <Setter Property="TextElement.FontSize"  Value="20"/>

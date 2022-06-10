@@ -4,8 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WorkerClient"
-        mc:Ignorable="d"
-                Title="Авторизация" Height="450" Width="Auto">
+        mc:Ignorable="d" 
+        Title="Авторизация"
+        SizeToContent="Width"
+        Height="450" >
     <Window.Resources>
 
         <Style x:Key="BaseStyle" TargetType="FrameworkElement">
@@ -22,6 +24,11 @@
         <Style x:Key="TextBoxStyle" 
                TargetType="TextBox"
                BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Width"  Value="200"/>
+            <Setter Property="VerticalAlignment"  Value="Center"/>
+        </Style>
+        
+        <Style x:Key="PasswordStyle" TargetType="PasswordBox" BasedOn="{StaticResource BaseStyle}">
             <Setter Property="Width"  Value="200"/>
             <Setter Property="VerticalAlignment"  Value="Center"/>
         </Style>
@@ -50,24 +57,27 @@
         <TextBlock Text="Имя пользователя:"                       
                        Grid.Row="1"
                    Style="{StaticResource FieldAnatationStyle}"/>
-        <TextBox Width="200"
+        <TextBox x:Name="UserName"
+                 Width="200"
                  Grid.Column="1"
                  Grid.Row="1"
-                   Style="{StaticResource TextBoxStyle}"/>
+                 Style="{StaticResource TextBoxStyle}"/>
 
         <TextBlock Text="Пароль:"
                    Grid.Row="2"
                    Style="{StaticResource FieldAnatationStyle}"/>
-        <TextBox Width="200"
+        <PasswordBox x:Name="PasswordBox"
+                 Width="200"
                  Grid.Column="1"
                  Grid.Row="2"
-                 Style="{StaticResource TextBoxStyle}"/>
-        <Button Width="200"
+                 Style="{StaticResource PasswordStyle}"/>
+        <Button  x:Name="Autorizate"
+                 Width="200"
                  Grid.ColumnSpan="2"
                  Grid.Row="3"
                  VerticalAlignment="Center"
                  Padding="10 5"
                  Content="Авторизоваться"
-                 Style="{StaticResource BaseStyle}"/>
+                 Style="{StaticResource BaseStyle}" Click="Autorizate_Click"/>
     </Grid>
 </Window>

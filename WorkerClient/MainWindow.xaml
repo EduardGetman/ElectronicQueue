@@ -29,7 +29,7 @@
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -86,9 +86,9 @@
                            Background="WhiteSmoke"
                            IsReadOnly="True"/>
             </Grid>
-            <Button Content="Начать обслуживание" Command="{Binding StartServicedCommand}" IsEnabled="{Binding CanStartServiced}"/>
-            <Button Content="Приостановить обслуживание" Command="{Binding PausedServicedCommand}" IsEnabled="{Binding CanPausedServiced}" />
-            <Button Content="Закончить обслуживание" Command="{Binding StopServicedCommand}" IsEnabled="{Binding CanStopServiced}"/>
+            <Button Content="Начать обслуживание" Command="{Binding StartServicedCommand}" IsEnabled="{Binding StateModel.CanStateToFree}"/>
+            <Button Content="Приостановить обслуживание" Command="{Binding PausedServicedCommand}" IsEnabled="{Binding StateModel.CanStateToPaused}" />
+            <Button Content="Закончить обслуживание" Command="{Binding StopServicedCommand}" IsEnabled="{Binding StateModel.CanStateToClosed}"/>
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Stretch" 
@@ -102,10 +102,10 @@
                 <TextBlock Text="Текущий стастус: "/>
                 <TextBlock Text="Имя статуса"/>
             </StackPanel>
-            <Button Content="Вызвать следующего"/>
-            <Button Content="Закончить ожидание" IsEnabled="False"/>
-            <Button Content="Начать обслуживание" IsEnabled="False"/>
-            <Button Content="Закончить обслуживание" IsEnabled="False"/>
+            <Button Content="Вызвать следующего" Command="{Binding CallClientCommand}" IsEnabled="{Binding StateModel.CanStateToWaitNext}"/>
+            <Button Content="Закончить ожидание" Command="{Binding DropClientCommand}" IsEnabled="{Binding StateModel.CanStateToFree}"/>
+            <Button Content="Начать обслуживание" Command="{Binding BeginServicedClientCommand}" IsEnabled="{Binding StateModel.CanStateToServicing}"/>
+            <Button Content="Закончить обслуживание" Command="{Binding EndServicedClientCommand}"  IsEnabled="{Binding StateModel.CanStateToFree}"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Stretch" 
                     Grid.Row="3"

@@ -8,6 +8,7 @@ using ElectronicQueue.Data.Common.Enums;
 using ElectronicQueue.Data.Dto.Maps;
 using ElectronicQueue.RestEndpoint;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -17,19 +18,22 @@ namespace ElectronicQueue.WorkerClient.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-
-        public bool CanStartServiced { get => canStartServiced; set => Set(ref canStartServiced, value); }// => State == ServicePointState.Closed 
-        //                             || State == ServicePointState.Paused;
-        public bool CanStopServiced { get => canStopServiced; set => Set(ref canStopServiced, value); }//=> State == ServicePointState.Free
-        //                            || State == ServicePointState.Paused;
-        public bool CanPausedServiced { get => canPausedServiced; set => Set(ref canPausedServiced, value); }// => State == ServicePointState.Free;
-
         public ICommand RefreshDataCommand { get; }
+        //Атворизация
         public ICommand AuthorizeCommand { get; }
         public ICommand DeauthorizeCommand { get; }
+        // Состояния точки обслуживания
         public ICommand StartServicedCommand { get; }
         public ICommand PausedServicedCommand { get; }
         public ICommand StopServicedCommand { get; }
+        // Статус клиента
+        public ICommand CallClientCommand { get; }
+        public ICommand DropClientCommand { get; }
+        public ICommand BeginServicedClientCommand { get; }
+        public ICommand EndServicedClientCommand { get; }
+
+
+        private ServicePointStateSwithcer _stateSwithcer;
 
         private QueueStateViewModel _page;
         private IMapper _mapper;
@@ -38,10 +42,6 @@ namespace ElectronicQueue.WorkerClient.ViewModel
         private ServiceProviderModel _selectedProvider;
         private ServicePointModel _selectedServicePoint;
         private WorkerModel _worker;
-        private ServicePointState _state;
-        private bool canStartServiced;
-        private bool canStopServiced;
-        private bool canPausedServiced;
 
         public ObservableCollection<ServiceProviderModel> Providers
         {
@@ -75,20 +75,16 @@ namespace ElectronicQueue.WorkerClient.ViewModel
             get => _worker;
             set => Set(ref _worker, value);
         }
-        public ServicePointState State
-        {
-            get => _state;
-            set
-            {
-                Set(ref _state, value);
-                RecalculateFlags();
-            }
-        }
 
         public QueueStateViewModel Page
         {
             get => _page;
             set => Set(ref _page, value);
+        }
+        public ServicePointState State
+        {
+            get => _stateSwithcer.State;
+            set => Set(ref _stateSwithcer.State, value);
         }
 
         public MainViewModel()
@@ -96,12 +92,18 @@ namespace ElectronicQueue.WorkerClient.ViewModel
             Providers = new ObservableCollection<ServiceProviderModel>();
             ServicePoints = new ObservableCollection<ServicePointModel>();
             Page = new QueueStateViewModel();
-            State = ServicePointState.Closed;
+            _stateSwithcer = new ServicePointStateSwithcer(ServicePointState.Closed);
 
             RefreshDataCommand = new NonparameterizedCommand(RefreshData);
-            StartServicedCommand = new NonparameterizedCommand(x => PointStateChange(ServicePointState.Free));
-            PausedServicedCommand = new NonparameterizedCommand(x => PointStateChange(ServicePointState.Paused));
-            StopServicedCommand = new NonparameterizedCommand(x => PointStateChange(ServicePointState.Closed));
+
+            StartServicedCommand = new RelayCommand<object>(x => PointStateChange(ServicePointState.Free), x => State is ServicePointState.Closed || State is ServicePointState.Paused);
+            PausedServicedCommand = new RelayCommand<object>(x => PointStateChange(ServicePointState.Paused), x => State is ServicePointState.Free);
+            StopServicedCommand = new RelayCommand<object>(x => PointStateChange(ServicePointState.Closed), x => State is ServicePointState.Free || State is ServicePointState.Paused);
+            CallClientCommand = new RelayCommand<object>(x => PointStateChange(ServicePointState.WaitNext), x => State is (ServicePointState.Free));
+            DropClientCommand = new RelayCommand<object>(x => PointStateChange(ServicePointState.Free), x => State is ServicePointState.WaitNext);
+            BeginServicedClientCommand = new RelayCommand<object>(x => PointStateChange(ServicePointState.Servicing), x => State is ServicePointState.WaitNext);
+            EndServicedClientCommand = new RelayCommand<object>(x => PointStateChange(ServicePointState.Free), x => State is ServicePointState.Servicing);
+
             AuthorizeCommand = new NonparameterizedCommand(Authorize);
             DeauthorizeCommand = new NonparameterizedCommand(Deauthorize);
 
@@ -221,11 +223,25 @@ namespace ElectronicQueue.WorkerClient.ViewModel
                 ShowErrorMessage(ex.Message);
             }
         }
-        private void RecalculateFlags()
+    }
+
+    public class ServicePointStateSwithcer
+    {
+        public ServicePointState State;
+        public ServicePointStateSwithcer(ServicePointState state)
         {
-            CanStartServiced = State == ServicePointState.Closed || State == ServicePointState.Paused;
-            CanStopServiced = State == ServicePointState.Free || State == ServicePointState.Paused;
-            CanPausedServiced = State == ServicePointState.Free;
+            State = state;
         }
+        public IEnumerable<ServicePointState> NextStates => State switch
+        {
+            ServicePointState.Closed => new[] { ServicePointState.Free },
+            ServicePointState.Free => new[] { ServicePointState.Closed, ServicePointState.Paused, ServicePointState.WaitNext },
+            ServicePointState.Paused => new[] { ServicePointState.Free, ServicePointState.Closed },
+            ServicePointState.Servicing => new[] { ServicePointState.Free },
+            ServicePointState.WaitNext => new[] { ServicePointState.Servicing, ServicePointState.Free },
+            _ => Enumerable.Empty<ServicePointState>(),
+        };
+        public bool CanChangeState(ServicePointState newState) => NextStates.Contains(newState);
+        public bool StateEqual(params ServicePointState[] oldState) => oldState.Contains(State);
     }
 }

@@ -14,5 +14,8 @@ namespace ElectronicQueue.ClientInfrastructure.Commands
         public NonparameterizedCommand(Action execute, bool isCanExecute = true) :
             this((x) => execute?.Invoke(), isCanExecute)
         { }
+        public NonparameterizedCommand(Action execute, Func<bool> isCanExecute) :
+            base((x) => execute?.Invoke(), (x) => isCanExecute?.Invoke() ?? true)
+        { }
     }
 }

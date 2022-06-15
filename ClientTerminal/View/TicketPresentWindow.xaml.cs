@@ -34,11 +34,7 @@ namespace ClientTerminal.View
             get => CreateTime.Text; 
             set => CreateTime.Text = value;
         }
-        public string ServicePointNameText
-        {
-            get => ServicePointName.Text;
-            set => ServicePointName.Text = value; 
-        }
+
         public TicketDto Ticket { get; set; }
         public TicketPresentWindow(TicketDto ticket)
         {

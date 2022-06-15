@@ -14,9 +14,17 @@ namespace ElectronicQueue.Core.Application.Helpers
         public IEnumerable<TicketState> NextTicketStates => State switch
         {
             TicketState.Waiting => new[] { TicketState.Called, TicketState.NotServiced },
-            TicketState.Called => new[] { TicketState.Serviced, TicketState.NotServiced },
-            TicketState.Serviced => new[] { TicketState.Closed },
+            TicketState.Called => new[] { TicketState.Servicing, TicketState.NotServiced },
+            TicketState.Servicing => new[] { TicketState.Serviced },
             _ => Enumerable.Empty<TicketState>(),
+        }; 
+        public ServicePointState? GetServicePointState(TicketState newTicketState) => newTicketState switch
+        {
+            TicketState.Called => ServicePointState.WaitNext,
+            TicketState.Servicing => ServicePointState.Servicing,
+            TicketState.NotServiced => ServicePointState.Free,
+            TicketState.Serviced => ServicePointState.Free,
+            _ => null,
         };
     }
 }

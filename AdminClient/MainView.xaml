@@ -82,7 +82,7 @@
                     Command="{Binding ChangePageCommand}"
                     CommandParameter="{x:Type pages:ServiceStatisticViewModel}"/>
 
-            <Button Content="Статистика работников"
+            <Button Content="Статистика сотрудников"
                     Style="{StaticResource NavigationButton }"
                     Command="{Binding ChangePageCommand}"
                     CommandParameter="{x:Type pages:WorkerStatisticViewModel}"/>

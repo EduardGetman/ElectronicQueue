@@ -48,5 +48,6 @@ namespace ElectronicQueue.Core.Application.Models
         }
         public string ServiceName => Service?.Name ?? "Не определено";
         public string StateName => State.ToName();
+        public string CreateTimeName => CreateTime.ToString("HH:mm dd.MM.yyyy");
     }
 }

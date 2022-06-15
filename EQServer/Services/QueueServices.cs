@@ -5,6 +5,7 @@ using ElectronicQueue.Data.Common.Enums;
 using ElectronicQueue.Data.Common.Extansion;
 using ElectronicQueue.EQServer.Interfaces;
 using ElectronicQueue.Infrastructure.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -71,12 +72,19 @@ namespace ElectronicQueue.EQServer.Services
             return result;
         }
 
-        private TicketDomain GetFirstTicket(long ServiceProviderId)
+        private TicketDomain GetFirstTicket(long ServiceProviderId, long? servicePointId = null )
         {
-            var firstTicketTime = _context.Tickets.Where(x => x.Queue.ProviderId == ServiceProviderId)
-                                                  .Max(x => x.CreateTime);
-            return _context.Tickets.First(x => x.Queue.ProviderId == ServiceProviderId
-                                            && x.CreateTime == firstTicketTime);
+            var firstTicketTime = _context.Tickets.Where(x => x.Queue.ProviderId == ServiceProviderId 
+                                                           && ( x.СallingServicePointId == null 
+                                                             || x.СallingServicePointId == servicePointId)
+                                                           && x.State != TicketState.Serviced
+                                                           && x.State != TicketState.NotServiced)
+                                                  .Min(x => x.CreateTime);
+            return _context.Tickets.Where(x => x.Queue.ProviderId == ServiceProviderId
+                                            && (x.СallingServicePointId == null || x.СallingServicePointId == servicePointId)
+                                            && x.CreateTime == firstTicketTime
+                                            && x.State != TicketState.Serviced
+                                            && x.State != TicketState.NotServiced).Include(x=> x.Service).First();
         }
 
         public void UpdateQueues(IEnumerable<QueueDto> dtos)
@@ -122,8 +130,8 @@ namespace ElectronicQueue.EQServer.Services
 
         public TicketDomain SwitchTicketStatus(SwitchTicketStatusDto dto)
         {
-            var ticket = GetFirstTicket(dto.ProviderId);
-
+            var ticket = GetFirstTicket(dto.ProviderId, dto.ServicePointId);
+            var servicePoint = _context.ServicePoints.First(x=> x.Id == dto.ServicePointId);
             if (ticket is null)
             {
                 throw new Exception($"Очередь на данный сервис пуста");
@@ -143,7 +151,9 @@ namespace ElectronicQueue.EQServer.Services
 
             ticket.State = dto.NewState;
             ticket.СallingServicePointId = dto.ServicePointId;
-            _context.Update(ticket);
+            servicePoint.ServicePointState = statusSwitcher.GetServicePointState(dto.NewState) ?? ServicePointState.Free;
+            _context.Update(ticket); 
+            _context.Update(servicePoint);
             _context.SaveChanges();
             return ticket;
         }

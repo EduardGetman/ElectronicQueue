@@ -8,7 +8,6 @@ namespace ElectronicQueue.Core.Domain
     public class WorkerDomain : DomainBase
     {
         public string Name { get; set; }
-        public string Specialization { get; set; }
         public long AccountId { get; set; }
         public long? PointId { get; set; }
         public ServicePointDomain Point { get; set; }

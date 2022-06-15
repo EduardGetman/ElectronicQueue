@@ -43,7 +43,7 @@
                    Grid.Column ="1" 
                    ColumnHeaderStyle="{StaticResource ResourceKey=DataGridHeadersStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Имя работника"/>
+                <DataGridTextColumn Header="Имя сотрудника"/>
                 <DataGridTextColumn Header="Продолжительность работы"/>
                 <DataGridComboBoxColumn Header="Обслужено клиентов"/>
                 <DataGridComboBoxColumn Header="Обслужено клиентов"/>

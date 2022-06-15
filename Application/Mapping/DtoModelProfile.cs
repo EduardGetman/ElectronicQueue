@@ -27,8 +27,6 @@ namespace ElectronicQueue.Data.Dto.Maps
 
             CreateMap<ServiceModel, ServiceDto>().ReverseMap();
 
-            CreateMap<SpecialTicketDomain, SpecialTicketDto>().ReverseMap();
-
             CreateMap<TicketModel, TicketDto>().ReverseMap();
 
             CreateMap<WorkerLogDomain, WorkerLogDto>().ReverseMap();

@@ -5,6 +5,7 @@ using ElectronicQueue.EQServer.Services;
 using ElectronicQueue.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,9 +25,11 @@ namespace ElectronicQueue.EQServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //string connection = Configuration.GetConnectionString("DefaultConnection");
+            //GlobalConfig.SqlConnectionString = connection;
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddDbContext<EqDbContext>(ServiceLifetime.Transient);
+            services.AddDbContext<EqDbContext>(/*options => options.UseSqlServer(connection),*/ServiceLifetime.Transient);
             services.AddSingleton<QueueServices>();
         }
 

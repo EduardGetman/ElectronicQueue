@@ -48,7 +48,7 @@ namespace ElectronicQueue.AdminClient.ViewModel
             }
             catch (Exception ex)
             {
-                ShowErrorMessage(ex.Message);
+                //ShowErrorMessage(ex.Message);
             }
         }
     }

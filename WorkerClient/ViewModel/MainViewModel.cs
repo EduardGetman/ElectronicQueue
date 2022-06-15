@@ -18,6 +18,7 @@ namespace ElectronicQueue.WorkerClient.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
+        public ICommand RefreshOnlyPageDataCommand { get; }
         public ICommand RefreshDataCommand { get; }
         //Атворизация
         public ICommand AuthorizeCommand { get; }
@@ -42,6 +43,7 @@ namespace ElectronicQueue.WorkerClient.ViewModel
         private ServiceProviderModel _selectedProvider;
         private ServicePointModel _selectedServicePoint;
         private WorkerModel _worker;
+        private TicketModel curentTicket;
 
         public ObservableCollection<ServiceProviderModel> Providers
         {
@@ -86,6 +88,11 @@ namespace ElectronicQueue.WorkerClient.ViewModel
             get => _stateSwithcer.State;
             set => Set(ref _stateSwithcer.State, value);
         }
+        public TicketModel CurentTicket 
+        {
+            get => curentTicket;
+            set => Set(ref curentTicket, value);
+        }
 
         public MainViewModel()
         {
@@ -94,7 +101,8 @@ namespace ElectronicQueue.WorkerClient.ViewModel
             Page = new QueueStateViewModel();
             _stateSwithcer = new ServicePointStateSwithcer(ServicePointState.Closed);
 
-            RefreshDataCommand = new NonparameterizedCommand(RefreshData);
+            RefreshOnlyPageDataCommand = new NonparameterizedCommand(x=> RefreshData(true));
+            RefreshDataCommand = new NonparameterizedCommand(x => RefreshData(false));
 
             StartServicedCommand = new RelayCommand<object>(x => PointStateChange(ServicePointState.Free), x => State is ServicePointState.Closed || State is ServicePointState.Paused);
             PausedServicedCommand = new RelayCommand<object>(x => PointStateChange(ServicePointState.Paused), x => State is ServicePointState.Free);
@@ -113,11 +121,20 @@ namespace ElectronicQueue.WorkerClient.ViewModel
                 RefreshData();
             }
         }
-        private void RefreshData()
+        private void RefreshData(bool isOnlyPage = false)
         {
             try
             {
+                //if (SelectedProvider)
+                //{
+
+                //}
+                //Page.ServiceProviderId = SelectedProvider.Id;
                 Page.Refresh();
+                if (isOnlyPage)
+                {
+                    return;
+                }
                 ClearData();
                 EndpoinCollection.ServicePoint.Get()
                                               .Select(x => _mapper.Map<ServicePointModel>(x))
@@ -176,15 +193,35 @@ namespace ElectronicQueue.WorkerClient.ViewModel
                 {
                     throw new Exception("Необходимо авторизоваться");
                 }
-
-                EndpoinCollection.ServicePoint.PointStateChange(new PointStateChangeDto()
+                if (state == ServicePointState.Closed
+                 || (state == ServicePointState.Free && (State == ServicePointState.Closed || State == ServicePointState.Paused))
+                 || state == ServicePointState.Paused)
                 {
-                    ServicePointState = state,
-                    ProviderId = SelectedProvider.Id,
-                    ServicePointId = SelectedServicePoint.Id,
-                    WorkerId = Worker.Id
-                });
+                    EndpoinCollection.ServicePoint.PointStateChange(new PointStateChangeDto()
+                    {
+                        ServicePointState = state,
+                        ProviderId = SelectedProvider.Id,
+                        ServicePointId = SelectedServicePoint.Id,
+                        WorkerId = Worker.Id
+                    });
+                }
+                if (state == ServicePointState.WaitNext
+                 || (state == ServicePointState.Free && (State == ServicePointState.WaitNext || State == ServicePointState.Servicing))
+                 || state == ServicePointState.Servicing)
+                {
+                    var tiket = EndpoinCollection.Queue.SwitchTicketStatus(new SwitchTicketStatusDto()
+                    {
+                        NewState = state == ServicePointState.WaitNext ? TicketState.Called :
+                                   state == ServicePointState.Free && State == ServicePointState.WaitNext ? TicketState.NotServiced :
+                                   state == ServicePointState.Free && State == ServicePointState.Servicing ? TicketState.Serviced : TicketState.Servicing,
+                        ProviderId = SelectedProvider.Id,
+                        ServicePointId = SelectedServicePoint.Id
+                    });
+                    CurentTicket = _mapper.Map<TicketModel>(tiket);
+                }
+
                 State = state;
+                RefreshData(true);
             }
             catch (Exception ex)
             {

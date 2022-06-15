@@ -1,4 +1,5 @@
 ﻿using ElectronicQueue.Data.Common.Enums;
+using ElectronicQueue.Data.Common.Extansion;
 
 namespace ElectronicQueue.Core.Application.Models
 {
@@ -32,7 +33,7 @@ namespace ElectronicQueue.Core.Application.Models
             set => Set(ref _provider, value);
         }
 
-        public string ServicePointStateName => ServicePointState.ToString();
+        public string ServicePointStateName => ServicePointState.ToName();
         public string ProviderName => Provider?.Name ?? "Не указан";
         public override string ToString() => Location;
     }

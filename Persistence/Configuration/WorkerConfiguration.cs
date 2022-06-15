@@ -13,9 +13,6 @@ namespace ElectronicQueue.Infrastructure.Persistence.Configuration
             builder.Property(p => p.Name)
                    .HasMaxLength(100)
                    .IsRequired();
-
-            builder.Property(p => p.Specialization)
-                   .HasMaxLength(200);
         }
     }
 }

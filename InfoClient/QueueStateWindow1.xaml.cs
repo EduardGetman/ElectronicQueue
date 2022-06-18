@@ -33,6 +33,7 @@ namespace InfoClient
             dispatcherTimer.Tick += new EventHandler(RefreshData);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
             dispatcherTimer.Start();
+            RefreshData(null, null);
         }
         IMapper _mapper = DtoMapperConfiguration.CreateMapper();
 

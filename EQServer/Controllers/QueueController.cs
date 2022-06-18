@@ -65,7 +65,7 @@ namespace ElectronicQueue.EQServer.Controllers
                                             .FirstOrDefault();
                 var dto = _mapper.Map<QueueDto>(domain);
 
-                dto.Tickets = domain.Tickets.Select(x => _mapper.Map<TicketDto>(x)).ToList();
+                dto.Tickets = domain.Tickets.Where(x => x.State != TicketState.Serviced && x.State != TicketState.NotServiced).Select(x => _mapper.Map<TicketDto>(x)).ToList();
 
                 return Ok(dto);
             }

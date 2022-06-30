@@ -5,7 +5,7 @@ namespace ElectronicQueue.AdminClient.ViewModel.Pages
 {
     internal class WorkerStatisticViewModel : PageViewModelBase
     {
-        public override string Title => "Статистика работников";
+        public override string Title => "Статистика сотрудника";
 
         protected void ClearDataSource()
         {

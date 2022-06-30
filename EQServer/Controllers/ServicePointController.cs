@@ -80,5 +80,42 @@ namespace ElectronicQueue.EQServer.Controllers
                 return Problem(detail: ex.StackTrace, title: ex.Message);
             }
         }
+        [HttpPut]
+        [Route("PointStateChange")]
+        public IActionResult Put([FromBody] PointStateChangeDto dto)
+        {
+            try
+            {
+                var point = _context.ServicePoints.First(x => x.Id == dto.ServicePointId);
+                var worker = _context.Worker.First(x => x.Id == dto.WorkerId);
+
+                switch (dto.ServicePointState)
+                {
+                    case Data.Common.Enums.ServicePointState.Free:
+                        point.ProviderId = dto.ProviderId;
+                        worker.PointId = dto.ServicePointId;
+                        break;
+                    case Data.Common.Enums.ServicePointState.Closed:
+                        point.ProviderId = null;
+                        worker.PointId = null;
+                        break;
+                    case Data.Common.Enums.ServicePointState.Paused:
+                        point.ProviderId = dto.ProviderId;
+                        worker.PointId = dto.ServicePointId;
+                        break;
+                    default:
+                        throw new Exception("Неизветсная команада");
+                }
+                point.ServicePointState = dto.ServicePointState; 
+                _context.Update(point);
+                _context.Update(worker);
+                _context.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
+        }
     }
 }

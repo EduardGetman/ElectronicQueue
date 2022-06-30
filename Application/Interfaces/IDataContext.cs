@@ -15,7 +15,6 @@ namespace ElectronicQueue.Core.Application.Interfaces
         public DbSet<WorkerLogDomain> WorkerLogs { get; set; }
         public DbSet<WorkerStatisticDomain> WorkerStatistics { get; set; }
         public DbSet<ServiceStatisticDomain> ServiceStatistics { get; set; }
-        public DbSet<SpecialTicketDomain> SpecialTickets { get; set; }
 
         public int SaveChanges();
     }

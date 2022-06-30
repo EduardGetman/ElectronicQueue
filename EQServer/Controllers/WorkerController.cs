@@ -31,10 +31,11 @@ namespace ElectronicQueue.EQServer.Controllers
         {
             try
             {
-                return base.Ok(_context.Worker.Include(x => x.Account)
+                var domain = _context.Worker.Include(x => x.Account)
                                               .Include(x => x.Point)
                                               .AsNoTracking()
-                                              .Select(x => _mapper.Map<WorkerDto>(x)));
+                                              .Select(x => _mapper.Map<WorkerDto>(x)).ToList();
+                return base.Ok(domain);
             }
             catch (Exception ex)
             {
@@ -62,6 +63,7 @@ namespace ElectronicQueue.EQServer.Controllers
                 return Problem(detail: ex.StackTrace, title: ex.Message);
             }
         }
+
         [HttpPut]
         public IActionResult Put([FromBody] IEnumerable<WorkerDto> dtos)
         {
@@ -99,7 +101,26 @@ namespace ElectronicQueue.EQServer.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("Autorize")]
+        public IActionResult Autorize([FromBody] AccountDto dto)
+        {
+            try
+            {
+                var result = new AutorizeResounseDto
+                {
+                    Worker = _mapper.Map<WorkerDto>(
+                        _context.Worker.FirstOrDefault(x => x.Account.PasswordHash == _hashFunction.GetHash(dto.PasswordHash)
+                                                         && x.Account.Login == dto.Login))
+                };
 
-
+                result.IsSuccessfull = result.Worker != null;
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
+        }
     }
 }

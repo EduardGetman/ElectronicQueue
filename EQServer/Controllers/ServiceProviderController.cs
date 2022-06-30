@@ -51,6 +51,19 @@ namespace ElectronicQueue.EQServer.Controllers
                 return Problem(detail: ex.StackTrace, title: ex.Message);
             }
         }
+        [HttpGet]
+        [Route("Conect")]
+        public IActionResult GetConect()
+        {
+            try
+            {
+                return Ok(EqDbContext.ConnectionString);
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: ex.StackTrace, title: ex.Message);
+            }
+        }
 
         [HttpGet]
         [Route("Provided")]

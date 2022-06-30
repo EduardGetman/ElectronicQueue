@@ -1,4 +1,6 @@
-﻿namespace ElectronicQueue.Infrastructure.Persistence
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace ElectronicQueue.Infrastructure.Persistence
 {
     public class EqDbContextFactory
     {
@@ -9,5 +11,10 @@
                 instance = new EqDbContext();
             return instance;
         }
+    }
+
+    public class GlobalConfig
+    {
+        public static string SqlConnectionString { get; set; }
     }
 }

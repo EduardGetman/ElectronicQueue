@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ElectronicQueue.Core.Application.Dto;
+using ElectronicQueue.Data.Common.Enums;
 using ElectronicQueue.EQServer.Interfaces;
 using ElectronicQueue.EQServer.Services;
 using ElectronicQueue.Infrastructure.Persistence;
@@ -30,8 +31,9 @@ namespace ElectronicQueue.EQServer.Controllers
         {
             try
             {
-                var domains = _context.Queues.Include(x => x.Tickets)
-                                             .Include(x => x.Provider)
+                var domains = _context.Queues.Include(x => x.Provider)
+                                             .Include(x => x.Tickets)
+                                             .ThenInclude(x => x.Service)
                                              .AsNoTracking()
                                              .ToList();
                 var dtos = new List<QueueDto>();
@@ -39,7 +41,7 @@ namespace ElectronicQueue.EQServer.Controllers
                 foreach (var domain in domains)
                 {
                     var dto = _mapper.Map<QueueDto>(domain);
-                    dto.Tickets = domain.Tickets.Select(x => _mapper.Map<TicketDto>(x)).ToList();
+                    dto.Tickets = domain.Tickets.Where(x => x.State != TicketState.Serviced && x.State != TicketState.NotServiced).Select(x => _mapper.Map<TicketDto>(x)).ToList();
                     dtos.Add(dto);
                 }
 
@@ -63,7 +65,12 @@ namespace ElectronicQueue.EQServer.Controllers
                                             .FirstOrDefault();
                 var dto = _mapper.Map<QueueDto>(domain);
 
-                dto.Tickets = domain.Tickets.Select(x => _mapper.Map<TicketDto>(x)).ToList();
+                dto.Tickets = domain.Tickets.Where(x => x.State != TicketState.Serviced && x.State != TicketState.NotServiced)
+                                            .Select(x => _mapper.Map<TicketDto>(x)).ToList();
+                foreach (var item in dto.Tickets.Where(x => x.СallingServicePointId != null))
+                {
+                    item.СallingServicePoint = _mapper.Map<ServicePointDto>(_context.ServicePoints.FirstOrDefault(x => item.СallingServicePointId != null && x.Id == (item.СallingServicePointId ?? 0)));
+                }
 
                 return Ok(dto);
             }

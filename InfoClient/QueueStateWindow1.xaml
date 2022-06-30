@@ -1,0 +1,32 @@
+﻿<Window x:Class="InfoClient.QueueStateWindow1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InfoClient"
+        mc:Ignorable="d"
+        Title="QueueStateWindow" Height="450" Width="800"
+        HorizontalAlignment="Stretch" 
+        VerticalAlignment="Stretch">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid  x:Name="MainDataGrid"
+                   HorizontalAlignment="Stretch" 
+                   Grid.Column="1" 
+                   Grid.Row="1"
+                   Grid.RowSpan="4"
+                   FontSize="50"
+                   AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Идентификатор талона" Binding="{Binding Name}"/>
+                <!--<DataGridTextColumn Header="Наименование услуги" Binding="{Binding ServiceName}" />-->
+                <DataGridTextColumn Header="Состояние" Binding="{Binding StateName}"/>
+                <DataGridTextColumn Header="Точка обслуживания" Binding="{Binding PointName}"/>
+                <DataGridTextColumn Header="Время создания" Binding="{Binding CreateTime}" SortDirection="Descending" Visibility="Collapsed"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

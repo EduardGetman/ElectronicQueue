@@ -2,17 +2,16 @@
 using ElectronicQueue.Core.Domain;
 using ElectronicQueue.Infrastructure.Persistence.Configuration;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ElectronicQueue.Infrastructure.Persistence
 {
     public class EqDbContext : DbContext, IDataContext
     {
-        private const string ServerName = @"DESKTOP-SAKIRQV\SQLEXPRESS";
-        private const string DbName = "ElectronicQueueDb";
-        //public Context()
-        //{
-        //    //Database.EnsureCreated();
-        //}
+        public EqDbContext()
+        {
+            //Database.EnsureCreated();
+        }
 
         public DbSet<QueueDomain> Queues { get; set; }
         public DbSet<ServiceDomain> Services { get; set; }
@@ -24,13 +23,12 @@ namespace ElectronicQueue.Infrastructure.Persistence
         public DbSet<WorkerLogDomain> WorkerLogs { get; set; }
         public DbSet<WorkerStatisticDomain> WorkerStatistics { get; set; }
         public DbSet<ServiceStatisticDomain> ServiceStatistics { get; set; }
-        public DbSet<SpecialTicketDomain> SpecialTickets { get; set; }
         public DbSet<AccountDomain> Accounts { get; set; }
-
+        static public string ConnectionString { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer($"Server={ServerName};Database={DbName};Trusted_Connection=True;");
+           optionsBuilder.UseSqlServer(ConnectionString ?? "Server=DESKTOP-SAKIRQV\\SQLEXPRESS;Database=ElectronicQueueDb;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

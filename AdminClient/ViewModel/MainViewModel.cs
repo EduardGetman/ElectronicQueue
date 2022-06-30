@@ -4,6 +4,7 @@ using ElectronicQueue.ClientInfrastructure.Commands;
 using ElectronicQueue.ClientInfrastructure.Interface;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Input;
@@ -33,7 +34,6 @@ namespace ElectronicQueue.AdminClient.ViewModel
             AddPage(typeof(WorkerManageViewModel));
             AddPage(typeof(ServiceStatisticViewModel));
             AddPage(typeof(WorkerStatisticViewModel));
-
             ChangePageCommandExecuted(typeof(ServiceManageViewModel));
 
 

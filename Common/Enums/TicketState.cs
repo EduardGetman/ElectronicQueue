@@ -11,10 +11,10 @@ namespace ElectronicQueue.Data.Common.Enums
         Called,
 
         [Name("Обслуживается")]
-        Serviced,
+        Servicing,
 
         [Name("Обслужен")]
-        Closed,
+        Serviced,
 
         [Name("Необслужен")]
         NotServiced,

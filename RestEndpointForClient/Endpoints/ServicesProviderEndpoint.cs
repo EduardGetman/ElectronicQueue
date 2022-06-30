@@ -8,6 +8,10 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
         private const string UrlController = URL_ROOT + "/ServiceProvider";
         private const string ProvidedUrlController = UrlController + "/Provided";
 
+        public ServicesProviderEndpoint(string serverUrl) : base(serverUrl)
+        {
+        }
+
         public IEnumerable<ServiceProviderDto> Get()
         {
             return _restApiClient.RequestGet<IEnumerable<ServiceProviderDto>>(UrlController);

@@ -6,6 +6,11 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
     public class ServicePointEndpoint : BaseEndpoint, IRestEndpoint<ServicePointDto>
     {
         private const string UrlController = URL_ROOT + "/ServicePoint";
+        private const string PointStateChangeUrlController = UrlController + "/PointStateChange";
+
+        public ServicePointEndpoint(string serverUrl) : base(serverUrl)
+        {
+        }
 
         public IEnumerable<ServicePointDto> Get()
         {
@@ -24,6 +29,10 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
         public void Put(IEnumerable<ServicePointDto> toUpdate)
         {
             _restApiClient.RequestPut<object>(UrlController, toUpdate);
+        }
+        public void PointStateChange(PointStateChangeDto dto)
+        {
+            _restApiClient.RequestPut<object>(PointStateChangeUrlController, dto);
         }
     }
 }

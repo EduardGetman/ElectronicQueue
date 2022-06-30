@@ -228,10 +228,6 @@ namespace ElectronicQueue.Data.Migrations
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("getdate()");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -259,8 +255,6 @@ namespace ElectronicQueue.Data.Migrations
                     b.HasIndex("СallingServicePointId");
 
                     b.ToTable("Ticket");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("TicketDomain");
                 });
 
             modelBuilder.Entity("ElectronicQueue.Core.Domain.WorkerDomain", b =>
@@ -280,10 +274,6 @@ namespace ElectronicQueue.Data.Migrations
 
                     b.Property<long?>("PointId")
                         .HasColumnType("bigint");
-
-                    b.Property<string>("Specialization")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
@@ -357,19 +347,6 @@ namespace ElectronicQueue.Data.Migrations
                     b.HasIndex("WorkerId");
 
                     b.ToTable("WorkerStatistic");
-                });
-
-            modelBuilder.Entity("ElectronicQueue.Core.Domain.SpecialTicketDomain", b =>
-                {
-                    b.HasBaseType("ElectronicQueue.Core.Domain.TicketDomain");
-
-                    b.Property<string>("Info")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsConfirmed")
-                        .HasColumnType("bit");
-
-                    b.HasDiscriminator().HasValue("SpecialTicketDomain");
                 });
 
             modelBuilder.Entity("ElectronicQueue.Core.Domain.QueueDomain", b =>

@@ -11,13 +11,12 @@ namespace ElectronicQueue.RestEndpoint.RestApi
 {
     public class RestApiClient
     {
-        private const string ServerBaseUrl = "https://localhost:44357";
         private readonly IRestClient _restClient;
-        private readonly TimeSpan _timeout = TimeSpan.FromSeconds(10);
+        private readonly TimeSpan _timeout = TimeSpan.FromSeconds(300);
 
-        public RestApiClient()
+        public RestApiClient(string serverUrl)
         {
-            _restClient = new RestClient(ServerBaseUrl);
+            _restClient = new RestClient(serverUrl);
         }
 
         private IRestRequest CreateRequest(string path, Method method, Dictionary<string, object> parametrs = null, TimeSpan? timeout = null, object body = null)

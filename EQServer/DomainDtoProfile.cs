@@ -25,9 +25,8 @@ namespace ElectronicQueue.EQServer
 
             CreateMap<AccountDomain, AccountDto>().ReverseMap();
 
-            CreateMap<SpecialTicketDomain, SpecialTicketDto>().ReverseMap();
-
-            CreateMap<TicketDomain, TicketDto>().ReverseMap();
+            CreateMap<TicketDomain, TicketDto>()
+                .ForMember(x=> x.Service , opt => opt.MapFrom(src => src.Service)).ReverseMap();
 
             CreateMap<ServicePointDomain, ServicePointDto>().ReverseMap();
 

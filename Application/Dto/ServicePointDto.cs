@@ -14,7 +14,6 @@ namespace ElectronicQueue.Core.Application.Dto
         public ServicePointState ServicePointState { get; set; }
 
         public long? ProviderId { get; set; }
-        public ICollection<WorkerDto> Workers { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -28,13 +27,12 @@ namespace ElectronicQueue.Core.Application.Dto
                     Id == other.Id &&
                     Location == other.Location &&
                     ServicePointState == other.ServicePointState &&
-                    ProviderId == other.ProviderId &&
-                    (Workers?.SequenceEqual(other.Workers) ?? other.Workers is null);
+                    ProviderId == other.ProviderId;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Id, Location, ServicePointState, ProviderId, Workers);
+            return HashCode.Combine(Id, Location, ServicePointState, ProviderId);
         }
     }
 }

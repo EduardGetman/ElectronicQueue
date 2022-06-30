@@ -10,6 +10,10 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
         private const string PushUrlController = UrlController + "/Push";
         private const string SwitchStatusUrlController = UrlController + "/SwitchTicketStatus";
 
+        public QueueEndpoint(string serverUrl) : base(serverUrl)
+        {
+        }
+
         public IEnumerable<QueueDto> Get()
         {
             return _restApiClient.RequestGet<IEnumerable<QueueDto>>(UrlController);

@@ -8,18 +8,10 @@ namespace ElectronicQueue.Infrastructure.Persistence
 {
     public class EqDbContext : DbContext, IDataContext
     {
-
-        //public EqDbContext([NotNullAttribute] DbContextOptions options) : base(options)
-        //{
-        //}
-        //public EqDbContext(string connectionString = "Server=DESKTOP-SAKIRQV\\SQLEXPRESS;Database=ElectronicQueueDb;Trusted_Connection=True;") : base()
-        //{
-        //    ConnectionString = connectionString;
-        //}
-        //public Context()
-        //{
-        //    //Database.EnsureCreated();
-        //}
+        public EqDbContext()
+        {
+            //Database.EnsureCreated();
+        }
 
         public DbSet<QueueDomain> Queues { get; set; }
         public DbSet<ServiceDomain> Services { get; set; }
@@ -32,11 +24,11 @@ namespace ElectronicQueue.Infrastructure.Persistence
         public DbSet<WorkerStatisticDomain> WorkerStatistics { get; set; }
         public DbSet<ServiceStatisticDomain> ServiceStatistics { get; set; }
         public DbSet<AccountDomain> Accounts { get; set; }
-        public string ConnectionString { get; }
+        static public string ConnectionString { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer("Server=DESKTOP-SAKIRQV\\SQLEXPRESS;Database=ElectronicQueueDb;Trusted_Connection=True;");
+           optionsBuilder.UseSqlServer(ConnectionString ?? "Server=DESKTOP-SAKIRQV\\SQLEXPRESS;Database=ElectronicQueueDb;Trusted_Connection=True;");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

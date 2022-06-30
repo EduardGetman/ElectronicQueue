@@ -23,7 +23,6 @@ namespace InfoClient
     /// </summary>
     public partial class QueueStateWindow1 : Window
     {
-        Timer Timer { get; set; }
         public QueueStateWindow1(long serviceProviderId)
         {
             InitializeComponent();

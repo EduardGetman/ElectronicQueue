@@ -24,6 +24,7 @@
                 <DataGridTextColumn Header="Идентификатор талона" Binding="{Binding Name}"/>
                 <!--<DataGridTextColumn Header="Наименование услуги" Binding="{Binding ServiceName}" />-->
                 <DataGridTextColumn Header="Состояние" Binding="{Binding StateName}"/>
+                <DataGridTextColumn Header="Точка обслуживания" Binding="{Binding PointName}"/>
                 <DataGridTextColumn Header="Время создания" Binding="{Binding CreateTime}" SortDirection="Descending" Visibility="Collapsed"/>
             </DataGrid.Columns>
         </DataGrid>

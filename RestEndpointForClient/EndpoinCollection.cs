@@ -4,6 +4,7 @@ namespace ElectronicQueue.RestEndpoint
 {
     public static class EndpoinCollection
     {
+        public static string ServerUrl { get; set; }
         private static ServicesProviderEndpoint _servicesProvider;
         private static ServicePointEndpoint _servicePoint;
         private static QueueEndpoint _queue;
@@ -14,7 +15,7 @@ namespace ElectronicQueue.RestEndpoint
             {
                 if (_servicesProvider is null)
                 {
-                    _servicesProvider = new ServicesProviderEndpoint();
+                    _servicesProvider = new ServicesProviderEndpoint(ServerUrl);
                 }
                 return _servicesProvider;
             }
@@ -26,7 +27,7 @@ namespace ElectronicQueue.RestEndpoint
             {
                 if (_servicePoint is null)
                 {
-                    _servicePoint = new ServicePointEndpoint();
+                    _servicePoint = new ServicePointEndpoint(ServerUrl);
                 }
                 return _servicePoint;
             }
@@ -38,7 +39,7 @@ namespace ElectronicQueue.RestEndpoint
             {
                 if (_queue is null)
                 {
-                    _queue = new QueueEndpoint();
+                    _queue = new QueueEndpoint(ServerUrl);
                 }
                 return _queue;
             }
@@ -49,7 +50,7 @@ namespace ElectronicQueue.RestEndpoint
             {
                 if (_worker is null)
                 {
-                    _worker = new WorkerEndpoint();
+                    _worker = new WorkerEndpoint(ServerUrl);
                 }
                 return _worker;
             }

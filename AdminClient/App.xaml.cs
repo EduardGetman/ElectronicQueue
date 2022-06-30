@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using ElectronicQueue.RestEndpoint;
+using System.Configuration;
+using System.Windows;
 
 namespace ElectronicQueue.AdminClient
 {
@@ -10,6 +12,7 @@ namespace ElectronicQueue.AdminClient
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            EndpoinCollection.ServerUrl = ConfigurationManager.AppSettings.Get("ServerUrl");
         }
     }
 }

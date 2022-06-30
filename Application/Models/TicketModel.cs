@@ -15,6 +15,7 @@ namespace ElectronicQueue.Core.Application.Models
         private ServiceModel _service;
         private DateTime _createTime;
         private string _name;
+        private ServicePointModel _point;
 
         public string Name
         {
@@ -41,12 +42,18 @@ namespace ElectronicQueue.Core.Application.Models
             get => _queueId;
             set => Set(ref _queueId, value);
         }
+        public ServicePointModel Point
+        {
+            get => _point;
+            set => Set(ref _point, value);
+        }
         public ServiceModel Service
         {
             get => _service;
             set => Set(ref _service, value);
         }
         public string ServiceName => Service?.Name ?? "Не определено";
+        public string PointName => Point?.Location ?? "";
         public string StateName => State.ToName();
         public string CreateTimeName => CreateTime.ToString("HH:mm dd.MM.yyyy");
     }

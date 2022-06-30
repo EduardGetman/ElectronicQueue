@@ -5,7 +5,6 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Configuration;
 using System.Net;
 
 namespace ElectronicQueue.RestEndpoint.RestApi
@@ -15,9 +14,9 @@ namespace ElectronicQueue.RestEndpoint.RestApi
         private readonly IRestClient _restClient;
         private readonly TimeSpan _timeout = TimeSpan.FromSeconds(300);
 
-        public RestApiClient()
+        public RestApiClient(string serverUrl)
         {
-            _restClient = new RestClient(ConfigurationManager.AppSettings.Get("ServerUrl") ?? @"https://localhost:44357");
+            _restClient = new RestClient(serverUrl);
         }
 
         private IRestRequest CreateRequest(string path, Method method, Dictionary<string, object> parametrs = null, TimeSpan? timeout = null, object body = null)

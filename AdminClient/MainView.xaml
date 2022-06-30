@@ -77,15 +77,6 @@
                     Command="{Binding ChangePageCommand}"
                     CommandParameter="{x:Type pages:WorkerManageViewModel}"/>
 
-            <Button Content="Статистика сервисов"                                          
-                    Style="{StaticResource NavigationButton }"
-                    Command="{Binding ChangePageCommand}"
-                    CommandParameter="{x:Type pages:ServiceStatisticViewModel}"/>
-
-            <Button Content="Статистика сотрудников"
-                    Style="{StaticResource NavigationButton }"
-                    Command="{Binding ChangePageCommand}"
-                    CommandParameter="{x:Type pages:WorkerStatisticViewModel}"/>
         </StackPanel>
 
         <GridSplitter Grid.Column="1" 

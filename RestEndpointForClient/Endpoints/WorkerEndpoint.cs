@@ -9,6 +9,10 @@ namespace ElectronicQueue.RestEndpoint.Endpoints
         private const string UrlAutorizeController = UrlController + "/Autorize";
         private const string UrlDeauthorizeController = UrlController + "/Deauthorize";
 
+        public WorkerEndpoint(string serverUrl) : base(serverUrl)
+        {
+        }
+
         public IEnumerable<WorkerDto> Get()
         {
             return _restApiClient.RequestGet<IEnumerable<WorkerDto>>(UrlController);

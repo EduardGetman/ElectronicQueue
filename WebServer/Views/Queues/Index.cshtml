@@ -1,0 +1,41 @@
+﻿@page
+@using ElectronicQueue.WebServer.Models.DataModels.ViewModels
+@model QueuesIndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Список очередей</title>
+</head>
+<body>
+<div>
+    <header>
+        <h1>Список очередей</h1>
+    </header>
+    <div>
+        <table>
+            <tr>
+                <th>Услуга</th>
+                <th>Имя очереди</th>
+                <th>Следующий талон</th>
+                <th>Общее колличество талонов</th>
+            </tr>
+            @foreach (var item in Model.Queues)
+            {
+                <tr>
+                    <th>@item.ProviderName</th>
+                    <th>@item.Letters</th>
+                    <th>@item.Tickets.First()</th>
+                    <th>@item.Tickets.Count()</th>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+</body>
+</html>

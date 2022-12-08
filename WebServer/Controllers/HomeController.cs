@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebServer;
+namespace ElectronicQueue.WebServer.Controllers;
 
 public class HomeController : Controller
 {

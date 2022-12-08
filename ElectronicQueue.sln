@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientInfrastructure", "Cli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoClient", "InfoClient\InfoClient.csproj", "{DF8B012D-0F56-44CE-927B-C184A1C2C41A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServer", "WebServer\WebServer.csproj", "{E6BBA845-8BEA-4E47-AF38-3EF01FF6BF59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,10 @@ Global
 		{DF8B012D-0F56-44CE-927B-C184A1C2C41A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF8B012D-0F56-44CE-927B-C184A1C2C41A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF8B012D-0F56-44CE-927B-C184A1C2C41A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6BBA845-8BEA-4E47-AF38-3EF01FF6BF59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6BBA845-8BEA-4E47-AF38-3EF01FF6BF59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6BBA845-8BEA-4E47-AF38-3EF01FF6BF59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6BBA845-8BEA-4E47-AF38-3EF01FF6BF59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{593BD32B-4CD9-4C3B-8048-951A379D93AB} = {8F845C71-149F-423D-85B2-44A84DC48E24}
 		{CBA65C85-21DF-4674-B704-D14A630BB564} = {7A0DD2A1-1430-49BF-895D-8DC028A72DFD}
 		{DF8B012D-0F56-44CE-927B-C184A1C2C41A} = {7A0DD2A1-1430-49BF-895D-8DC028A72DFD}
+		{E6BBA845-8BEA-4E47-AF38-3EF01FF6BF59} = {4463CA9D-0A51-424B-9E4D-1FDF817EF26C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {810E8836-5062-44DB-92A5-926A7E83D4BA}

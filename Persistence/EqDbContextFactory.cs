@@ -12,9 +12,4 @@ namespace ElectronicQueue.Infrastructure.Persistence
             return instance;
         }
     }
-
-    public class GlobalConfig
-    {
-        public static string SqlConnectionString { get; set; }
-    }
 }

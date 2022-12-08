@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace ClientTerminal
+namespace ClientTerminal.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

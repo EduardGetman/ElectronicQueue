@@ -1,10 +1,9 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Windows;
 using ElectronicQueue.Core.Application.Dto;
 using ElectronicQueue.RestEndpoint;
-using System;
-using System.Windows;
 
-namespace WorkerClient
+namespace ElectronicQueue.WorkerClient
 {
     /// <summary>
     /// Логика взаимодействия для AutorizationWindow.xaml

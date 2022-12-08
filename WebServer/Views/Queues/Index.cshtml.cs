@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace ElectronicQueue.WebServer.Views.Queue;
+namespace ElectronicQueue.WebServer.Views.Queues;
 
 public class Index : PageModel
 {

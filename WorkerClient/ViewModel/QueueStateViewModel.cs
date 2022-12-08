@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using ElectronicQueue.ClientInfrastructure;
 using ElectronicQueue.Core.Application.Models;
-using ElectronicQueue.Data.Dto.Maps;
 using ElectronicQueue.RestEndpoint;
 using System;
 using System.Collections.ObjectModel;
+using ElectronicQueue.Core.Application.Mapping;
 
 namespace ElectronicQueue.WorkerClient.ViewModel
 {

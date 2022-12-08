@@ -1,14 +1,13 @@
-﻿using ClientTerminal.View;
-using ElectronicQueue.Core.Application.Dto;
-using ElectronicQueue.Core.Application.Interfaces;
-using ElectronicQueue.RestEndpoint;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using ElectronicQueue.Core.Application.Dto;
+using ElectronicQueue.Core.Application.Interfaces;
+using ElectronicQueue.RestEndpoint;
 
-namespace ClientTerminal
+namespace ClientTerminal.View
 {
     /// <summary>
     /// Логика взаимодействия для TermenalWindow.xaml

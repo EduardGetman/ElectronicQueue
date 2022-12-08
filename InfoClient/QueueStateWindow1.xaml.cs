@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using ElectronicQueue.Core.Application.Models;
-using ElectronicQueue.Data.Dto.Maps;
 using ElectronicQueue.RestEndpoint;
 using System;
 using System.Collections.Generic;
@@ -15,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ElectronicQueue.Core.Application.Mapping;
 
 namespace InfoClient
 {

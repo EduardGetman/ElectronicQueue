@@ -5,14 +5,13 @@ using ElectronicQueue.ClientInfrastructure.Interface;
 using ElectronicQueue.Core.Application.Dto;
 using ElectronicQueue.Core.Application.Models;
 using ElectronicQueue.Data.Common.Enums;
-using ElectronicQueue.Data.Dto.Maps;
 using ElectronicQueue.RestEndpoint;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
-using WorkerClient;
+using ElectronicQueue.Core.Application.Mapping;
 
 namespace ElectronicQueue.WorkerClient.ViewModel
 {

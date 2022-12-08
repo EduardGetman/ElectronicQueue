@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace ElectronicQueue.Data.Dto.Maps
+namespace ElectronicQueue.Core.Application.Mapping
 {
     public class DtoMapperConfiguration
     {

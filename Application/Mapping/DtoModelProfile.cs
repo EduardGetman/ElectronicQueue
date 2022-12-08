@@ -3,7 +3,7 @@ using ElectronicQueue.Core.Application.Dto;
 using ElectronicQueue.Core.Application.Models;
 using ElectronicQueue.Core.Domain;
 
-namespace ElectronicQueue.Data.Dto.Maps
+namespace ElectronicQueue.Core.Application.Mapping
 {
     public class DtoModelProfile : Profile
     {

@@ -1,7 +1,6 @@
-﻿<Application x:Class="WorkerClient.App"
+﻿<Application x:Class="ElectronicQueue.WorkerClient.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WorkerClient"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace WorkerClient
+namespace ElectronicQueue.WorkerClient
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

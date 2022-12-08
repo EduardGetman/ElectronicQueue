@@ -1,8 +1,8 @@
-﻿using ElectronicQueue.RestEndpoint;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Windows;
+using ElectronicQueue.RestEndpoint;
 
-namespace WorkerClient
+namespace ElectronicQueue.WorkerClient
 {
     /// <summary>
     /// Interaction logic for App.xaml

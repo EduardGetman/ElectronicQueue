@@ -15,7 +15,7 @@ namespace ElectronicQueue.ClientInfrastructure.Repositories
     {
 
         private readonly IMapper _mapper;
-        private List<TDto> _data;
+        private List<TDto> _data = new List<TDto>();
 
         protected ModelRepository()
         {

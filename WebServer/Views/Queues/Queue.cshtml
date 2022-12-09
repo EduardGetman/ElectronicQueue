@@ -1,0 +1,40 @@
+﻿@using ElectronicQueue.Data.Common.Extansion
+@using ElectronicQueue.WebServer.Models.ViewModels.Queues
+@model QueueViewModel
+
+@{
+    var i = 1;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Очередь на услугу1</title>
+</head>
+<body>
+<div>
+    <header>
+        <h1>Очередь на @Model.Queue.ProviderName</h1>
+        <h2>Колличество талонов в очереди @Model.Queue.Tickets.Count</h2>
+    </header>
+    <table>
+        <tr>
+            <th>Номер в очереди</th>
+            <th>Номер талона</th>
+            <th>Статус</th>
+            <th>Точка обслуживания</th>
+        </tr>
+        @foreach (var ticket in Model.Queue.Tickets.TakeWhile(_ => i <= 10))
+        {
+            <tr>
+                <th>@(i++)</th>
+                <th>@ticket.Name</th>
+                <th>@ticket.State.ToName()</th>
+                <th>@ticket.CallingServicePointLocation</th>
+            </tr>
+        }
+    </table>
+</div>
+</body>
+</html>

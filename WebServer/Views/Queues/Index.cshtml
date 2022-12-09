@@ -1,10 +1,6 @@
-﻿@page
-@using ElectronicQueue.WebServer.Models.DataModels.ViewModels
-@model QueuesIndexModel
+﻿@using ElectronicQueue.WebServer.Models.ViewModels.Queues
+@model IndexViewModel
 
-@{
-    Layout = null;
-}
 
 <!DOCTYPE html>
 
@@ -28,9 +24,9 @@
             @foreach (var item in Model.Queues)
             {
                 <tr>
-                    <th>@item.ProviderName</th>
+                    <th><a href="@Model.WebServerUrl/Queues/Queue/?providerId=@item.ProviderId">@item.ProviderName</a></th>
                     <th>@item.Letters</th>
-                    <th>@item.Tickets.First()</th>
+                    <th>@(item.Tickets.FirstOrDefault()?.Name ?? "-")</th>
                     <th>@item.Tickets.Count()</th>
                 </tr>
             }

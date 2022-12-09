@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ElectronicQueue.Data.Migrations
+namespace ElectronicQueue.Infrastructure.Persistence.Migrations
 {
     public partial class AddColumnToTicket : Migration
     {

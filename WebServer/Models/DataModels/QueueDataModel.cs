@@ -6,5 +6,7 @@ public class QueueDataModel : DataModelBase
     public string Letters { get; set; }
     public bool IsEnabled { get; set; }
     public string ProviderName { get; set; }
+    public string ProviderId { get; set; }
+
     public List<TicketDataModel> Tickets { get; set; }
 }

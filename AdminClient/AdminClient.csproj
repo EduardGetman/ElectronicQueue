@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\ClientInfrastructure\ClientInfrastructure.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\ElectronicQueue\Domain.csproj" />
     <ProjectReference Include="..\RestEndpointForClient\RestEndpoint.csproj" />
   </ItemGroup>

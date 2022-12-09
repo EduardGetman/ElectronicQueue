@@ -14,11 +14,11 @@ public class QueuesController : Controller
 
     public IActionResult Index()
     {
-        return View(_queuesService.CreateQueuesIndexModel());
+        var viewModel = _queuesService.CreateQueuesIndexModel();
+        return View(viewModel);
     }
-
-    // public IActionResult Queue()
-    // {
-    //     
-    // }
+    public IActionResult Queue(long providerId)
+    {
+        return View(_queuesService.CreateQueuesQueueModel(providerId));
+    }
 }

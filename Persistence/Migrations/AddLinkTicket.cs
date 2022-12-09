@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ElectronicQueue.Data.Migrations
+namespace ElectronicQueue.Infrastructure.Persistence.Migrations
 {
     public partial class AddLinkTicket : Migration
     {

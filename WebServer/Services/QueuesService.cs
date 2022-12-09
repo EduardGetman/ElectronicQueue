@@ -2,7 +2,8 @@
 using ElectronicQueue.RestEndpoint;
 using ElectronicQueue.WebServer.Interfaces;
 using ElectronicQueue.WebServer.Models.DataModels;
-using ElectronicQueue.WebServer.Models.DataModels.ViewModels;
+using ElectronicQueue.WebServer.Models.ViewModels;
+using ElectronicQueue.WebServer.Models.ViewModels.Queues;
 
 namespace ElectronicQueue.WebServer.Services;
 
@@ -15,7 +16,15 @@ public class QueuesService : IQueuesService
         _mapper = mapper;
     }
 
-    public IEnumerable<QueueDataModel> GetQueues()
+    private QueueDataModel GetQueueByProviderId(long providerId)
+    {
+        var dto = EndpoinCollection.Queue.GetByProviderId(providerId);
+        var dataModel = _mapper.Map<QueueDataModel>(dto);
+        dataModel.Tickets.AddRange(dto.Tickets.Select(x => _mapper.Map<TicketDataModel>(x)));
+        return dataModel;
+    }
+
+    private IEnumerable<QueueDataModel> GetQueues()
     {
         foreach (var dto in EndpoinCollection.Queue.Get())
         {
@@ -25,11 +34,19 @@ public class QueuesService : IQueuesService
         }
     }
 
-    public QueuesIndexModel CreateQueuesIndexModel()
+    public IndexViewModel CreateQueuesIndexModel()
     {
-        return new QueuesIndexModel()
+        return new IndexViewModel()
         {
             Queues = GetQueues().ToList()
+        };
+    }
+    
+    public QueueViewModel CreateQueuesQueueModel(long providerId)
+    {
+        return new QueueViewModel()
+        {
+            Queue = GetQueueByProviderId(providerId)
         };
     }
 }
